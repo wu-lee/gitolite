@@ -156,6 +156,10 @@ sub check_ref {
     # codes etc., but for now we're happy to just die.
 
     my ($allowed_refs, $repo, $ref, $perm) = @_;
+    if ($ref =~ m(^refs/heads/(f\d\d|el\d|olpc\d)/)) {
+        die "\n\nNOTE: Branch naming scheme has changed.  You attempted to push to:\n"
+        . "\t$ref\nPlease see URL for more info\n\n";
+    }
     my @allowed_refs = sort { $a->[0] <=> $b->[0] } @{$allowed_refs};
     for my $ar (@allowed_refs) {
         my $refex = $ar->[1];
