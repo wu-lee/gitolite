@@ -1,0 +1,10 @@
+This branch contains important post-v2.0.3 commits, backported to v2.0.3,
+which is the version that k.o is using.
+
+Since k.o is auditing the code, this makes it easier to keep it in "audited"
+status, at least until they need something that just cannot be backported and
+they have to upgrade (at which point a full audit may again be needed).
+
+This may also be useful for others like Fedora and KDE, who can benefit from
+the security audits that k.o folks do on the gitolite code.
+
