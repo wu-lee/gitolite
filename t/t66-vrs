@@ -69,7 +69,7 @@ do
     expect_push_ok "master -> priv/u2/master"
     mdc makefile
     runlocal git push origin master:priv/u2/master
-    expect "remote: W VR_NAME/makefile u2 DENIED by VR_NAME/makefile"
+    expect "remote: W VR_NAME/makefile foo u2 DENIED by VR_NAME/makefile"
     expect "remote: error: hook declined to update refs/heads/priv/u2/master"
 
     name "u2 CAN push changes to makefile in priv2/u2/master"
@@ -154,7 +154,7 @@ do
     cd foo
     mdc newfile
     runlocal git push
-    expect "remote: W VR_NAME-nf/newfile u2 DENIED by VR_NAME-nf/newfile"
+    expect "remote: W VR_NAME-nf/newfile foo u2 DENIED by VR_NAME-nf/newfile"
     expect "remote rejected.*hook declined"
 
     name "u1 pushes it for him"
@@ -176,7 +176,7 @@ do
     cd foo
     runlocal git tag t1
     runlocal git push origin t1
-    expect "remote: W VR_NAME/makefile u2 DENIED by VR_NAME/makefile"
+    expect "remote: W VR_NAME/makefile foo u2 DENIED by VR_NAME/makefile"
     expect "remote: error: hook declined to update refs/tags/t1"
 
     name "u2 can add a tag that contains a file called ncfile"

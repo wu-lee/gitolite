@@ -79,7 +79,7 @@ name "push file aa=bb fail"
 mdc aa=bb
 runlocal git push origin HEAD
 expect "To u1:aa"
-expect "remote: invalid characters in ref or filename: NAME/aa=bb"
+expect "remote: invalid characters in ref or filename: VR_NAME/aa=bb"
 expect "remote: error: hook declined to update refs/heads/master"
 expect "\[remote rejected\] HEAD -> master (hook declined)"
 expect "error: failed to push some refs to 'u1:aa'"
