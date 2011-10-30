@@ -1,0 +1,241 @@
+<p><head><style>
+    body        { background: #fff; margin-left:  40px;   font-size:  0.9em;  font-family: sans-serif; max-width: 800px; }
+    h1          { background: #ffb; margin-left: -30px;   border-bottom: 5px  solid #ccc; }
+    h2, h3      { background: #ffb; margin-left: -30px;   border-top:    3px  solid #ddd; }
+    h4, h5      { background: #ffb; margin-left: -20px; }
+    code        { font-size:    1.1em;  background:  #ddf; }
+    pre         { margin-left:  2em;    background:  #ddf; }
+    pre code    { font-size:    1.1em;  background:  #ddf; }
+</style></head></p>
+
+<h1>Hosting git repositories</h1>
+
+<p><a name="start"></a></p>
+
+<p>Gitolite allows you to setup git hosting on a central server, with
+fine-grained access control and many (many!) more powerful features.</p>
+
+<hr />
+
+<p>In this document:</p>
+
+<ul>
+<li><a href="#_quick_install">quick install</a></li>
+<li><a href="#_what">what</a>
+<ul>
+<li><a href="#_documentation">documentation</a></li>
+</ul></li>
+<li><a href="#_why">why</a></li>
+<li><a href="#_main_features">main features</a></li>
+<li><a href="#_security">security</a></li>
+<li><a href="#_contact_and_license">contact and license</a></li>
+</ul>
+
+<hr />
+
+<p><a name="_quick_install"></a></p>
+
+<h3>quick install</h3>
+
+<p>If you're comfortable with Unix and ssh, the following steps should work.
+<font color="gray">(However, gitolite has lots and lots of useful features;
+don't miss out on them by skipping the excellent
+<a href="http://sitaramc.github.com/gitolite">documentation</a>!)</font></p>
+
+<ul>
+<li><p>create a user called <code>git</code>.  Login to this user.</p></li>
+<li><p>copy your ssh pubkey from your workstation.  Rename it to <code>YourName.pub</code>.</p></li>
+<li><p>now run these commands:</p>
+
+<pre><code>git clone git://github.com/sitaramc/gitolite
+cd gitolite
+src/gl-system-install
+gl-setup ~/YourName.pub
+</code></pre></li>
+</ul>
+
+<p>You're done.</p>
+
+<p>A word of caution: do <strong>NOT</strong> add repos or users directly on the server!  You
+MUST manage the server by cloning the special 'gitolite-admin' repo on your
+workstation (<code>git clone git@server:gitolite-admin</code>), making changes, and
+pushing them.  See <a href="http://sitaramc.github.com/gitolite/doc/2-admin.html#_adding_users_and_repos">here</a> for how to add users and repos.</p>
+
+<p><a name="_what"></a></p>
+
+<h3>what</h3>
+
+<p>Gitolite is an access control layer on top of git.  Here's an "executive
+summary":</p>
+
+<ul>
+<li>use a single unix user ("real" user) on the server</li>
+<li>provide access to many gitolite users
+<ul>
+<li>they are not "real" users</li>
+<li>they do not get shell access</li>
+</ul></li>
+<li>control access to many git repositories
+<ul>
+<li>read access controlled at the repo level</li>
+<li>write access controlled at the branch/tag/file/directory level,
+including who can rewind, create, and delete branches/tags</li>
+</ul></li>
+<li>can be installed without root access, assuming git and perl are already
+installed</li>
+<li>authentication is most commonly done using sshd, but you can also use
+httpd if you prefer (this may require root access).</li>
+<li>several other neat features described below and elsewhere in the
+<a href="http://sitaramc.github.com/gitolite">doc/</a> directory.</li>
+</ul>
+
+<p><a name="_documentation"></a></p>
+
+<h4>documentation</h4>
+
+<p>Gitolite comes with a <strong>huge</strong> amount of documentation.  Almost all of it is
+for the <em>administrator</em> of a gitolite server.  If you're a <em>user</em>, you only
+need <a href="http://sitaramc.github.com/gitolite/doc/user-manual.html">this</a>.</p>
+
+<p>Otherwise, the suggested reading order is this:</p>
+
+<ul>
+<li>the README (this document) for a quick intro</li>
+<li>the <a href="http://sitaramc.github.com/gitolite/doc/1-INSTALL.html">INSTALL</a> document
+<ul>
+<li>the most common installation issues are caused by ssh.  Here's how
+<a href="http://sitaramc.github.com/gitolite/doc/gitolite-and-ssh.html">gitolite uses ssh</a>.  And here's an <a href="http://sitaramc.github.com/gitolite/doc/ssh-troubleshooting.html">ssh trouble
+shooting</a> document</li>
+</ul></li>
+<li>the <a href="http://sitaramc.github.com/gitolite/doc/2-admin.html">ADMIN</a> document</li>
+<li>(if you're migrating from gitosis, read <a href="http://sitaramc.github.com/gitolite/doc/migrate.html">this</a>)</li>
+</ul>
+
+<p>There is also a <strong><a href="http://sitaramc.github.com/gitolite">master TOC of all gitolite documentation</a></strong>; use your
+browser's search function to look for likely sounding words or just browse
+around -- you never know what you'll find!</p>
+
+<p><a href="http://sitaramc.github.com/gitolite/doc/who-uses-it.html">Here</a>'s some information on some of the projects and
+people using gitolite (and who, in turn, have helped shape its features).</p>
+
+<p><a name="_why"></a></p>
+
+<h3>why</h3>
+
+<p>Gitolite is separate from git, and needs to be installed and configured.  So...
+why do we bother?</p>
+
+<p>Gitolite is useful in any server that is going to host multiple git
+repositories, each with many developers, where some sort of access control is
+required.</p>
+
+<p>In theory, this can be done with plain old Unix permissions: each user is a
+member of one or more groups, each group "owns" one or more repositories, and
+using unix permissions (especially the setgid bit -- <code>chmod g+s</code>) you can
+allow/disallow users access to repos.</p>
+
+<p>But there are several disadvantages here:</p>
+
+<ul>
+<li>every user needs a userid and password on the server.  This is usually a
+killer, especially in tightly controlled environments</li>
+<li>adding/removing access rights involves complex <code>usermod -G ...</code> mumblings
+which most admins would rather not deal with</li>
+<li><em>viewing</em> (aka auditing) the current set of permissions requires running
+multiple commands to list directories and their permissions/ownerships,
+users and their group memberships, and then correlating all these manually</li>
+<li>auditing historical permissions or permission changes is pretty much
+impossible without extraneous tools</li>
+<li>errors or omissions in setting the permissions exactly can cause problems
+of either kind: false accepts or false rejects</li>
+<li>without going into ACLs it is not possible to give some people read-only
+access while some others have read-write access to a repo (unless you make
+it world-readable).  Group access just doesn't have enough granularity</li>
+<li>it is absolutely impossible to restrict pushing by branch name or tag
+name.</li>
+</ul>
+
+<p>Gitolite does away with all this:</p>
+
+<ul>
+<li>it uses ssh magic to remove the need to give actual unix userids to
+developers</li>
+<li>it uses a simple but powerful config file format to specify access rights</li>
+<li>access control changes are affected by modifying this file, adding or
+removing user's public keys, and "compiling" the configuration</li>
+<li>this also makes auditing trivial -- all the data is in one place, and
+changes to the configuration are also logged, so you can audit them.</li>
+<li>finally, the config file allows distinguishing between read-only and
+read-write access, not only at the repository level, but at the branch
+level within repositories.</li>
+</ul>
+
+<p><a name="_main_features"></a></p>
+
+<h3>main features</h3>
+
+<p>The most important feature I needed was <strong>per-branch permissions</strong>.  This is
+pretty much mandatory in a corporate environment, and is almost the single
+reason I started <em>thinking</em> about writing gitolite.</p>
+
+<p>It's not just "read-only" versus "read-write".  Rewinding a branch (aka "non
+fast forward push") is potentially dangerous, but sometimes needed.  So is
+deleting a branch (which is really just an extreme form of rewind).  I needed
+something in between allowing anyone to do it (the default) and disabling it
+completely (<code>receive.denyNonFastForwards</code> or <code>receive.denyDeletes</code>).</p>
+
+<p>Here're <strong>some more features</strong>.  All of them, and more, are documented in
+detail somewhere in gitolite's <a href="http://sitaramc.github.com/gitolite">doc/</a> subdirectory.</p>
+
+<ul>
+<li>simple, yet powerful, config file syntax, including specifying
+gitweb/daemon access.  You'll need this power if you manage lots of
+users+repos+combinations of access</li>
+<li>apart from branch-name based restrictions, you can also restrict by
+file/dir name changed (i.e., output of <code>git diff --name-only</code>)</li>
+<li>if your requirements are still too complex, you can split up the config
+file and delegate authority over parts of it</li>
+<li>easy to specify gitweb owner, description and gitweb/daemon access</li>
+<li>easy to sync gitweb (http) authorisation with gitolite's access config</li>
+<li>comprehensive logging [aka: management does not think "blame" is just a
+synonym for "annotate" :-)]</li>
+<li>"personal namespace" prefix for each dev</li>
+<li>migration guide and simple converter for gitosis conf file</li>
+<li>"exclude" (or "deny") rights at the branch/tag level</li>
+<li>specify repos using patterns (patterns may include creator's name)</li>
+<li>define powerful operations on the server side, even github-like forking</li>
+</ul>
+
+<p><a name="_security"></a></p>
+
+<h3>security</h3>
+
+<p>Due to the environment in which this was created and the need it fills, I
+consider this a "security" program, albeit a very modest one.</p>
+
+<p>For the first person to find a security hole in it, defined as allowing a
+normal user (not the gitolite admin) to read a repo, or write/rewind a ref,
+that the config file says he shouldn't, and caused by a bug in <em>code</em> that is
+in the "master" branch, (not in the other branches, or the configuration file
+or in Unix, perl, shell, etc.)...  well I can't afford 1000 USD rewards like
+djb, so you'll have to settle for 5000 INR (Indian Rupees) as a "token" prize
+:-)</p>
+
+<p>However, there are a few optional features (which must be explicitly enabled
+in the RC file) where I just haven't had the time to reason about security
+thoroughly enough.  Please read the comments in <code>conf/example.gitolite.rc</code> for
+details, looking for the word "security".</p>
+
+<hr />
+
+<p><a name="_contact_and_license"></a></p>
+
+<h3>contact and license</h3>
+
+<p>Gitolite is released under GPL v2.  See COPYING for details.</p>
+
+<ul>
+<li>author: sitaramc@gmail.com, sitaram@atc.tcs.com</li>
+<li>mailing list: gitolite@googlegroups.com</li>
+<li>list subscribe address : gitolite+subscribe@googlegroups.com</li>
+</ul>
