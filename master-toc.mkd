@@ -13,7 +13,7 @@
 
 ### 1000-words
 
-  * [gitolite in pictures](pictures.html) (pictures)
+  * [gitolite in pictures](pictures.html)
       * [installation and setup](pictures.html#_installation_and_setup)
       * [adding users to gitolite](pictures.html#_adding_users_to_gitolite)
       * [adding repos to gitolite](pictures.html#_adding_repos_to_gitolite)
@@ -24,7 +24,7 @@
 
 ### admin-defined-commands
 
-  * [admin defined commands](ADCs.html) (ADCs)
+  * [admin defined commands](ADCs.html)
       * [ADC background](ADCs.html#_ADC_background)
       * [ADC details](ADCs.html#_ADC_details)
           * [installing ADCs](ADCs.html#_installing_ADCs)
@@ -35,9 +35,9 @@
       * ["fake" repos and access control for non-git programs](ADCs.html#_fake_repos_and_access_control_for_non_git_programs)
       * [anatomy of a command](ADCs.html#_anatomy_of_a_command)
       * [example uses and sample commands in `contrib/adc`](ADCs.html#_example_uses_and_sample_commands_in_contrib_adc_)
-          * [the 'fork' ADC](ADCs.html#fork) (fork)
+          * [the 'fork' ADC](ADCs.html#fork)
           * [deleting/trashing repos](ADCs.html#_deleting_trashing_repos)
-          * [enable/disable push access temporarily](ADCs.html#able) (able)
+          * [enable/disable push access temporarily](ADCs.html#able)
       * [how the ADC feature came about](ADCs.html#_how_the_ADC_feature_came_about)
 
 ----
@@ -46,18 +46,18 @@
 
 ### admin
 
-  * [administering and running gitolite](admin.html) (admin)
+  * [administering and running gitolite](admin.html)
       * [please read this first](admin.html#_please_read_this_first)
-      * [adding users and repos](add.html) (add)
-      * [using hooks](hooks.html) (hooks)
-          * [custom hooks](hooks.html#customhooks) (customhooks)
-          * [hook chaining](hooks.html#hookchaining) (hookchaining)
+      * [adding users and repos](add.html)
+      * [using hooks](hooks.html)
+          * [custom hooks](hooks.html#customhooks)
+          * [hook chaining](hooks.html#hookchaining)
           * [environment variables available to hooks](hooks.html#_environment_variables_available_to_hooks)
           * ["gl-post-init" hook](hooks.html#_gl_post_init_hook)
           * ["gl-pre-git" hook](hooks.html#_gl_pre_git_hook)
       * [other features](admin.html#_other_features)
-          * [moving pre-existing repos into gitolite](moverepos.html) (moverepos)
-          * [moving the whole thing from one server to another](moveserver.html) (moveserver)
+          * [moving pre-existing repos into gitolite](moverepos.html)
+          * [moving the whole thing from one server to another](moveserver.html)
           * [custom git config](admin.html#_custom_git_config)
 
 ----
@@ -66,7 +66,7 @@
 
 ### auth
 
-  * [authentication versus authorisation](auth.html) (auth)
+  * [authentication versus authorisation](auth.html)
       * [but... but... you have all that ssh stuff in there!](auth.html#_but_but_you_have_all_that_ssh_stuff_in_there_)
       * [so you're basically saying you won't support "X"](auth.html#_so_you_re_basically_saying_you_won_t_support_X_)
       * [appendix: how to use other authentication systems with gitolite](auth.html#_appendix_how_to_use_other_authentication_systems_with_gitolite)
@@ -77,7 +77,7 @@
 
 ### big-config
 
-  * [what is a "big-config"](bc.html) (bc)
+  * [what is a "big-config"](bc.html)
       * [when/why do we need it?](bc.html#_when_why_do_we_need_it_)
           * [the problem](bc.html#_the_problem)
       * [how do we use it?](bc.html#_how_do_we_use_it_)
@@ -86,8 +86,8 @@
       * [what are the downsides?](bc.html#_what_are_the_downsides_)
       * [other optimisations](bc.html#_other_optimisations)
           * [disabling various defaults](bc.html#_disabling_various_defaults)
-          * [optimising the authkeys file](bc.html#authkeyopt) (authkeyopt)
-      * [storing usergroup information outside gitolite (like in LDAP)](ldap.html) (ldap)
+          * [optimising the authkeys file](bc.html#authkeyopt)
+      * [storing usergroup information outside gitolite (like in LDAP)](ldap.html)
           * [why](ldap.html#_ldapwhy)
           * [how](ldap.html#_ldaphow)
       * [implementation notes](bc.html#_implementation_notes)
@@ -101,10 +101,10 @@
 
 ### delegation
 
-  * [delegating access control responsibilities](deleg.html) (deleg)
+  * [delegating access control responsibilities](deleg.html)
       * [lots of repos, lots of users](deleg.html#_lots_of_repos_lots_of_users)
       * [how to use delegation](deleg.html#_how_to_use_delegation)
-          * [the subconf command](deleg.html#subconf) (subconf)
+          * [the subconf command](deleg.html#subconf)
           * [backward compatibility](deleg.html#_backward_compatibility)
       * [security notes](deleg.html#_security_notes)
           * [group names](deleg.html#_group_names)
@@ -116,7 +116,7 @@
 
 ### developer-notes
 
-  * [developer/patch maintainer notes](dev_notes.html) (dev_notes)
+  * [developer/patch maintainer notes](dev_notes.html)
       * [general stuff](dev_notes.html#_general_stuff)
       * [the rc file](dev_notes.html#_the_rc_file)
       * [modules](dev_notes.html#_modules)
@@ -134,7 +134,7 @@
 
 ### gitolite-and-ssh
 
-  * [how gitolite uses ssh](gl_ssh.html) (gl_ssh)
+  * [how gitolite uses ssh](gl_ssh.html)
       * [ssh basics](gl_ssh.html#_ssh_basics)
       * [how does gitolite use all this ssh magic?](gl_ssh.html#_how_does_gitolite_use_all_this_ssh_magic_)
           * [restricting shell access/distinguishing one user from another](gl_ssh.html#_restricting_shell_access_distinguishing_one_user_from_another)
@@ -146,13 +146,13 @@
 
 ### gitolite.conf-by-example
 
-  * [gitolite.conf -- by example](conf_examples.html) (conf_examples)
+  * [gitolite.conf -- by example](conf_examples.html)
       * [general notes](conf_examples.html#_general_notes)
-      * [extremely brief regex overview](regexov.html) (regexov)
-      * [basic access control](exbac.html) (exbac)
-      * [advanced access control](exaac.html) (exaac)
+      * [extremely brief regex overview](regexov.html)
+      * [basic access control](exbac.html)
+      * [advanced access control](exaac.html)
           * ["deny" rules](exaac.html#_deny_rules)
-          * [rule accumulation](exaac.html#ruleaccum2) (ruleaccum2)
+          * [rule accumulation](exaac.html#ruleaccum2)
           * [gitweb and daemon](exaac.html#_gitweb_and_daemon)
 
 ----
@@ -161,27 +161,27 @@
 
 ### gitolite.conf
 
-  * [the access control file `gitolite.conf`](conf.html) (conf)
-      * [syntax](conf.html#syntax) (syntax)
+  * [the access control file `gitolite.conf`](conf.html)
+      * [syntax](conf.html#syntax)
           * [continuation lines](conf.html#_continuation_lines)
           * [include files](conf.html#_include_files)
-      * [basic access control](bac.html) (bac)
+      * [basic access control](bac.html)
           * [how rules are matched](bac.html#_how_rules_are_matched)
           * [branches, tags, and specifying "refex"es](bac.html#_branches_tags_and_specifying_refex_es)
           * [groups](bac.html#_groups)
               * [the special `@all` group](bac.html#_the_special_all_group)
-      * [advanced access control](aac.html) (aac)
-          * ["deny" rules](aac.html#deny) (deny)
+      * [advanced access control](aac.html)
+          * ["deny" rules](aac.html#deny)
               * [warnings and required reading](aac.html#_warnings_and_required_reading)
               * ["deny" rules for refs in a repo](aac.html#_deny_rules_for_refs_in_a_repo)
               * ["deny" rules for the entire repo](aac.html#_deny_rules_for_the_entire_repo)
-          * [creating and deleting branches](aac.html#rwcd) (rwcd)
+          * [creating and deleting branches](aac.html#rwcd)
       * [summary: permissions](conf.html#_summary_permissions)
       * [other tips](_confother.html)
           * [personal branches](_confother.html#_personal_branches)
-          * [rule accumulation](_confother.html#ruleaccum) (ruleaccum)
-          * [specifying gitweb and daemon access](_confother.html#gwd) (gwd)
-          * [repo specific `git config` commands](_confother.html#rsgc) (rsgc)
+          * [rule accumulation](_confother.html#ruleaccum)
+          * [specifying gitweb and daemon access](_confother.html#gwd)
+          * [repo specific `git config` commands](_confother.html#rsgc)
 
 ----
 
@@ -189,7 +189,7 @@
 
 ### gitolite-gitweb-http-backend
 
-  * [how to set up gitolite+gitweb+ssh+http-backend](ggshb.html) (ggshb)
+  * [how to set up gitolite+gitweb+ssh+http-backend](ggshb.html)
       * [NAME](ggshb.html#_NAME)
       * [DESCRIPTION](ggshb.html#_DESCRIPTION)
       * [EXAMPLE ENVIRONMENT](ggshb.html#_EXAMPLE_ENVIRONMENT)
@@ -210,11 +210,11 @@
 
 ### gitolite.rc
 
-  * [configuring gitolite's advanced features -- the `.gitolite.rc` file](rc.html) (rc)
+  * [configuring gitolite's advanced features -- the `.gitolite.rc` file](rc.html)
       * [variables that should not be touched at all](rc.html#_variables_that_should_not_be_touched_at_all)
       * [most often used/changed variables](rc.html#_most_often_used_changed_variables)
       * [variables with an efficiency/performance impact](rc.html#_variables_with_an_efficiency_performance_impact)
-      * [variables with a security impact](rc.html#rcsecurity) (rcsecurity)
+      * [variables with a security impact](rc.html#rcsecurity)
       * [less used/changed variables](rc.html#_less_used_changed_variables)
       * [rarely changed variables](rc.html#_rarely_changed_variables)
       * [constants that aren't!](rc.html#_constants_that_aren_t_)
@@ -225,7 +225,7 @@
 
 ### hook-propagation
 
-  * [hook propagation in gitolite](hook_prop.html) (hook_prop)
+  * [hook propagation in gitolite](hook_prop.html)
       * [hooks used by gitolite](hook_prop.html#_hooks_used_by_gitolite)
       * [**where** do I (the admin) put the hooks?](hook_prop.html#_where_do_I_the_admin_put_the_hooks_)
           * [the `GL_PACKAGE_HOOKS` directory](hook_prop.html#_the_GL_PACKAGE_HOOKS_directory)
@@ -240,7 +240,7 @@
 
 ### http-backend
 
-  * [how to setup gitolite to use smart http mode](http.html) (http)
+  * [how to setup gitolite to use smart http mode](http.html)
       * [WARNINGS, plus stuff I need help with](http.html#_WARNINGS_plus_stuff_I_need_help_with)
       * [additional requirements](http.html#_additional_requirements)
       * [detailed instructions](http.html#_detailed_instructions)
@@ -256,11 +256,11 @@
 
 ### index
 
-  * [Hosting git repositories](index.html) (index)
-      * [quick install](index.html#qi) (qi)
-      * [what should you read?](index.html#rtfm) (rtfm)
-          * [what do the other docs contain](other_docs.html) (other_docs)
-      * [what is gitolite?](index.html#gl_what) (gl_what)
+  * [Hosting git repositories](index.html)
+      * [quick install](index.html#qi)
+      * [what should you read?](index.html#rtfm)
+          * [what do the other docs contain](other_docs.html)
+      * [what is gitolite?](index.html#gl_what)
       * [why is gitolite needed?](_need.html)
       * [why did I write it?](index.html#_why_did_I_write_it_)
           * [some more features](_morefeatures.html)
@@ -273,26 +273,26 @@
 
 ### install
 
-  * [gitolite installation](install.html) (install)
+  * [gitolite installation](install.html)
       * [installing and upgrading gitolite](install.html#_installing_and_upgrading_gitolite)
-          * [package method](rpmdeb.html) (rpmdeb)
-          * [non-root method](nonroot.html) (nonroot)
-              * [upgrading from from-client method to non-root method](upgrfromclient.html) (upgrfromclient)
-          * [root method](root.html) (root)
-          * [upgrading](install.html#upgrade) (upgrade)
-      * [if you run into trouble...](install.html#insttrouble) (insttrouble)
+          * [package method](rpmdeb.html)
+          * [non-root method](nonroot.html)
+              * [upgrading from from-client method to non-root method](upgrfromclient.html)
+          * [root method](root.html)
+          * [upgrading](install.html#upgrade)
+      * [if you run into trouble...](install.html#insttrouble)
           * [common install problems](install.html#_common_install_problems)
-          * [naming conventions used](install.html#instnameconv) (instnameconv)
-          * [helpful background information](instbg.html) (instbg)
-          * [requirements](instrequire.html) (instrequire)
+          * [naming conventions used](install.html#instnameconv)
+          * [helpful background information](instbg.html)
+          * [requirements](instrequire.html)
               * [client/workstation](instrequire.html#_client_workstation)
               * [server](instrequire.html#_server)
               * [technical skills](instrequire.html#_technical_skills)
           * [getting the gitolite software](_getgl.html)
               * [getting a tar file from a clone](_getgl.html#_getting_a_tar_file_from_a_clone)
       * [appendixes](install.html#_instappendices)
-          * [appendix a: PATH issues for gl-setup](install.html#instpath) (instpath)
-          * [appendix b: cleaning out a botched install](install.html#clean) (clean)
+          * [appendix a: PATH issues for gl-setup](install.html#instpath)
+          * [appendix b: cleaning out a botched install](install.html#clean)
           * [appendix c: uninstalling gitolite completely](_uninstall.html)
 
 ----
@@ -301,7 +301,7 @@
 
 ### migrate
 
-  * [migrating from gitosis to gitolite](migr.html) (migr)
+  * [migrating from gitosis to gitolite](migr.html)
 
 ----
 
@@ -309,30 +309,30 @@
 
 ### mirroring
 
-  * [mirroring gitolite servers](mirroring.html) (mirroring)
+  * [mirroring gitolite servers](mirroring.html)
       * [why](mirroring.html#_mirrwhy)
       * [RULE NUMBER ONE!](mirroring.html#_RULE_NUMBER_ONE_)
       * [concepts and terminology](mirroring.html#_concepts_and_terminology)
       * [setting up mirroring](mirroring.html#_setting_up_mirroring)
-          * [IMPORTANT cautions](mirrcautions.html) (mirrcautions)
-          * [setup and usage](mirrsetup.html) (mirrsetup)
+          * [IMPORTANT cautions](mirrcautions.html)
+          * [setup and usage](mirrsetup.html)
               * [server level setup](mirrsetup.html#_server_level_setup)
               * [repository level setup](mirrsetup.html#_repository_level_setup)
-          * [commands to (re-)sync mirrors](mirrsync.html) (mirrsync)
-      * [details](mirroring.html#ad/m-dtls) (ad/m-dtls)
-          * [the `conf/gitolite.conf` file](mirrconf.html) (mirrconf)
-          * [redirecting pushes](mirrredirect.html) (mirrredirect)
+          * [commands to (re-)sync mirrors](mirrsync.html)
+      * [details](mirroring.html#ad/m-dtls)
+          * [the `conf/gitolite.conf` file](mirrconf.html)
+          * [redirecting pushes](mirrredirect.html)
       * [example setups](mirroring.html#_example_setups)
-          * [non-autonomous](mirrnonauto.html) (mirrnonauto)
-          * [non-autonomous with local repos](mirrnonautolocal.html) (mirrnonautolocal)
-          * [semi-autonomous](mirrsemiauto.html) (mirrsemiauto)
-          * [autonomous](mirrauto.html) (mirrauto)
-      * [discussion](mirrdisc.html) (mirrdisc)
+          * [non-autonomous](mirrnonauto.html)
+          * [non-autonomous with local repos](mirrnonautolocal.html)
+          * [semi-autonomous](mirrsemiauto.html)
+          * [autonomous](mirrauto.html)
+      * [discussion](mirrdisc.html)
           * [problems with the old mirroring model](mirrdisc.html#_problems_with_the_old_mirroring_model)
           * [the new mirroring model](mirrdisc.html#_the_new_mirroring_model)
       * [appendices](mirroring.html#_appendices)
-          * [appendix A: example cronjob based mirroring](mirrcron.html) (mirrcron)
-          * [appendix B: efficiency versus paranoia](mirrparanoia.html) (mirrparanoia)
+          * [appendix A: example cronjob based mirroring](mirrcron.html)
+          * [appendix B: efficiency versus paranoia](mirrparanoia.html)
 
 ----
 
@@ -340,7 +340,7 @@
 
 ### mob-branches
 
-  * [mob branches in gitolite](mob.html) (mob)
+  * [mob branches in gitolite](mob.html)
 
 ----
 
@@ -348,7 +348,7 @@
 
 ### nagp
 
-  * [...not a gitolite problem!](nagp.html) (nagp)
+  * [...not a gitolite problem!](nagp.html)
       * [ssh](nagp.html#_ssh)
       * [git](nagp.html#_git)
       * [windows](nagp.html#_windows)
@@ -363,7 +363,7 @@
 
 ### packaging
 
-  * [packaging gitolite](packaging.html) (packaging)
+  * [packaging gitolite](packaging.html)
 
 ----
 
@@ -371,7 +371,7 @@
 
 ### progit-article
 
-  * [(master copy of progit chapter on gitolite)](progit.html) (progit)
+  * [(master copy of progit chapter on gitolite)](progit.html)
       * [Gitolite ##](progit.html#_Gitolite_)
           * [Installing ###](progit.html#_Installing_)
           * [Customising the Install ###](progit.html#_Customising_the_Install_)
@@ -388,12 +388,12 @@
 
 ### report-output
 
-  * [output of the "info" and "expand" commands](info_expand.html) (info_expand)
-      * [the "info" command](info_expand.html#info) (info)
+  * [output of the "info" and "expand" commands](info_expand.html)
+      * [the "info" command](info_expand.html#info)
           * [interpreting the output](info_expand.html#_interpreting_the_output)
-          * [using patterns to limit output](info_expand.html#limitoutput) (limitoutput)
-          * [side note: openssh 5.6](info_expand.html#openssh5.6) (openssh5.6)
-      * [the "expand" command](info_expand.html#expand) (expand)
+          * [using patterns to limit output](info_expand.html#limitoutput)
+          * [side note: openssh 5.6](info_expand.html#openssh5.6)
+      * [the "expand" command](info_expand.html#expand)
 
 ----
 
@@ -401,7 +401,7 @@
 
 ### ssh-troubleshooting
 
-  * [ssh troubleshooting](sts.html) (sts)
+  * [ssh troubleshooting](sts.html)
       * [IMPORTANT -- READ THIS FIRST](sts.html#_IMPORTANT_READ_THIS_FIRST)
           * [caveats](sts.html#_caveats)
           * [naming conventions used](sts.html#_naming_conventions_used)
@@ -420,7 +420,7 @@
       * [appendix 2: which key is which -- running sshkeys-lint](sts.html#_appendix_2_which_key_is_which_running_sshkeys_lint)
           * [typical cause(s)](sts.html#_typical_cause_s_)
       * [appendix 3: ssh client may not be offering the right key](sts.html#_appendix_3_ssh_client_may_not_be_offering_the_right_key)
-      * [appendix 4: host aliases](sshhostaliases.html) (sshhostaliases)
+      * [appendix 4: host aliases](sshhostaliases.html)
       * [appendix 5: why bypassing gitolite causes a problem](sts.html#_appendix_5_why_bypassing_gitolite_causes_a_problem)
 
 ----
@@ -429,33 +429,33 @@
 
 ### tips-notes
 
-  * [assorted tips and notes](tips.html) (tips)
+  * [assorted tips and notes](tips.html)
       * [common errors and mistakes](tips.html#_common_errors_and_mistakes)
       * [other errors, warnings, notes...](tips.html#_other_errors_warnings_notes_)
           * [cloning an empty repo](tips.html#_cloning_an_empty_repo)
           * [`@all` syntax for repos](tips.html#_all_syntax_for_repos)
       * [features](tips.html#_features)
           * [syntax and normal usage](tips.html#_syntax_and_normal_usage)
-              * [one user, many keys](tips.html#multikey) (multikey)
-                  * [old style multi keys](oldmultikeys.html) (oldmultikeys)
+              * [one user, many keys](tips.html#multikey)
+                  * [old style multi keys](oldmultikeys.html)
           * [security, access control, and auditing](_tipssec.html)
-              * [two levels of access rights checking](_tipssec.html#2levels) (2levels)
+              * [two levels of access rights checking](_tipssec.html#2levels)
               * [better logging](_tipssec.html#_better_logging)
               * [delegating parts of the config file](_tipssec.html#_delegating_parts_of_the_config_file)
           * [convenience features](_tnconv.html)
               * [what repos do I have access to?](_tnconv.html#_what_repos_do_I_have_access_to_)
               * [support for git installed outside default PATH](_tnconv.html#_support_for_git_installed_outside_default_PATH)
-              * ["personal" branches](_tnconv.html#pers) (pers)
+              * ["personal" branches](_tnconv.html#pers)
               * [custom hooks and custom git config](_tnconv.html#_custom_hooks_and_custom_git_config)
               * [bypassing gitolite](_tnconv.html#_bypassing_gitolite)
-              * [gl-admin-push: bypassing gitolite for the gitolite-admin repo](adminpush.html) (adminpush)
-              * [disabling write access to take backups](_tnconv.html#disable) (disable)
+              * [gl-admin-push: bypassing gitolite for the gitolite-admin repo](adminpush.html)
+              * [disabling write access to take backups](_tnconv.html#disable)
           * [INconvenience features](tips.html#_INconvenience_features)
-              * [deleting a repo](tips.html#repodel) (repodel)
+              * [deleting a repo](tips.html#repodel)
               * [renaming a repo](tips.html#_renaming_a_repo)
           * [helping with gitweb](tips.html#_helping_with_gitweb)
-              * [easier to link gitweb authorisation with gitolite](tips.html#gitwebauth) (gitwebauth)
-              * [umask setting](tips.html#umask) (umask)
+              * [easier to link gitweb authorisation with gitolite](tips.html#gitwebauth)
+              * [umask setting](tips.html#umask)
           * [advanced features](tips.html#_advanced_features)
           * [odds and ends](tips.html#_odds_and_ends)
               * ["poking" the admin repo to force a compile](tips.html#_poking_the_admin_repo_to_force_a_compile)
@@ -466,14 +466,14 @@
 
 ### user
 
-  * [what users (not admins) need to know about gitolite](user.html) (user)
+  * [what users (not admins) need to know about gitolite](user.html)
       * [accessing gitolite](user.html#_accessing_gitolite)
       * [always available commands](user.html#_always_available_commands)
       * [digression: two kinds of repos](user.html#_digression_two_kinds_of_repos)
       * [commands only available with "wildrepos" on](user.html#_commands_only_available_with_wildrepos_on)
           * [listing repos you created](user.html#_listing_repos_you_created)
           * [set/get additional permissions for repos you created](user.html#_set_get_additional_permissions_for_repos_you_created)
-          * [adding a description to repos you created](user.html#setdesc) (setdesc)
+          * [adding a description to repos you created](user.html#setdesc)
       * ["site-local" commands](user.html#_site_local_commands)
 
 ----
@@ -500,7 +500,7 @@
 
 ### who-uses-it
 
-  * [who uses gitolite](who.html) (who)
+  * [who uses gitolite](who.html)
 
 ----
 
@@ -508,19 +508,19 @@
 
 ### wildcard-repositories
 
-  * [repositories named with wildcards](wild.html) (wild)
+  * [repositories named with wildcards](wild.html)
       * [quick introduction](wild.html#_quick_introduction)
       * [rc file setting required](wild.html#_rc_file_setting_required)
       * [examples of wildcard repos](wild.html#_examples_of_wildcard_repos)
           * [wildcard repos with creator name in them](wild.html#_wildcard_repos_with_creator_name_in_them)
           * [wildcard repos without creator name in them](wild.html#_wildcard_repos_without_creator_name_in_them)
-      * [valid regexes and how they are used](wildregex.html) (wildregex)
+      * [valid regexes and how they are used](wildregex.html)
           * [side-note: valid regexes](wildregex.html#_side_note_valid_regexes)
           * [side-note: line-anchored regexes](wildregex.html#_side_note_line_anchored_regexes)
               * [contrast with refexes](wildregex.html#_contrast_with_refexes)
-      * [handing out rights to wildcard-matched repos](setperms.html) (setperms)
+      * [handing out rights to wildcard-matched repos](setperms.html)
           * [(admin) adding other roles than READERS and WRITERS](setperms.html#_admin_adding_other_roles_than_READERS_and_WRITERS)
-              * [**IMPORTANT WARNING ABOUT THIS FEATURE**](setperms.html#rolenamewarn) (rolenamewarn)
+              * [**IMPORTANT WARNING ABOUT THIS FEATURE**](setperms.html#rolenamewarn)
       * [setting a gitweb description for a wildcard-matched repo](wild.html#_setting_a_gitweb_description_for_a_wildcard_matched_repo)
       * [reporting](wild.html#_reporting)
       * [deleting a wild repo](wild.html#_deleting_a_wild_repo)
@@ -532,7 +532,7 @@
 
 ### gerrit
 
-  * [comparing gerrit and gitolite](gerrit.html) (gerrit)
+  * [comparing gerrit and gitolite](gerrit.html)
 
 ----
 
@@ -549,7 +549,7 @@
 
 ### mirroring-complex-example
 
-  * [semi-autonomous mirroring setup example](mirr_complex_example.html) (mirr_complex_example)
+  * [semi-autonomous mirroring setup example](mirr_complex_example.html)
       * [overview of problem](mirr_complex_example.html#_overview_of_problem)
       * [overview of setup](mirr_complex_example.html#_overview_of_setup)
           * [gitolite feature recap](mirr_complex_example.html#_gitolite_feature_recap)
@@ -571,7 +571,7 @@
 
 ### monkeysphere
 
-  * [(contributed doc: integrating gitolite with monkeysphere)](monkeysphere.html) (monkeysphere)
+  * [(contributed doc: integrating gitolite with monkeysphere)](monkeysphere.html)
 
 ----
 
@@ -579,7 +579,7 @@
 
 ### putty
 
-  * [putty and msysgit](contrib_putty.html) (contrib_putty)
+  * [putty and msysgit](contrib_putty.html)
       * [msysgit setup](contrib_putty.html#_msysgit_setup)
       * [Going back to OpenSSH](contrib_putty.html#_Going_back_to_OpenSSH)
       * [Putty keys](contrib_putty.html#_Putty_keys)
@@ -601,7 +601,7 @@
 
 ### hub
 
-  * [the 'hub' ADC](hub.html) (hub)
+  * [the 'hub' ADC](hub.html)
       * [a home grown 'hub' for git repos](hub.html#_a_home_grown_hub_for_git_repos)
       * [general syntax](hub.html#_general_syntax)
           * [Bob's commands](hub.html#_Bob_s_commands)
@@ -616,7 +616,7 @@
 
 ### README-adc
 
-  * [brief descriptions of the shipped ADCs (admin-defined commands)](shipped_ADCs.html) (shipped_ADCs)
+  * [brief descriptions of the shipped ADCs (admin-defined commands)](shipped_ADCs.html)
 
 ----
 
@@ -624,7 +624,7 @@
 
 ### repo-deletion
 
-  * [deleting repos safely](wild_repodel.html) (wild_repodel)
+  * [deleting repos safely](wild_repodel.html)
 
 ----
 
@@ -632,7 +632,7 @@
 
 ### sskm
 
-  * [changing keys -- self service key management](sskm.html) (sskm)
+  * [changing keys -- self service key management](sskm.html)
       * [Important!](sskm.html#_Important_)
           * [Key fingerprints](sskm.html#_Key_fingerprints)
           * [Active keys](sskm.html#_Active_keys)
@@ -655,7 +655,7 @@
 
 ### password-access
 
-  * [password access to gitolite](password_access.html) (password_access)
+  * [password access to gitolite](password_access.html)
       * [problems](password_access.html#_problems)
       * [solution](password_access.html#_solution)
       * [some hints, notes and caveats](password_access.html#_some_hints_notes_and_caveats)
@@ -668,7 +668,7 @@
 
 ### README-ldap
 
-  * [ldap helper programs](ldap_helpers.html) (ldap_helpers)
+  * [ldap helper programs](ldap_helpers.html)
 
 ----
 
