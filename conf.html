@@ -1,0 +1,106 @@
+<head>
+<style>
+    body        { background: #fff; margin-left:  40px;   font-size:  0.9em;  font-family: sans-serif; max-width: 800px; }
+    h1          { background: #ffb; margin-left: -30px;   border-top:    5px  solid #ccc; }
+    h2          { background: #ffb; margin-left: -20px;   border-top:    3px  solid #ddd; }
+    h3          { background: #ffb; margin-left: -10px; }
+    h4          { background: #ffb; }
+    code        { font-size:    1.1em;  background:  #ddf; }
+    pre         { margin-left:  2em;    background:  #ddf; }
+    pre code    { font-size:    1.1em;  background:  #ddf; }
+</style>
+
+</head>
+
+<p style="text-align:center">
+    <a href="master-toc.html">master TOC</a>
+|
+    <a href="master-toc.html#gitolite.conf">chapter TOC</a>
+</p>
+
+
+<h1>the access control file <code>gitolite.conf</code></h1>
+
+<p>Gitolite has an advanced access control language that is designed to be
+powerful but easy to use.  Other objectives were that it should be even easier
+to read, review and audit the rules, and it should scale to thousands of repos
+and users.  There was also, in the author's mind, a desperate need to create
+something as different as possible from the brain-dead, nausea-inducing
+"Windows INI" style syntax that some other popular tools seem to favour.</p>
+
+<p>This document describes the syntax and semantics of the access control rules
+and other configuration directives in the <code>gitolite.conf</code> file.</p>
+
+<p><a name="syntax"></a></p>
+
+<h2>syntax</h2>
+
+<p>In general, everything is <strong>space separated</strong>; there are no commas,
+semicolons, etc., in the syntax.</p>
+
+<p><strong>Comments</strong> are in the usual shell-ish style.</p>
+
+<p><strong>User names</strong> and <strong>repo names</strong> are as simple as possible; they must start
+with an alphanumeric, but after that they can also contain <code>.</code>, <code>_</code>, or <code>-</code>.</p>
+
+<p>Usernames can optionally be followed by an <code>@</code> and a domainname containing at
+least one <code>.</code> (this allows you to use an email address as someone's username).
+Reponames can contain <code>/</code> characters (this allows you to put your repos in a
+tree-structure for convenience)</p>
+
+<p><a name="_continuation_lines"></a></p>
+
+<h3>continuation lines</h3>
+
+<p>There are no continuation lines -- gitolite does not process C-style
+backslash-escaped newlines as anything special.  However, the section on
+"groups" will tell you how you can break up large lists of names in a group
+definition into multiple lines.</p>
+
+<p><a name="_include_files"></a></p>
+
+<h3>include files</h3>
+
+<p>Gitolite allows you to break up the configuration into multiple files and
+include them in the main file for convenience.</p>
+
+<pre><code>include     "foo.conf"
+</code></pre>
+
+<p>will include the contents of the file "foo.conf" from the same directory as
+the main config file.  You can also use an absolute path if you like, although
+in the interests of cloning the admin-repo sanely you should avoid doing this!</p>
+
+<p>You can also use a glob, as in:</p>
+
+<pre><code>include     "*.conf"
+</code></pre>
+
+<p>which will include all the ".conf" files from the directory in which the main
+config file exists.</p>
+
+<p>Files that have been already processed once are skipped, with a warning.</p>
+
+<p><font color="gray">Advanced users: <code>subconf</code>, a command that is very closely
+related to <code>include</code>, is documented <a href="deleg.html#subconf" title="the subconf command">here</a>.</font></p>
+
+<h2>basic access control: <a href="bac.html" title="basic access control">Link</a></h2>
+
+
+<h2>advanced access control: <a href="aac.html" title="advanced access control">Link</a></h2>
+
+
+<p><a name="_summary_permissions"></a></p>
+
+<h2>summary: permissions</h2>
+
+<p>The full set of permissions, in regex syntax: <code>-|R|RW+?C?D?</code>.  This expands to
+one of <code>-</code>, <code>R</code>, <code>RW</code>, <code>RW+</code>, <code>RWC</code>, <code>RW+C</code>, <code>RWD</code>, <code>RW+D</code>, <code>RWCD</code>, or
+<code>RW+CD</code>.  and by now you know what they all mean.</p>
+
+<p>[Side note: There is one more very important permissions to be dealt with --
+the standalone <code>C</code>, which is not really a "ref" level permission and can be
+found in doc/wildcard-repositories.mkd.]</p>
+
+<h2>other tips: <a href="_confother.html" title="other tips">Link</a></h2>
+

@@ -1,0 +1,102 @@
+<head>
+<style>
+    body        { background: #fff; margin-left:  40px;   font-size:  0.9em;  font-family: sans-serif; max-width: 800px; }
+    h1          { background: #ffb; margin-left: -30px;   border-top:    5px  solid #ccc; }
+    h2          { background: #ffb; margin-left: -20px;   border-top:    3px  solid #ddd; }
+    h3          { background: #ffb; margin-left: -10px; }
+    h4          { background: #ffb; }
+    code        { font-size:    1.1em;  background:  #ddf; }
+    pre         { margin-left:  2em;    background:  #ddf; }
+    pre code    { font-size:    1.1em;  background:  #ddf; }
+</style>
+
+</head>
+
+<p style="text-align:center">
+    <a href="master-toc.html">master TOC</a>
+|
+    <a href="master-toc.html#admin">chapter TOC</a>
+</p>
+
+
+<h3>moving the whole thing from one server to another</h3>
+
+<p>[<strong>NOTE</strong>: I would appreciate help testing these instructions]</p>
+
+<p>Just copying everything won't work unless everything on the new server is
+exactly the same.  I suggest you don't try it unless you know what you're
+doing.</p>
+
+<p><strong>Assumptions</strong></p>
+
+<ul>
+<li>you have not changed <code>$REPO_BASE</code> on either of the servers; if you did,
+substitute accordingly</li>
+<li>the admin's name is "YourName" -- again, substitute accordingly!</li>
+<li>the "hosting user" on both servers is "git".  Substitute whatever you're
+actually using (for example, if you're installing using RPM/DEB, this
+would be "gitolite")</li>
+</ul>
+
+<p>There are many ways of doing this, but the most <em>generic</em> set of steps are
+given below.  Please follow all the steps; do not skip or improvise!  Ask me
+if things are not clear -- you can help me fine tune this document :-)</p>
+
+<ul>
+<li><p>(old server) <strong>disable</strong> the old server so your users will not push any
+changes to it.  There are several ways to do this, but the simplest is to
+insert this line at the top of <code>~/.gitolite.rc</code> on the old server:</p>
+
+<pre><code>exit 1;
+</code></pre></li>
+<li><p>(new server) <strong>copy</strong> the repos to the new server, <strong>except</strong> the
+<code>gitolite-admin</code> repo and files called <code>gitolite-hooked</code> in the <code>hooks</code>
+directory of each repo.</p>
+
+<p>That sounds complicated but it's not.  It's just:</p>
+
+<pre><code>cd $HOME
+rsync -a olduser@oldhost:repositories .
+mv repositories/gitolite-admin.git $HOME/old-gitolite-admin.git
+find repositories -name gitolite-hooked | xargs rm
+</code></pre></li>
+<li><p>(workstation, new server) <strong>install</strong> gitolite normally on your new
+server.  Use whatever install method suits you, but you must use the
+<strong>same</strong> name for the admin ("YourName" in the install instructions).  You
+may use a different keypair if you need to, or use the same one that
+currently gets access to the old server.</p></li>
+<li><p>(new server) <strong>edit</strong> the <code>~/.gitolite.rc</code> file to match the settings on
+the old server, if needed.  Do not copy the entire file outright -- some
+of the variables (notably <code>GL_PACKAGE_CONF</code> and <code>GL_PACKAGE_HOOKS</code>) are
+installation dependent and should not be touched!  Do a diff or a vimdiff
+and copy across only what you know <em>you</em> changed on the old server.</p></li>
+<li><p>(workstation) <strong>push</strong> the config to the new server.  To do this, go to
+your admin clone, and:</p>
+
+<ul>
+<li><p>if you used a different keypair when installing to the new server,
+copy that pubkey to this clone into <code>keydir/Yourname.pub</code>, then add
+and commit the change to the pubkey</p>
+
+<pre><code>cd gitolite-admin
+cp path/to/new/YourName.pub keydir/YourName.pub
+git add keydir
+git commit -m "new server, new key"
+</code></pre></li>
+<li><p>if you did <em>not</em> use a different keypair, just make a dummy commit</p>
+
+<pre><code>git commit -m "new server" --allow-empty
+</code></pre></li>
+<li><p>set the URL for the new server</p>
+
+<pre><code>git remote --set-url origin git@newserver:gitolite-admin
+</code></pre></li>
+<li><p>push the config, including past history</p>
+
+<pre><code>git push -f
+</code></pre></li>
+</ul></li>
+</ul>
+
+<p>And that should be that!</p>
+

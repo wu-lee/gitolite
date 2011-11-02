@@ -15,18 +15,42 @@
 <p style="text-align:center">
     <a href="master-toc.html">master TOC</a>
 |
-    <a href="master-toc.html#README">chapter TOC</a>
+    <a href="master-toc.html#big-config">chapter TOC</a>
 </p>
 
 
-<p><a name="_Gitolite_README"></a></p>
+<h3>compiled config with big-config enabled</h3>
 
-<h1>Gitolite README</h1>
-
-<p>If you're really impatient, and you're familiar with Unix and ssh, follow the
-<a href="http://sitaramc.github.com/gitolite/index.html#qi">quick install</a>
-instructions.</p>
-
-<p>But if you want to do anything meaningful with gitolite you have to spend some
-time cuddling up to the docs.  <strong>The complete online documentation starts
-<a href="http://sitaramc.github.com/gitolite">here</a></strong>.</p>
+<pre><code>%repos = (
+  '@wbr' =&gt; {
+    '@devs' =&gt; [
+      [
+        0,
+        'refs/heads/next',
+        'RW+'
+      ],
+      [
+        1,
+        'refs/heads/master',
+        'RW'
+      ]
+    ],
+    'R' =&gt; {
+      '@devs' =&gt; 1
+    },
+    'W' =&gt; {
+      '@devs' =&gt; 1
+    }
+  }
+);
+%groups = (
+  '@devs' =&gt; {
+    'alice' =&gt; 'master',
+    'bob' =&gt; 'master'
+  },
+  '@wbr' =&gt; {
+    'firefox' =&gt; 'master',
+    'lynx' =&gt; 'master'
+  }
+);
+</code></pre>

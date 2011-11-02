@@ -1,0 +1,1082 @@
+<hr />
+
+<p><a name="README"></a></p>
+
+<h3>README</h3>
+
+<ul>
+<li><a href="README.html#_Gitolite_README">Gitolite README</a></li>
+</ul>
+
+<hr />
+
+<p><a name="1000-words"></a></p>
+
+<h3>1000-words</h3>
+
+<ul>
+<li><a href="pictures.html">gitolite in pictures</a> (pictures)
+<ul>
+<li><a href="pictures.html#_installation_and_setup">installation and setup</a></li>
+<li><a href="pictures.html#_adding_users_to_gitolite">adding users to gitolite</a></li>
+<li><a href="pictures.html#_adding_repos_to_gitolite">adding repos to gitolite</a></li>
+</ul></li>
+</ul>
+
+<hr />
+
+<p><a name="admin-defined-commands"></a></p>
+
+<h3>admin-defined-commands</h3>
+
+<ul>
+<li><a href="ADCs.html">admin defined commands</a> (ADCs)
+<ul>
+<li><a href="ADCs.html#_ADC_background">ADC background</a></li>
+<li><a href="ADCs.html#_ADC_details">ADC details</a>
+<ul>
+<li><a href="ADCs.html#_installing_ADCs">installing ADCs</a></li>
+<li><a href="ADCs.html#_user_invocation">user invocation</a></li>
+<li><a href="ADCs.html#_checking_authorisation_inside_an_ADC">checking authorisation inside an ADC</a></li>
+<li><a href="ADCs.html#_checking_arguments">checking arguments</a></li>
+<li><a href="ADCs.html#_passing_unchecked_arguments">passing unchecked arguments</a></li>
+</ul></li>
+<li><a href="ADCs.html#_fake_repos_and_access_control_for_non_git_programs">"fake" repos and access control for non-git programs</a></li>
+<li><a href="ADCs.html#_anatomy_of_a_command">anatomy of a command</a></li>
+<li><a href="ADCs.html#_example_uses_and_sample_commands_in_contrib_adc_">example uses and sample commands in <code>contrib/adc</code></a>
+<ul>
+<li><a href="ADCs.html#fork">the 'fork' ADC</a> (fork)</li>
+<li><a href="ADCs.html#_deleting_trashing_repos">deleting/trashing repos</a></li>
+<li><a href="ADCs.html#able">enable/disable push access temporarily</a> (able)</li>
+</ul></li>
+<li><a href="ADCs.html#_how_the_ADC_feature_came_about">how the ADC feature came about</a></li>
+</ul></li>
+</ul>
+
+<hr />
+
+<p><a name="admin"></a></p>
+
+<h3>admin</h3>
+
+<ul>
+<li><a href="admin.html">administering and running gitolite</a> (admin)
+<ul>
+<li><a href="admin.html#_please_read_this_first">please read this first</a></li>
+<li><a href="add.html">adding users and repos</a> (add)</li>
+<li><a href="hooks.html">using hooks</a> (hooks)
+<ul>
+<li><a href="hooks.html#customhooks">custom hooks</a> (customhooks)</li>
+<li><a href="hooks.html#hookchaining">hook chaining</a> (hookchaining)</li>
+<li><a href="hooks.html#_environment_variables_available_to_hooks">environment variables available to hooks</a></li>
+<li><a href="hooks.html#_gl_post_init_hook">"gl-post-init" hook</a></li>
+<li><a href="hooks.html#_gl_pre_git_hook">"gl-pre-git" hook</a></li>
+</ul></li>
+<li><a href="admin.html#_other_features">other features</a>
+<ul>
+<li><a href="moverepos.html">moving pre-existing repos into gitolite</a> (moverepos)</li>
+<li><a href="moveserver.html">moving the whole thing from one server to another</a> (moveserver)</li>
+<li><a href="admin.html#_custom_git_config">custom git config</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<hr />
+
+<p><a name="auth"></a></p>
+
+<h3>auth</h3>
+
+<ul>
+<li><a href="auth.html">authentication versus authorisation</a> (auth)
+<ul>
+<li><a href="auth.html#_but_but_you_have_all_that_ssh_stuff_in_there_">but... but... you have all that ssh stuff in there!</a></li>
+<li><a href="auth.html#_so_you_re_basically_saying_you_won_t_support_X_">so you're basically saying you won't support "X"</a></li>
+<li><a href="auth.html#_appendix_how_to_use_other_authentication_systems_with_gitolite">appendix: how to use other authentication systems with gitolite</a></li>
+</ul></li>
+</ul>
+
+<hr />
+
+<p><a name="big-config"></a></p>
+
+<h3>big-config</h3>
+
+<ul>
+<li><a href="bc.html">what is a "big-config"</a> (bc)
+<ul>
+<li><a href="bc.html#_when_why_do_we_need_it_">when/why do we need it?</a>
+<ul>
+<li><a href="bc.html#_the_problem">the problem</a></li>
+</ul></li>
+<li><a href="bc.html#_how_do_we_use_it_">how do we use it?</a>
+<ul>
+<li><a href="bc.html#_access_rules_for_groups">access rules for groups</a></li>
+<li><a href="bc.html#_access_rules_for_individual_repos_split_config_">access rules for individual repos (split config)</a></li>
+</ul></li>
+<li><a href="bc.html#_what_are_the_downsides_">what are the downsides?</a></li>
+<li><a href="bc.html#_other_optimisations">other optimisations</a>
+<ul>
+<li><a href="bc.html#_disabling_various_defaults">disabling various defaults</a></li>
+<li><a href="bc.html#authkeyopt">optimising the authkeys file</a> (authkeyopt)</li>
+</ul></li>
+<li><a href="ldap.html">storing usergroup information outside gitolite (like in LDAP)</a> (ldap)
+<ul>
+<li><a href="ldap.html#_ldapwhy">why</a></li>
+<li><a href="ldap.html#_ldaphow">how</a></li>
+</ul></li>
+<li><a href="bc.html#_implementation_notes">implementation notes</a></li>
+<li><a href="bc.html#_config_listings">config listings</a>
+<ul>
+<li><a href="_bigno.html">compiled config with big-config disabled</a></li>
+<li><a href="_bigyes.html">compiled config with big-config enabled</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<hr />
+
+<p><a name="delegation"></a></p>
+
+<h3>delegation</h3>
+
+<ul>
+<li><a href="deleg.html">delegating access control responsibilities</a> (deleg)
+<ul>
+<li><a href="deleg.html#_lots_of_repos_lots_of_users">lots of repos, lots of users</a></li>
+<li><a href="deleg.html#_how_to_use_delegation">how to use delegation</a>
+<ul>
+<li><a href="deleg.html#subconf">the subconf command</a> (subconf)</li>
+<li><a href="deleg.html#_backward_compatibility">backward compatibility</a></li>
+</ul></li>
+<li><a href="deleg.html#_security_notes">security notes</a>
+<ul>
+<li><a href="deleg.html#_group_names">group names</a></li>
+<li><a href="deleg.html#_delegating_pubkeys">delegating pubkeys</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<hr />
+
+<p><a name="developer-notes"></a></p>
+
+<h3>developer-notes</h3>
+
+<ul>
+<li><a href="dev_notes.html">developer/patch maintainer notes</a> (dev_notes)
+<ul>
+<li><a href="dev_notes.html#_general_stuff">general stuff</a></li>
+<li><a href="dev_notes.html#_the_rc_file">the rc file</a></li>
+<li><a href="dev_notes.html#_modules">modules</a></li>
+<li><a href="dev_notes.html#_that_bindir_thing">that 'bindir' thing</a>
+<ul>
+<li><a href="dev_notes.html#_from_perl">from perl</a></li>
+<li><a href="dev_notes.html#_from_shell">from shell</a></li>
+<li><a href="dev_notes.html#_OUTLIER_">OUTLIER!</a></li>
+</ul></li>
+<li><a href="dev_notes.html#_special_types_of_setups">special types of setups</a>
+<ul>
+<li><a href="dev_notes.html#_Fedora">Fedora</a></li>
+</ul></li>
+</ul></li>
+<li><a href="developer-notes.html#_Why_v2_"><strong>Why v2?</strong></a></li>
+</ul>
+
+<hr />
+
+<p><a name="gitolite-and-ssh"></a></p>
+
+<h3>gitolite-and-ssh</h3>
+
+<ul>
+<li><a href="gl_ssh.html">how gitolite uses ssh</a> (gl_ssh)
+<ul>
+<li><a href="gl_ssh.html#_ssh_basics">ssh basics</a></li>
+<li><a href="gl_ssh.html#_how_does_gitolite_use_all_this_ssh_magic_">how does gitolite use all this ssh magic?</a>
+<ul>
+<li><a href="gl_ssh.html#_restricting_shell_access_distinguishing_one_user_from_another">restricting shell access/distinguishing one user from another</a></li>
+<li><a href="gl_ssh.html#_restricting_branch_level_actions">restricting branch level actions</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<hr />
+
+<p><a name="gitolite.conf-by-example"></a></p>
+
+<h3>gitolite.conf-by-example</h3>
+
+<ul>
+<li><a href="conf_examples.html">gitolite.conf -- by example</a> (conf_examples)
+<ul>
+<li><a href="conf_examples.html#_general_notes">general notes</a></li>
+<li><a href="regexov.html">extremely brief regex overview</a> (regexov)</li>
+<li><a href="exbac.html">basic access control</a> (exbac)</li>
+<li><a href="exaac.html">advanced access control</a> (exaac)
+<ul>
+<li><a href="exaac.html#_deny_rules">"deny" rules</a></li>
+<li><a href="exaac.html#ruleaccum2">rule accumulation</a> (ruleaccum2)</li>
+<li><a href="exaac.html#_gitweb_and_daemon">gitweb and daemon</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<hr />
+
+<p><a name="gitolite.conf"></a></p>
+
+<h3>gitolite.conf</h3>
+
+<ul>
+<li><a href="conf.html">the access control file <code>gitolite.conf</code></a> (conf)
+<ul>
+<li><a href="conf.html#syntax">syntax</a> (syntax)
+<ul>
+<li><a href="conf.html#_continuation_lines">continuation lines</a></li>
+<li><a href="conf.html#_include_files">include files</a></li>
+</ul></li>
+<li><a href="bac.html">basic access control</a> (bac)
+<ul>
+<li><a href="bac.html#_how_rules_are_matched">how rules are matched</a></li>
+<li><a href="bac.html#_branches_tags_and_specifying_refex_es">branches, tags, and specifying "refex"es</a></li>
+<li><a href="bac.html#_groups">groups</a>
+<ul>
+<li><a href="bac.html#_the_special_all_group">the special <code>@all</code> group</a></li>
+</ul></li>
+</ul></li>
+<li><a href="aac.html">advanced access control</a> (aac)
+<ul>
+<li><a href="aac.html#deny">"deny" rules</a> (deny)
+<ul>
+<li><a href="aac.html#_warnings_and_required_reading">warnings and required reading</a></li>
+<li><a href="aac.html#_deny_rules_for_refs_in_a_repo">"deny" rules for refs in a repo</a></li>
+<li><a href="aac.html#_deny_rules_for_the_entire_repo">"deny" rules for the entire repo</a></li>
+</ul></li>
+<li><a href="aac.html#rwcd">creating and deleting branches</a> (rwcd)</li>
+</ul></li>
+<li><a href="conf.html#_summary_permissions">summary: permissions</a></li>
+<li><a href="_confother.html">other tips</a>
+<ul>
+<li><a href="_confother.html#_personal_branches">personal branches</a></li>
+<li><a href="_confother.html#ruleaccum">rule accumulation</a> (ruleaccum)</li>
+<li><a href="_confother.html#gwd">specifying gitweb and daemon access</a> (gwd)</li>
+<li><a href="_confother.html#rsgc">repo specific <code>git config</code> commands</a> (rsgc)</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<hr />
+
+<p><a name="gitolite-gitweb-http-backend"></a></p>
+
+<h3>gitolite-gitweb-http-backend</h3>
+
+<ul>
+<li><a href="ggshb.html">how to set up gitolite+gitweb+ssh+http-backend</a> (ggshb)
+<ul>
+<li><a href="ggshb.html#_NAME">NAME</a></li>
+<li><a href="ggshb.html#_DESCRIPTION">DESCRIPTION</a></li>
+<li><a href="ggshb.html#_EXAMPLE_ENVIRONMENT">EXAMPLE ENVIRONMENT</a></li>
+<li><a href="ggshb.html#_GITOLITE_SETUP">GITOLITE SETUP</a>
+<ul>
+<li><a href="ggshb.html#_gitolite_rc">gitolite.rc</a></li>
+<li><a href="ggshb.html#_gitolite_conf">gitolite.conf</a></li>
+</ul></li>
+<li><a href="ggshb.html#_APACHE_SETUP">APACHE SETUP</a>
+<ul>
+<li><a href="ggshb.html#_suexec">suexec</a></li>
+<li><a href="ggshb.html#_Gitweb">Gitweb</a></li>
+<li><a href="ggshb.html#_Virtual_Host">Virtual Host</a></li>
+</ul></li>
+<li><a href="ggshb.html#_VALIDATION">VALIDATION</a></li>
+<li><a href="ggshb.html#_ADDITIONAL_RESOURCES">ADDITIONAL RESOURCES</a></li>
+<li><a href="ggshb.html#_AUTHOR">AUTHOR</a></li>
+</ul></li>
+</ul>
+
+<hr />
+
+<p><a name="gitolite.rc"></a></p>
+
+<h3>gitolite.rc</h3>
+
+<ul>
+<li><a href="rc.html">configuring gitolite's advanced features -- the <code>.gitolite.rc</code> file</a> (rc)
+<ul>
+<li><a href="rc.html#_variables_that_should_not_be_touched_at_all">variables that should not be touched at all</a></li>
+<li><a href="rc.html#_most_often_used_changed_variables">most often used/changed variables</a></li>
+<li><a href="rc.html#_variables_with_an_efficiency_performance_impact">variables with an efficiency/performance impact</a></li>
+<li><a href="rc.html#rcsecurity">variables with a security impact</a> (rcsecurity)</li>
+<li><a href="rc.html#_less_used_changed_variables">less used/changed variables</a></li>
+<li><a href="rc.html#_rarely_changed_variables">rarely changed variables</a></li>
+<li><a href="rc.html#_constants_that_aren_t_">constants that aren't!</a></li>
+</ul></li>
+</ul>
+
+<hr />
+
+<p><a name="hook-propagation"></a></p>
+
+<h3>hook-propagation</h3>
+
+<ul>
+<li><a href="hook_prop.html">hook propagation in gitolite</a> (hook_prop)
+<ul>
+<li><a href="hook_prop.html#_hooks_used_by_gitolite">hooks used by gitolite</a></li>
+<li><a href="hook_prop.html#_where_do_I_the_admin_put_the_hooks_"><strong>where</strong> do I (the admin) put the hooks?</a>
+<ul>
+<li><a href="hook_prop.html#_the_GL_PACKAGE_HOOKS_directory">the <code>GL_PACKAGE_HOOKS</code> directory</a></li>
+<li><a href="hook_prop.html#_the_HOME_gitolite_directory">the <code>$HOME/.gitolite</code> directory</a></li>
+<li><a href="hook_prop.html#_why_two_places_">why two places?</a></li>
+<li><a href="hook_prop.html#_special_case_the_non_root_method">special case: the "non-root" method</a></li>
+</ul></li>
+<li><a href="hook_prop.html#_when_do_hooks_propagate_"><strong>when</strong> do hooks propagate?</a></li>
+</ul></li>
+</ul>
+
+<hr />
+
+<p><a name="http-backend"></a></p>
+
+<h3>http-backend</h3>
+
+<ul>
+<li><a href="http.html">how to setup gitolite to use smart http mode</a> (http)
+<ul>
+<li><a href="http.html#_WARNINGS_plus_stuff_I_need_help_with">WARNINGS, plus stuff I need help with</a></li>
+<li><a href="http.html#_additional_requirements">additional requirements</a></li>
+<li><a href="http.html#_detailed_instructions">detailed instructions</a>
+<ul>
+<li><a href="http.html#_install_gitolite_under_apache_">install gitolite under "apache"</a></li>
+<li><a href="http.html#_setup_apache">setup apache</a></li>
+</ul></li>
+<li><a href="http.html#_usage">usage</a></li>
+<li><a href="http.html#_allowing_anonymous_access">allowing anonymous access</a></li>
+<li><a href="http.html#_ssh_http_access_and_the_GIT_HTTP_EXPORT_ALL_variable">ssh + http access and the <code>GIT_HTTP_EXPORT_ALL</code> variable</a></li>
+</ul></li>
+</ul>
+
+<hr />
+
+<p><a name="index"></a></p>
+
+<h3>index</h3>
+
+<ul>
+<li><a href="index.html">Hosting git repositories</a> (index)
+<ul>
+<li><a href="index.html#qi">quick install</a> (qi)</li>
+<li><a href="index.html#rtfm">what should you read?</a> (rtfm)
+<ul>
+<li><a href="other_docs.html">what do the other docs contain</a> (other<em>docs)</li>
+</ul></li>
+<li><a href="index.html#gl_what">what is gitolite?</a> (gl</em>what)</li>
+<li><a href="_need.html">why is gitolite needed?</a></li>
+<li><a href="index.html#_why_did_I_write_it_">why did I write it?</a>
+<ul>
+<li><a href="_morefeatures.html">some more features</a></li>
+</ul></li>
+<li><a href="index.html#_security">security</a></li>
+<li><a href="index.html#_contact_and_license">contact and license</a></li>
+</ul></li>
+</ul>
+
+<hr />
+
+<p><a name="install"></a></p>
+
+<h3>install</h3>
+
+<ul>
+<li><a href="install.html">gitolite installation</a> (install)
+<ul>
+<li><a href="install.html#_installing_and_upgrading_gitolite">installing and upgrading gitolite</a>
+<ul>
+<li><a href="rpmdeb.html">package method</a> (rpmdeb)</li>
+<li><a href="nonroot.html">non-root method</a> (nonroot)
+<ul>
+<li><a href="upgrfromclient.html">upgrading from from-client method to non-root method</a> (upgrfromclient)</li>
+</ul></li>
+<li><a href="root.html">root method</a> (root)</li>
+<li><a href="install.html#upgrade">upgrading</a> (upgrade)</li>
+</ul></li>
+<li><a href="install.html#insttrouble">if you run into trouble...</a> (insttrouble)
+<ul>
+<li><a href="install.html#_common_install_problems">common install problems</a></li>
+<li><a href="install.html#instnameconv">naming conventions used</a> (instnameconv)</li>
+<li><a href="instbg.html">helpful background information</a> (instbg)</li>
+<li><a href="instrequire.html">requirements</a> (instrequire)
+<ul>
+<li><a href="instrequire.html#_client_workstation">client/workstation</a></li>
+<li><a href="instrequire.html#_server">server</a></li>
+<li><a href="instrequire.html#_technical_skills">technical skills</a></li>
+</ul></li>
+<li><a href="_getgl.html">getting the gitolite software</a>
+<ul>
+<li><a href="_getgl.html#_getting_a_tar_file_from_a_clone">getting a tar file from a clone</a></li>
+</ul></li>
+</ul></li>
+<li><a href="install.html#_instappendices">appendixes</a>
+<ul>
+<li><a href="install.html#instpath">appendix a: PATH issues for gl-setup</a> (instpath)</li>
+<li><a href="install.html#clean">appendix b: cleaning out a botched install</a> (clean)</li>
+<li><a href="_uninstall.html">appendix c: uninstalling gitolite completely</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<hr />
+
+<p><a name="migrate"></a></p>
+
+<h3>migrate</h3>
+
+<ul>
+<li><a href="migr.html">migrating from gitosis to gitolite</a> (migr)</li>
+</ul>
+
+<hr />
+
+<p><a name="mirroring"></a></p>
+
+<h3>mirroring</h3>
+
+<ul>
+<li><a href="mirroring.html">mirroring gitolite servers</a> (mirroring)
+<ul>
+<li><a href="mirroring.html#_mirrwhy">why</a></li>
+<li><a href="mirroring.html#_RULE_NUMBER_ONE_">RULE NUMBER ONE!</a></li>
+<li><a href="mirroring.html#_concepts_and_terminology">concepts and terminology</a></li>
+<li><a href="mirroring.html#_setting_up_mirroring">setting up mirroring</a>
+<ul>
+<li><a href="mirrcautions.html">IMPORTANT cautions</a> (mirrcautions)</li>
+<li><a href="mirrsetup.html">setup and usage</a> (mirrsetup)
+<ul>
+<li><a href="mirrsetup.html#_server_level_setup">server level setup</a></li>
+<li><a href="mirrsetup.html#_repository_level_setup">repository level setup</a></li>
+</ul></li>
+<li><a href="mirrsync.html">commands to (re-)sync mirrors</a> (mirrsync)</li>
+</ul></li>
+<li><a href="mirroring.html#ad/m-dtls">details</a> (ad/m-dtls)
+<ul>
+<li><a href="mirrconf.html">the <code>conf/gitolite.conf</code> file</a> (mirrconf)</li>
+<li><a href="mirrredirect.html">redirecting pushes</a> (mirrredirect)</li>
+</ul></li>
+<li><a href="mirroring.html#_example_setups">example setups</a>
+<ul>
+<li><a href="mirrnonauto.html">non-autonomous</a> (mirrnonauto)</li>
+<li><a href="mirrnonautolocal.html">non-autonomous with local repos</a> (mirrnonautolocal)</li>
+<li><a href="mirrsemiauto.html">semi-autonomous</a> (mirrsemiauto)</li>
+<li><a href="mirrauto.html">autonomous</a> (mirrauto)</li>
+</ul></li>
+<li><a href="mirrdisc.html">discussion</a> (mirrdisc)
+<ul>
+<li><a href="mirrdisc.html#_problems_with_the_old_mirroring_model">problems with the old mirroring model</a></li>
+<li><a href="mirrdisc.html#_the_new_mirroring_model">the new mirroring model</a></li>
+</ul></li>
+<li><a href="mirroring.html#_appendices">appendices</a>
+<ul>
+<li><a href="mirrcron.html">appendix A: example cronjob based mirroring</a> (mirrcron)</li>
+<li><a href="mirrparanoia.html">appendix B: efficiency versus paranoia</a> (mirrparanoia)</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<hr />
+
+<p><a name="mob-branches"></a></p>
+
+<h3>mob-branches</h3>
+
+<ul>
+<li><a href="mob.html">mob branches in gitolite</a> (mob)</li>
+</ul>
+
+<hr />
+
+<p><a name="nagp"></a></p>
+
+<h3>nagp</h3>
+
+<ul>
+<li><a href="nagp.html">...not a gitolite problem!</a> (nagp)
+<ul>
+<li><a href="nagp.html#_ssh">ssh</a></li>
+<li><a href="nagp.html#_git">git</a></li>
+<li><a href="nagp.html#_windows">windows</a></li>
+<li><a href="nagp.html#_apple">apple</a></li>
+<li><a href="nagp.html#_just_say_NO_">just say NO!</a>
+<ul>
+<li><a href="nagp.html#_behind_my_back">behind my back</a></li>
+</ul></li>
+<li><a href="nagp.html#_that_s_outrageous">that's outrageous</a></li>
+</ul></li>
+</ul>
+
+<hr />
+
+<p><a name="packaging"></a></p>
+
+<h3>packaging</h3>
+
+<ul>
+<li><a href="packaging.html">packaging gitolite</a> (packaging)</li>
+</ul>
+
+<hr />
+
+<p><a name="progit-article"></a></p>
+
+<h3>progit-article</h3>
+
+<ul>
+<li><a href="progit.html">(master copy of progit chapter on gitolite)</a> (progit)
+<ul>
+<li><a href="progit.html#_Gitolite_">Gitolite ##</a>
+<ul>
+<li><a href="progit.html#_Installing_">Installing ###</a></li>
+<li><a href="progit.html#_Customising_the_Install_">Customising the Install ###</a></li>
+<li><a href="progit.html#_Config_File_and_Access_Control_Rules_">Config File and Access Control Rules ###</a></li>
+<li><a href="progit.html#_Advanced_Access_Control_with_deny_rules_">Advanced Access Control with "deny" rules ###</a></li>
+<li><a href="progit.html#_Restricting_pushes_by_files_changed_">Restricting pushes by files changed ###</a></li>
+<li><a href="progit.html#_Personal_Branches_">Personal Branches ###</a></li>
+<li><a href="progit.html#_Wildcard_repositories_">"Wildcard" repositories ###</a></li>
+<li><a href="progit.html#_Other_Features_">Other Features ###</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<hr />
+
+<p><a name="report-output"></a></p>
+
+<h3>report-output</h3>
+
+<ul>
+<li><a href="info_expand.html">output of the "info" and "expand" commands</a> (info_expand)
+<ul>
+<li><a href="info_expand.html#info">the "info" command</a> (info)
+<ul>
+<li><a href="info_expand.html#_interpreting_the_output">interpreting the output</a></li>
+<li><a href="info_expand.html#limitoutput">using patterns to limit output</a> (limitoutput)</li>
+<li><a href="info_expand.html#openssh5.6">side note: openssh 5.6</a> (openssh5.6)</li>
+</ul></li>
+<li><a href="info_expand.html#expand">the "expand" command</a> (expand)</li>
+</ul></li>
+</ul>
+
+<hr />
+
+<p><a name="ssh-troubleshooting"></a></p>
+
+<h3>ssh-troubleshooting</h3>
+
+<ul>
+<li><a href="sts.html">ssh troubleshooting</a> (sts)
+<ul>
+<li><a href="sts.html#_IMPORTANT_READ_THIS_FIRST">IMPORTANT -- READ THIS FIRST</a>
+<ul>
+<li><a href="sts.html#_caveats">caveats</a></li>
+<li><a href="sts.html#_naming_conventions_used">naming conventions used</a></li>
+<li><a href="sts.html#_taking_stock_relevant_files_and_directories">taking stock -- relevant files and directories</a></li>
+<li><a href="sts.html#_normal_gitolite_key_handling">normal gitolite key handling</a></li>
+</ul></li>
+<li><a href="sts.html#_Other_resources_">(Other resources)</a></li>
+<li><a href="sts.html#_common_ssh_problems">common ssh problems</a></li>
+<li><a href="sts.html#_step_by_step">step by step</a></li>
+<li><a href="sts.html#_random_tips_tricks_and_notes">random tips, tricks, and notes</a>
+<ul>
+<li><a href="sts.html#_giving_shell_access_to_gitolite_users">giving shell access to gitolite users</a></li>
+<li><a href="sts.html#_losing_your_admin_key">losing your admin key</a></li>
+<li><a href="sts.html#_simulating_ssh_copy_id">simulating ssh-copy-id</a></li>
+<li><a href="sts.html#_problems_with_using_non_openssh_public_keys">problems with using non-openssh public keys</a></li>
+<li><a href="sts.html#_windows_issues">windows issues</a></li>
+</ul></li>
+<li><a href="sts.html#_appendix_1_ssh_daemon_asks_for_a_password">appendix 1: ssh daemon asks for a password</a></li>
+<li><a href="sts.html#_appendix_2_which_key_is_which_running_sshkeys_lint">appendix 2: which key is which -- running sshkeys-lint</a>
+<ul>
+<li><a href="sts.html#_typical_cause_s_">typical cause(s)</a></li>
+</ul></li>
+<li><a href="sts.html#_appendix_3_ssh_client_may_not_be_offering_the_right_key">appendix 3: ssh client may not be offering the right key</a></li>
+<li><a href="sshhostaliases.html">appendix 4: host aliases</a> (sshhostaliases)</li>
+<li><a href="sts.html#_appendix_5_why_bypassing_gitolite_causes_a_problem">appendix 5: why bypassing gitolite causes a problem</a></li>
+</ul></li>
+</ul>
+
+<hr />
+
+<p><a name="tips-notes"></a></p>
+
+<h3>tips-notes</h3>
+
+<ul>
+<li><a href="tips.html">assorted tips and notes</a> (tips)
+<ul>
+<li><a href="tips.html#_common_errors_and_mistakes">common errors and mistakes</a></li>
+<li><a href="tips.html#_other_errors_warnings_notes_">other errors, warnings, notes...</a>
+<ul>
+<li><a href="tips.html#_cloning_an_empty_repo">cloning an empty repo</a></li>
+<li><a href="tips.html#_all_syntax_for_repos"><code>@all</code> syntax for repos</a></li>
+</ul></li>
+<li><a href="tips.html#_features">features</a>
+<ul>
+<li><a href="tips.html#_syntax_and_normal_usage">syntax and normal usage</a>
+<ul>
+<li><a href="tips.html#multikey">one user, many keys</a> (multikey)
+<ul>
+<li><a href="oldmultikeys.html">old style multi keys</a> (oldmultikeys)</li>
+</ul></li>
+</ul></li>
+<li><a href="_tipssec.html">security, access control, and auditing</a>
+<ul>
+<li><a href="_tipssec.html#2levels">two levels of access rights checking</a> (2levels)</li>
+<li><a href="_tipssec.html#_better_logging">better logging</a></li>
+<li><a href="_tipssec.html#_delegating_parts_of_the_config_file">delegating parts of the config file</a></li>
+</ul></li>
+<li><a href="_tnconv.html">convenience features</a>
+<ul>
+<li><a href="_tnconv.html#_what_repos_do_I_have_access_to_">what repos do I have access to?</a></li>
+<li><a href="_tnconv.html#_support_for_git_installed_outside_default_PATH">support for git installed outside default PATH</a></li>
+<li><a href="_tnconv.html#pers">"personal" branches</a> (pers)</li>
+<li><a href="_tnconv.html#_custom_hooks_and_custom_git_config">custom hooks and custom git config</a></li>
+<li><a href="_tnconv.html#_bypassing_gitolite">bypassing gitolite</a></li>
+<li><a href="adminpush.html">gl-admin-push: bypassing gitolite for the gitolite-admin repo</a> (adminpush)</li>
+<li><a href="_tnconv.html#disable">disabling write access to take backups</a> (disable)</li>
+</ul></li>
+<li><a href="tips.html#_INconvenience_features">INconvenience features</a>
+<ul>
+<li><a href="tips.html#repodel">deleting a repo</a> (repodel)</li>
+<li><a href="tips.html#_renaming_a_repo">renaming a repo</a></li>
+</ul></li>
+<li><a href="tips.html#_helping_with_gitweb">helping with gitweb</a>
+<ul>
+<li><a href="tips.html#gitwebauth">easier to link gitweb authorisation with gitolite</a> (gitwebauth)</li>
+<li><a href="tips.html#umask">umask setting</a> (umask)</li>
+</ul></li>
+<li><a href="tips.html#_advanced_features">advanced features</a></li>
+<li><a href="tips.html#_odds_and_ends">odds and ends</a>
+<ul>
+<li><a href="tips.html#_poking_the_admin_repo_to_force_a_compile">"poking" the admin repo to force a compile</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<hr />
+
+<p><a name="user"></a></p>
+
+<h3>user</h3>
+
+<ul>
+<li><a href="user.html">what users (not admins) need to know about gitolite</a> (user)
+<ul>
+<li><a href="user.html#_accessing_gitolite">accessing gitolite</a></li>
+<li><a href="user.html#_always_available_commands">always available commands</a></li>
+<li><a href="user.html#_digression_two_kinds_of_repos">digression: two kinds of repos</a></li>
+<li><a href="user.html#_commands_only_available_with_wildrepos_on">commands only available with "wildrepos" on</a>
+<ul>
+<li><a href="user.html#_listing_repos_you_created">listing repos you created</a></li>
+<li><a href="user.html#_set_get_additional_permissions_for_repos_you_created">set/get additional permissions for repos you created</a></li>
+<li><a href="user.html#setdesc">adding a description to repos you created</a> (setdesc)</li>
+</ul></li>
+<li><a href="user.html#_site_local_commands">"site-local" commands</a></li>
+</ul></li>
+</ul>
+
+<hr />
+
+<p><a name="virtualrefs-and-scoring"></a></p>
+
+<h3>virtualrefs-and-scoring</h3>
+
+<ul>
+<li><a href="virtualrefs-and-scoring.html#_virtual_refs_and_scoring">virtual refs and scoring</a>
+<ul>
+<li><a href="virtualrefs-and-scoring.html#_real_refs_virtual_refs_and_reftypes">real refs, virtual refs, and reftypes</a>
+<ul>
+<li><a href="virtualrefs-and-scoring.html#_side_notes">side notes</a>
+<ul>
+<li><a href="virtualrefs-and-scoring.html#_who_needs_this_">who needs this?</a></li>
+<li><a href="virtualrefs-and-scoring.html#_number_of_refs_returned">number of refs returned</a></li>
+</ul></li>
+<li><a href="virtualrefs-and-scoring.html#_installing_virtual_refs">installing virtual refs</a></li>
+<li><a href="virtualrefs-and-scoring.html#_adding_your_own_virtual_refs">adding your own virtual refs</a></li>
+<li><a href="virtualrefs-and-scoring.html#_passing_simple_arguments_to_the_VR_script">passing simple arguments to the VR script</a></li>
+</ul></li>
+<li><a href="virtualrefs-and-scoring.html#_scoring">scoring</a></li>
+<li><a href="virtualrefs-and-scoring.html#_documentation_for_individual_virtual_refs">documentation for individual virtual refs</a>
+<ul>
+<li><a href="virtualrefs-and-scoring.html#_VR_NAME_"><code>VR_NAME</code></a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<hr />
+
+<p><a name="who-uses-it"></a></p>
+
+<h3>who-uses-it</h3>
+
+<ul>
+<li><a href="who.html">who uses gitolite</a> (who)</li>
+</ul>
+
+<hr />
+
+<p><a name="wildcard-repositories"></a></p>
+
+<h3>wildcard-repositories</h3>
+
+<ul>
+<li><a href="wild.html">repositories named with wildcards</a> (wild)
+<ul>
+<li><a href="wild.html#_quick_introduction">quick introduction</a></li>
+<li><a href="wild.html#_rc_file_setting_required">rc file setting required</a></li>
+<li><a href="wild.html#_examples_of_wildcard_repos">examples of wildcard repos</a>
+<ul>
+<li><a href="wild.html#_wildcard_repos_with_creator_name_in_them">wildcard repos with creator name in them</a></li>
+<li><a href="wild.html#_wildcard_repos_without_creator_name_in_them">wildcard repos without creator name in them</a></li>
+</ul></li>
+<li><a href="wildregex.html">valid regexes and how they are used</a> (wildregex)
+<ul>
+<li><a href="wildregex.html#_side_note_valid_regexes">side-note: valid regexes</a></li>
+<li><a href="wildregex.html#_side_note_line_anchored_regexes">side-note: line-anchored regexes</a>
+<ul>
+<li><a href="wildregex.html#_contrast_with_refexes">contrast with refexes</a></li>
+</ul></li>
+</ul></li>
+<li><a href="setperms.html">handing out rights to wildcard-matched repos</a> (setperms)
+<ul>
+<li><a href="setperms.html#_admin_adding_other_roles_than_READERS_and_WRITERS">(admin) adding other roles than READERS and WRITERS</a>
+<ul>
+<li><a href="setperms.html#rolenamewarn"><strong>IMPORTANT WARNING ABOUT THIS FEATURE</strong></a> (rolenamewarn)</li>
+</ul></li>
+</ul></li>
+<li><a href="wild.html#_setting_a_gitweb_description_for_a_wildcard_matched_repo">setting a gitweb description for a wildcard-matched repo</a></li>
+<li><a href="wild.html#_reporting">reporting</a></li>
+<li><a href="wild.html#_deleting_a_wild_repo">deleting a wild repo</a></li>
+<li><a href="_wildhow.html">how it actually works</a></li>
+</ul></li>
+</ul>
+
+<hr />
+
+<p><a name="gerrit"></a></p>
+
+<h3>gerrit</h3>
+
+<ul>
+<li><a href="gerrit.html">comparing gerrit and gitolite</a> (gerrit)</li>
+</ul>
+
+<hr />
+
+<p><a name="gitolite-tools"></a></p>
+
+<h3>gitolite-tools</h3>
+
+<ul>
+<li><a href="_gitolite_tools.html">gitolite-tools</a>
+<ul>
+<li><a href="_gitolite_tools.html#_Homepage">Homepage</a></li>
+</ul></li>
+</ul>
+
+<hr />
+
+<p><a name="mirroring-complex-example"></a></p>
+
+<h3>mirroring-complex-example</h3>
+
+<ul>
+<li><a href="mirr_complex_example.html">semi-autonomous mirroring setup example</a> (mirr<em>complex</em>example)
+<ul>
+<li><a href="mirr_complex_example.html#_overview_of_problem">overview of problem</a></li>
+<li><a href="mirr_complex_example.html#_overview_of_setup">overview of setup</a>
+<ul>
+<li><a href="mirr_complex_example.html#_gitolite_feature_recap">gitolite feature recap</a></li>
+</ul></li>
+<li><a href="mirr_complex_example.html#_pre_requisites">pre-requisites</a></li>
+<li><a href="mirr_complex_example.html#_quick_setup">quick setup</a></li>
+<li><a href="_mirrexsteps.html">step by step</a>
+<ul>
+<li><a href="_mirrexsteps.html#_1_gitolite_conf_">(1) <code>gitolite.conf</code></a></li>
+<li><a href="_mirrexsteps.html#_2_master_sam_conf_">(2) <code>master/sam.conf</code></a></li>
+<li><a href="_mirrexsteps.html#_3_host_admins_only_master_sam_p1_conf_">(3) host admins only -- <code>master/sam/p1.conf</code></a></li>
+<li><a href="_mirrexsteps.html#_4_mirrors_sam_p1_conf_">(4) <code>mirrors/sam/p1.conf</code></a></li>
+<li><a href="_mirrexsteps.html#_5_slave_frodo_sam_conf_">(5) <code>slave/frodo/sam.conf</code></a></li>
+<li><a href="_mirrexsteps.html#_6_manual_sync">(6) manual sync</a></li>
+</ul></li>
+<li><a href="mirr_complex_example.html#_next_steps">next steps</a></li>
+<li><a href="_mirrappA.html">appendix A: delegation helper files</a></li>
+</ul></li>
+</ul>
+
+<hr />
+
+<p><a name="monkeysphere"></a></p>
+
+<h3>monkeysphere</h3>
+
+<ul>
+<li><a href="monkeysphere.html">(contributed doc: integrating gitolite with monkeysphere)</a> (monkeysphere)</li>
+</ul>
+
+<hr />
+
+<p><a name="putty"></a></p>
+
+<h3>putty</h3>
+
+<ul>
+<li><a href="contrib_putty.html">putty and msysgit</a> (contrib_putty)
+<ul>
+<li><a href="contrib_putty.html#_msysgit_setup">msysgit setup</a></li>
+<li><a href="contrib_putty.html#_Going_back_to_OpenSSH">Going back to OpenSSH</a></li>
+<li><a href="contrib_putty.html#_Putty_keys">Putty keys</a>
+<ul>
+<li><a href="contrib_putty.html#_Creating_a_new_key">Creating a new key</a></li>
+<li><a href="contrib_putty.html#_Importing_an_existing_key">Importing an existing key</a></li>
+<li><a href="contrib_putty.html#_Loading_an_existing_key">Loading an existing key</a></li>
+<li><a href="contrib_putty.html#_Public_key">Public key</a></li>
+<li><a href="contrib_putty.html#_Putty_ageant">Putty ageant</a></li>
+</ul></li>
+<li><a href="contrib_putty.html#_Sessionless_or_raw_hostname_usage">Sessionless or raw hostname usage</a></li>
+<li><a href="contrib_putty.html#_Putty_sessions">Putty sessions</a></li>
+<li><a href="contrib_putty.html#_Host_key_authentication">Host key authentication</a></li>
+<li><a href="contrib_putty.html#_Debugging_multiple_putty_ageant_keys">Debugging multiple putty ageant keys</a></li>
+<li><a href="contrib_putty.html#_Setperms_and_other_commands">Setperms and other commands</a></li>
+<li><a href="contrib_putty.html#_About_this_document">About this document</a></li>
+</ul></li>
+</ul>
+
+<hr />
+
+<p><a name="hub"></a></p>
+
+<h3>hub</h3>
+
+<ul>
+<li><a href="hub.html">the 'hub' ADC</a> (hub)
+<ul>
+<li><a href="hub.html#_a_home_grown_hub_for_git_repos">a home grown 'hub' for git repos</a></li>
+<li><a href="hub.html#_general_syntax">general syntax</a>
+<ul>
+<li><a href="hub.html#_Bob_s_commands">Bob's commands</a></li>
+<li><a href="hub.html#_Alice_s_just_looking_commands">Alice's "just looking" commands</a></li>
+<li><a href="hub.html#_Alice_s_action_commands">Alice's "action" commands</a></li>
+</ul></li>
+<li><a href="hub.html#_what_next_">what next?</a></li>
+<li><a href="hub.html#_note_to_the_admin_configuration_variables">note to the admin: configuration variables</a></li>
+</ul></li>
+</ul>
+
+<hr />
+
+<p><a name="README-adc"></a></p>
+
+<h3>README-adc</h3>
+
+<ul>
+<li><a href="shipped_ADCs.html">brief descriptions of the shipped ADCs (admin-defined commands)</a> (shipped_ADCs)</li>
+</ul>
+
+<hr />
+
+<p><a name="repo-deletion"></a></p>
+
+<h3>repo-deletion</h3>
+
+<ul>
+<li><a href="wild_repodel.html">deleting repos safely</a> (wild_repodel)</li>
+</ul>
+
+<hr />
+
+<p><a name="sskm"></a></p>
+
+<h3>sskm</h3>
+
+<ul>
+<li><a href="sskm.html">changing keys -- self service key management</a> (sskm)
+<ul>
+<li><a href="sskm.html#_Important_">Important!</a>
+<ul>
+<li><a href="sskm.html#_Key_fingerprints">Key fingerprints</a></li>
+<li><a href="sskm.html#_Active_keys">Active keys</a></li>
+<li><a href="sskm.html#_Selecting_which_key_to_use">Selecting which key to use</a></li>
+<li><a href="sskm.html#_Public_vs_private_keys">Public vs. private keys</a></li>
+</ul></li>
+<li><a href="sskm.html#_Listing_your_existing_keys">Listing your existing keys</a></li>
+<li><a href="sskm.html#_Adding_or_Replacing_a_key">Adding or Replacing a key</a>
+<ul>
+<li><a href="sskm.html#_Step_1_Adding_the_Key">Step 1: Adding the Key</a></li>
+<li><a href="sskm.html#_Step_2_Confirming_the_addition">Step 2: Confirming the addition</a></li>
+<li><a href="sskm.html#_Optional_Undoing_a_mistaken_add_before_confirmation_">Optional: Undoing a mistaken add (before confirmation)</a></li>
+</ul></li>
+<li><a href="sskm.html#_Removing_a_key">Removing a key</a>
+<ul>
+<li><a href="sskm.html#_Step_1_Mark_the_key_for_deletion">Step 1: Mark the key for deletion</a></li>
+<li><a href="sskm.html#_Step_2_Confirming_the_deletion">Step 2: Confirming the deletion</a></li>
+<li><a href="sskm.html#_Optional_Undoing_a_mistaken_delete_before_confirmation_">Optional: Undoing a mistaken delete (before confirmation)</a></li>
+</ul></li>
+<li><a href="sskm.html#_important_notes_for_the_admin">important notes for the admin</a></li>
+</ul></li>
+</ul>
+
+<hr />
+
+<p><a name="password-access"></a></p>
+
+<h3>password-access</h3>
+
+<ul>
+<li><a href="password_access.html">password access to gitolite</a> (password_access)
+<ul>
+<li><a href="password_access.html#_problems">problems</a></li>
+<li><a href="password_access.html#_solution">solution</a></li>
+<li><a href="password_access.html#_some_hints_notes_and_caveats">some hints, notes and caveats</a></li>
+<li><a href="password_access.html#_what_the_2_scripts_actually_do">what the 2 scripts actually do</a></li>
+<li><a href="password_access.html#_setting_up_password_access">setting up password access</a></li>
+</ul></li>
+</ul>
+
+<hr />
+
+<p><a name="README-ldap"></a></p>
+
+<h3>README-ldap</h3>
+
+<ul>
+<li><a href="ldap_helpers.html">ldap helper programs</a> (ldap_helpers)</li>
+</ul>
+
+<hr />
+
+<p><a name="README-vim"></a></p>
+
+<h3>README-vim</h3>
+
+<ul>
+<li><a href="_vimsyntax.html">Vim Syntax Highlight</a></li>
+</ul>
+
+<hr />
+
+<p><a name="README-t"></a></p>
+
+<h3>README-t</h3>
+
+<ul>
+<li><a href="_t.html">notes on the testing setup</a>
+<ul>
+<li><a href="_t.html#_terminology">terminology</a></li>
+<li><a href="_t.html#_notes_and_background">notes and background</a></li>
+<li><a href="_t.html#_playing_with_gitolite">playing with gitolite</a></li>
+<li><a href="_t.html#_testing_gitolite">testing gitolite</a></li>
+<li><a href="_t.html#_instructions_for_adding_new_tests">instructions for adding new tests</a></li>
+</ul></li>
+</ul>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

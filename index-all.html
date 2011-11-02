@@ -1,0 +1,278 @@
+<head>
+<style>
+    body        { background: #fff; margin-left:  40px;   font-size:  0.9em;  font-family: sans-serif; max-width: 800px; }
+    h1          { background: #ffb; margin-left: -30px;   border-top:    5px  solid #ccc; }
+    h2          { background: #ffb; margin-left: -20px;   border-top:    3px  solid #ddd; }
+    h3          { background: #ffb; margin-left: -10px; }
+    h4          { background: #ffb; }
+    code        { font-size:    1.1em;  background:  #ddf; }
+    pre         { margin-left:  2em;    background:  #ddf; }
+    pre code    { font-size:    1.1em;  background:  #ddf; }
+</style>
+
+</head>
+
+<p style="text-align:center">
+    <a href="master-toc.html">master TOC</a>
+|
+    <a href="master-toc.html#index">chapter TOC</a>
+</p>
+
+<!-- file: index -->
+
+<h1>Hosting git repositories</h1>
+
+<p>Gitolite allows you to setup git hosting on a central server, with
+fine-grained access control and many (many!) more powerful features.</p>
+
+<p><a name="qi"></a></p>
+
+<h2>quick install</h2>
+
+<p>If you're comfortable with Unix and ssh, the following steps should work.</p>
+
+<ul>
+<li>create a user called <code>git</code>.  Login to this user.</li>
+<li>copy your ssh pubkey from your workstation.  Rename it to <code>YourName.pub</code>.</li>
+<li><p>now run these commands:</p>
+
+<pre><code>git clone git://github.com/sitaramc/gitolite
+gitolite/src/gl-system-install
+gl-setup ~/YourName.pub
+</code></pre></li>
+</ul>
+
+<p>You're done.</p>
+
+<p><strong>WARNING</strong>: do <strong>NOT</strong> add repos or users directly on the server!  You MUST
+manage the server by cloning the special 'gitolite-admin' repo on your
+workstation (<code>git clone git@server:gitolite-admin</code>), making changes, and
+pushing them.  Here's how to <a href="add.html" title="adding users and repos">add users and repos</a>.</p>
+
+<p><a name="rtfm"></a></p>
+
+<h2>what should you read?</h2>
+
+<p>The complete online documentation for gitolite is
+<a href="http://sitaramc.github.com/gitolite">here</a>.  There's a lot of it, so here're
+some reading suggestions.</p>
+
+<p>If you're a <strong>user</strong> (i.e., not a gitolite admin), you only need <a href="user.html" title="what users (not admins) need to know about gitolite">this</a>.</p>
+
+<p>Otherwise, the suggested reading order is this:</p>
+
+<ul>
+<li><strong>quick intro</strong>: this document, or at least the "<a href="index.html#gl_what" title="what is gitolite?">what is
+gitolite</a>" section just below this one.</li>
+<li><strong>installation</strong>: if the <a href="index.html#qi" title="quick install">quick install</a> above did not work for you,
+then read the <a href="install.html" title="gitolite installation">INSTALL</a> document.  The "<a href="install.html#insttrouble" title="if you run into trouble...">trouble</a>"
+section in it may be useful too.</li>
+<li><strong>basic</strong> administration tasks: <a href="add.html" title="adding users and repos">adding users and repos</a>.</li>
+</ul>
+
+<p>When you have to use more features, look in the master table of contents
+(there's a link to it at the top of <em>every</em> document), and use your browser's
+search function to search for stuff.</p>
+
+<h3>what do the other docs contain: <a href="other_docs.html" title="what do the other docs contain">Link</a></h3>
+
+<!-- file: other_docs -->
+
+<h3>what do the other docs contain</h3>
+
+<p>The master TOC (see link above) is really the only <em>comprehensive</em> list of
+what is there, but here's an attempt to give you an overview!</p>
+
+<ul>
+<li><p>understanding gitolite</p>
+
+<ul>
+<li>gitolite install and basic admin in <a href="pictures.html" title="gitolite in pictures">pictures</a></li>
+<li>gitolite.conf by <a href="conf_examples.html" title="gitolite.conf -- by example">example</a></li>
+<li>gitolite and <a href="gl_ssh.html" title="how gitolite uses ssh">ssh</a></li>
+</ul></li>
+<li><p>normal admin tasks done on the server</p>
+
+<ul>
+<li><a href="admin.html" title="administering and running gitolite">admin</a>: adding your own hooks, adding existing repos into gitolite, etc.</li>
+<li><a href="rc.html" title="configuring gitolite's advanced features -- the `.gitolite.rc` file">rc</a>: setting gitolite behaviour options (warning: some of the
+variables have a security impact if you're careless)</li>
+</ul></li>
+<li><p>normal admin tasks done by changing <a href="conf.html" title="the access control file `gitolite.conf`">gitolite.conf</a></p>
+
+<ul>
+<li>basic access control</li>
+<li>advanced access control</li>
+<li>extras: personal branches, gitweb/git-daemon access, git config settings</li>
+</ul></li>
+<li><p>advanced use (experts only; you can shoot yourself in the foot nicely!)</p>
+
+<ul>
+<li><a href="ADCs.html" title="admin defined commands">ADCs</a>: allowing users to run specific shell commands (but not give them a shell)</li>
+<li>(also, <a href="shipped_ADCs.html" title="brief descriptions of the shipped ADCs (admin-defined commands)">sample ADCs</a> that come with gitolite)</li>
+<li>letting <a href="wild.html" title="repositories named with wildcards">users create</a> their own repos and assign permissions</li>
+<li><a href="deleg.html" title="delegating access control responsibilities">delegating</a> admin rights</li>
+<li><a href="mirroring.html" title="mirroring gitolite servers">mirroring</a></li>
+</ul></li>
+<li><p>special installation scenarios:</p>
+
+<ul>
+<li>using smart-<a href="http.html" title="how to setup gitolite to use smart http mode">http</a> instead of ssh</li>
+<li><a href="migr.html" title="migrating from gitosis to gitolite">migrating</a> from gitolite</li>
+</ul></li>
+</ul>
+
+<p>Finally, <a href="tips.html" title="assorted tips and notes">tips</a> has a lot of useful information.</p>
+
+<!-- file: index -->
+
+<p><a name="gl_what"></a></p>
+
+<h2>what is gitolite?</h2>
+
+<p>Gitolite is an access control layer on top of git.  Here's an "executive
+summary":</p>
+
+<ul>
+<li>use a single unix user ("real" user) on the server</li>
+<li>provide access to many gitolite users
+<ul>
+<li>they are not "real" users</li>
+<li>they do not get shell access</li>
+</ul></li>
+<li>control access to many git repositories
+<ul>
+<li>read access controlled at the repo level</li>
+<li>write access controlled at the branch/tag/file/directory level,
+including who can rewind, create, and delete branches/tags</li>
+</ul></li>
+<li>can be installed without root access, assuming git and perl are already
+installed</li>
+<li>authentication is most commonly done using sshd, but you can also use
+httpd if you prefer (this may require root access).</li>
+<li>several other neat features, too many to list here</li>
+</ul>
+
+<h2>why is gitolite needed?: <a href="_need.html" title="why is gitolite needed?">Link</a></h2>
+
+<!-- file: _need -->
+
+<h2>why is gitolite needed?</h2>
+
+<p>Gitolite is separate from git, and needs to be installed and configured.  So...
+why do we bother?</p>
+
+<p>Gitolite is useful in any server that is going to host multiple git
+repositories, each with many developers, where some sort of access control is
+required.</p>
+
+<p>In theory, this can be done with plain old Unix permissions: each user is a
+member of one or more groups, each group "owns" one or more repositories, and
+using unix permissions (especially the setgid bit -- <code>chmod g+s</code>) you can
+allow/disallow users access to repos.</p>
+
+<p>But there are several disadvantages here:</p>
+
+<ul>
+<li>every user needs a userid and password on the server.  This is usually a
+killer, especially in tightly controlled environments</li>
+<li>adding/removing access rights involves complex <code>usermod -G ...</code> mumblings
+which most admins would rather not deal with</li>
+<li><em>viewing</em> (aka auditing) the current set of permissions requires running
+multiple commands to list directories and their permissions/ownerships,
+users and their group memberships, and then correlating all these manually</li>
+<li>auditing historical permissions or permission changes is pretty much
+impossible without extraneous tools</li>
+<li>errors or omissions in setting the permissions exactly can cause problems
+of either kind: false accepts or false rejects</li>
+<li>without going into ACLs it is not possible to give some people read-only
+access while some others have read-write access to a repo (unless you make
+it world-readable).  Group access just doesn't have enough granularity</li>
+<li>it is absolutely impossible to restrict pushing by branch name or tag
+name.</li>
+</ul>
+
+<p>Gitolite does away with all this:</p>
+
+<ul>
+<li>it uses ssh magic to remove the need to give actual unix userids to
+developers</li>
+<li>it uses a simple but powerful config file format to specify access rights</li>
+<li>access control changes are affected by modifying this file, adding or
+removing user's public keys, and "compiling" the configuration</li>
+<li>this also makes auditing trivial -- all the data is in one place, and
+changes to the configuration are also logged, so you can audit them.</li>
+<li>finally, the config file allows distinguishing between read-only and
+read-write access, not only at the repository level, but at the branch
+level within repositories.</li>
+</ul>
+
+<!-- file: index -->
+
+<p><a name="_why_did_I_write_it_"></a></p>
+
+<h2>why did I write it?</h2>
+
+<p>The most important feature I needed was <strong>per-branch permissions</strong>.  This is
+pretty much mandatory in a corporate environment, and is almost the single
+reason I started <em>thinking</em> about writing gitolite.</p>
+
+<p>It's not just "read-only" versus "read-write".  Rewinding a branch (aka "non
+fast forward push") is potentially dangerous, but sometimes needed.  So is
+deleting a branch (which is really just an extreme form of rewind).  I needed
+something in between allowing anyone to do it (the default) and disabling it
+completely (<code>receive.denyNonFastForwards</code> or <code>receive.denyDeletes</code>).</p>
+
+<h3>some more features: <a href="_morefeatures.html" title="some more features">Link</a></h3>
+
+<!-- file: _morefeatures -->
+
+<h3>some more features</h3>
+
+<p>Here're some more features.</p>
+
+<ul>
+<li>simple, yet powerful, config file syntax, including specifying
+gitweb/daemon access.  You'll need this power if you manage lots of
+users+repos+combinations of access</li>
+<li>apart from branch-name based restrictions, you can also restrict by
+file/dir name changed (i.e., output of <code>git diff --name-only</code>)</li>
+<li>if your requirements are still too complex, you can split up the config
+file and delegate authority over parts of it</li>
+<li>easy to specify gitweb owner, description and gitweb/daemon access</li>
+<li>easy to sync gitweb (http) authorisation with gitolite's access config</li>
+<li>comprehensive logging [aka: management does not think "blame" is just a
+synonym for "annotate" :-)]</li>
+<li>"personal namespace" prefix for each dev</li>
+<li>migration guide and simple converter for gitosis conf file</li>
+<li>"exclude" (or "deny") rights at the branch/tag level</li>
+<li>specify repos using patterns (patterns may include creator's name)</li>
+<li>define powerful operations on the server side, even github-like forking</li>
+</ul>
+
+<!-- file: index -->
+
+<p><a name="_security"></a></p>
+
+<h2>security</h2>
+
+<p>Due to the environment in which this was created and the need it fills, I
+consider this a "security" program, albeit a very modest one.</p>
+
+<p>The first person to find a hole that allows a non-admin user to push a change
+to a repository that he is not allowed to, will get a modest reward of 5000
+INR.  The hole should not require enabling any of the options listed as having
+a <a href="rc.html#rcsecurity" title="variables with a security impact">security impact</a> in the rc file, nor obvious things like setting
+the umask too loose, etc.</p>
+
+<p><a name="_contact_and_license"></a></p>
+
+<h2>contact and license</h2>
+
+<p>Gitolite is released under GPL v2.  See COPYING for details.</p>
+
+<ul>
+<li>author: sitaramc@gmail.com, sitaram@atc.tcs.com</li>
+<li>mailing list: gitolite@googlegroups.com</li>
+<li>list subscribe address : gitolite+subscribe@googlegroups.com</li>
+</ul>

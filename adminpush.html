@@ -1,0 +1,53 @@
+<head>
+<style>
+    body        { background: #fff; margin-left:  40px;   font-size:  0.9em;  font-family: sans-serif; max-width: 800px; }
+    h1          { background: #ffb; margin-left: -30px;   border-top:    5px  solid #ccc; }
+    h2          { background: #ffb; margin-left: -20px;   border-top:    3px  solid #ddd; }
+    h3          { background: #ffb; margin-left: -10px; }
+    h4          { background: #ffb; }
+    code        { font-size:    1.1em;  background:  #ddf; }
+    pre         { margin-left:  2em;    background:  #ddf; }
+    pre code    { font-size:    1.1em;  background:  #ddf; }
+</style>
+
+</head>
+
+<p style="text-align:center">
+    <a href="master-toc.html">master TOC</a>
+|
+    <a href="master-toc.html#tips-notes">chapter TOC</a>
+</p>
+
+
+<h4>gl-admin-push: bypassing gitolite for the gitolite-admin repo</h4>
+
+<p>The method described in the previous section (setting <code>GL_BYPASS_UPDATE_HOOK</code>)
+will work for all the repos managed by gitolite, <strong>except</strong> for the special
+<code>gitolite-admin</code> repo.  For that you will need some extra magic, because there
+is also a <code>post-update</code> hook that runs here, and this needs additional
+information which is NOT available if you bypass gitolite.</p>
+
+<p>Use the <code>gl-admin-push</code> program to make changes to the admin repo directly on
+the server.  Here's how:</p>
+
+<ul>
+<li><p>clone the repo to some safe location and cd to it:</p>
+
+<pre><code>cd /tmp
+git clone ~/repositories/gitolite-admin.git
+cd gitolite-admin
+</code></pre></li>
+<li><p>make whatever changes you want to that clone and commit.  You can add new
+keys, change the conf file, or anything at all that needs fixing up.  You
+can even reset to an older commit (rewind) if that is the simplest way to
+fix up some config problem that may have lost you your access.</p></li>
+<li><p>when done, instead of <code>git push &lt;push arguments&gt;</code>, use this program
+instead, like so:</p>
+
+<pre><code>gl-admin-push &lt;push arguments&gt;
+</code></pre></li>
+</ul>
+
+<p>Note that this method will work for <em>any</em> repo, not just the special admin
+repo.</p>
+
