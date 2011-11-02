@@ -13,22 +13,7 @@ doc/gitolite.conf.mkd.
 This is advanced magic.  If you need every step explained or written down with
 exact commands, this is not for you; sorry.
 
-In this document:
-
-  * <a href="#_real_refs_virtual_refs_and_reftypes">real refs, virtual refs, and reftypes</a>
-      * <a href="#_side_notes">side notes</a>
-          * <a href="#_who_needs_this_">who needs this?</a>
-          * <a href="#_number_of_refs_returned">number of refs returned</a>
-      * <a href="#_installing_virtual_refs">installing virtual refs</a>
-      * <a href="#_adding_your_own_virtual_refs">adding your own virtual refs</a>
-      * <a href="#_passing_simple_arguments_to_the_VR_script">passing simple arguments to the VR script</a>
-  * <a href="#_scoring">scoring</a>
-  * <a href="#_documentation_for_individual_virtual_refs">documentation for individual virtual refs</a>
-      * <a href="#_VR_NAME_">`VR_NAME`</a>
-
-<a name="_real_refs_virtual_refs_and_reftypes"></a>
-
-### real refs, virtual refs, and reftypes
+## real refs, virtual refs, and reftypes
 
 So far, you've seen access control that works based on what branch or tag
 you're trying to push.  This is called a "ref", in git terms, and looks like
@@ -65,13 +50,9 @@ Only NAME, SIZE, and COUNT have been implemented.  You can implement and
 maintain your own virtual refs without touching the main gitolite code base,
 so if you end up implementing one of the others please contribute.
 
-<a name="_side_notes"></a>
+### side notes
 
-#### side notes
-
-<a name="_who_needs_this_"></a>
-
-##### who needs this?
+#### who needs this?
 
 Have you ever had a junior dev make a sweeping whitespace or cr/lf change and
 commit the whole darn thing?  Or added a large "core" file by mistake?
@@ -83,9 +64,7 @@ before merging them into one of the main branches.
 However, that creates work for the senior devs, plus they might miss something
 if they're checking manually.  Automation is good...
 
-<a name="_number_of_refs_returned"></a>
-
-##### number of refs returned
+#### number of refs returned
 
 Notice above that NAME (and TYPE, if someone implements it) will usually
 return more than one "ref".  After all, you do change more than one file in a
@@ -93,9 +72,7 @@ push.  However, SIZE (size of largest new file added), COUNT, and IP return
 only one value -- there can only be one "answer" to the question they're
 asking.
 
-<a name="_installing_virtual_refs"></a>
-
-#### installing virtual refs
+### installing virtual refs
 
 Virtual refs do not get installed automatically.  You have to install them
 yourself.  The ones that ship with gitolite can be found in `contrib/vr/`; you
@@ -104,9 +81,7 @@ place them directly on the server after a normal gitolite install.  It doesn't
 matter how you do it; in the end they need to be in the same directory as
 `gl-auth-command` and all the rest of the scripts.
 
-<a name="_adding_your_own_virtual_refs"></a>
-
-#### adding your own virtual refs
+### adding your own virtual refs
 
 All virtual refs start with `VR_`.  Adding a new virtual ref called `VR_FOO`
 consists of creating a script (in any language) called `VR_FOO` that takes 5
@@ -114,9 +89,7 @@ arguments and prints a "match type" and a newline separate list of "refs".
 See `VR_COUNT` for details; that script implements the COUNT virtual ref and
 also serves as documentation on writing VR scripts.
 
-<a name="_passing_simple_arguments_to_the_VR_script"></a>
-
-#### passing simple arguments to the VR script
+### passing simple arguments to the VR script
 
 If you think about it, a rule like 
 
@@ -127,8 +100,8 @@ can have several interpretations.  The simplest (and the one we use) is: "does
 not let an intern push the commit chain".
 
 However, this means such an intern can *never* create a personal branch based
-off of some existing branch (as described [here][pb]), which sorta defeats the
-purpose of having personal branches, no?
+off of some existing branch (as described [here][pers]), which sorta defeats
+the purpose of having personal branches, no?
 
 If all he did was `git checkout -b priv/ashok/my-master master; git push
 origin HEAD`, is that really the same as touching the Makefile?  What if we're
@@ -195,11 +168,7 @@ count script.
 
 Mnemonic: `VR_FOO-bar-baz` is like `VR_FOO -bar -baz`.
 
-[pb]: http://sitaramc.github.com/gitolite/doc/3-faq-tips-etc.html#_personal_branches
-
-<a name="_scoring"></a>
-
-### scoring
+## scoring
 
 Restrictions based on virtual reftypes are totally orthogonal to and
 independent from branch/tag name ("real" ref) restrictions.  To succeed, the
@@ -243,9 +212,7 @@ This has the following semantics:
       * when alice pushes a branch other than master (line 2), she can make
         changes to file "foo" (line 3) even though line 3 returns a 0 score
 
-<a name="_documentation_for_individual_virtual_refs"></a>
-
-### documentation for individual virtual refs
+## documentation for individual virtual refs
 
 Documentation for individual virtual refs can be found in the corresponding
 source file.  Documentation on how to create your own virtual refs can be
@@ -256,9 +223,7 @@ which the delegation feature depends), so it is documented here.
 
 This section also serves as further detail on how virtual ref matching works.
 
-<a name="_VR_NAME_"></a>
-
-#### `VR_NAME`
+### `VR_NAME`
 
 The `VR_NAME` virtual ref returns the output of the following command:
 
