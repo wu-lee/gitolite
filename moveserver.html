@@ -59,7 +59,10 @@ directory of each repo.</p>
 rsync -a olduser@oldhost:repositories .
 mv repositories/gitolite-admin.git $HOME/old-gitolite-admin.git
 find repositories -name gitolite-hooked | xargs rm
-</code></pre></li>
+</code></pre>
+
+<p>Don't forget to chown repositories if git's UID changed.  Gitolite expects
+the hosting user to own all the files and directories it manages.</p></li>
 <li><p>(workstation, new server) <strong>install</strong> gitolite normally on your new
 server.  Use whatever install method suits you, but you must use the
 <strong>same</strong> name for the admin ("YourName" in the install instructions).  You
