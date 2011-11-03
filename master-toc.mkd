@@ -1,3 +1,4 @@
+# gitolite documentation -- master TOC
 
 ----
 
