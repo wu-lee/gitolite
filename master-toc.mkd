@@ -93,8 +93,8 @@
           * [how](ldap.html#_ldaphow)
       * [implementation notes](bc.html#_implementation_notes)
       * [config listings](bc.html#_config_listings)
-          * [compiled config with big-config disabled](_bigno.html)
-          * [compiled config with big-config enabled](_bigyes.html)
+          * [compiled config with big-config disabled](-bigno.html) <!-- (-bigno) -->
+          * [compiled config with big-config enabled](-bigyes.html) <!-- (-bigyes) -->
 
 ----
 
@@ -178,11 +178,11 @@
               * ["deny" rules for the entire repo](aac.html#_deny_rules_for_the_entire_repo)
           * [creating and deleting branches](aac.html#rwcd) <!-- (rwcd) -->
       * [summary: permissions](conf.html#_summary_permissions)
-      * [other tips](_confother.html)
-          * [personal branches](_confother.html#_personal_branches)
-          * [rule accumulation](_confother.html#ruleaccum) <!-- (ruleaccum) -->
-          * [specifying gitweb and daemon access](_confother.html#gwd) <!-- (gwd) -->
-          * [repo specific `git config` commands](_confother.html#rsgc) <!-- (rsgc) -->
+      * [other tips](-confother.html) <!-- (-confother) -->
+          * [personal branches](-confother.html#_personal_branches)
+          * [rule accumulation](-confother.html#ruleaccum) <!-- (ruleaccum) -->
+          * [specifying gitweb and daemon access](-confother.html#gwd) <!-- (gwd) -->
+          * [repo specific `git config` commands](-confother.html#rsgc) <!-- (rsgc) -->
 
 ----
 
@@ -262,9 +262,9 @@
       * [what should you read?](index.html#rtfm) <!-- (rtfm) -->
           * [what do the other docs contain](other_docs.html) <!-- (other_docs) -->
       * [what is gitolite?](index.html#gl_what) <!-- (gl_what) -->
-      * [why is gitolite needed?](_need.html)
+      * [why is gitolite needed?](-need.html) <!-- (-need) -->
       * [why did I write it?](index.html#_why_did_I_write_it_)
-          * [some more features](_morefeatures.html)
+          * [some more features](-morefeatures.html) <!-- (-morefeatures) -->
       * [security](index.html#_security)
       * [contact and license](index.html#_contact_and_license)
 
@@ -289,12 +289,12 @@
               * [client/workstation](instrequire.html#_client_workstation)
               * [server](instrequire.html#_server)
               * [technical skills](instrequire.html#_technical_skills)
-          * [getting the gitolite software](_getgl.html)
-              * [getting a tar file from a clone](_getgl.html#_getting_a_tar_file_from_a_clone)
+          * [getting the gitolite software](-getgl.html) <!-- (-getgl) -->
+              * [getting a tar file from a clone](-getgl.html#_getting_a_tar_file_from_a_clone)
       * [appendixes](install.html#_instappendices)
           * [appendix a: PATH issues for gl-setup](install.html#instpath) <!-- (instpath) -->
           * [appendix b: cleaning out a botched install](install.html#clean) <!-- (clean) -->
-          * [appendix c: uninstalling gitolite completely](_uninstall.html)
+          * [appendix c: uninstalling gitolite completely](-uninstall.html) <!-- (-uninstall) -->
 
 ----
 
@@ -439,18 +439,18 @@
           * [syntax and normal usage](tips.html#_syntax_and_normal_usage)
               * [one user, many keys](tips.html#multikey) <!-- (multikey) -->
                   * [old style multi keys](oldmultikeys.html) <!-- (oldmultikeys) -->
-          * [security, access control, and auditing](_tipssec.html)
-              * [two levels of access rights checking](_tipssec.html#2levels) <!-- (2levels) -->
-              * [better logging](_tipssec.html#_better_logging)
-              * [delegating parts of the config file](_tipssec.html#_delegating_parts_of_the_config_file)
-          * [convenience features](_tnconv.html)
-              * [what repos do I have access to?](_tnconv.html#_what_repos_do_I_have_access_to_)
-              * [support for git installed outside default PATH](_tnconv.html#_support_for_git_installed_outside_default_PATH)
-              * ["personal" branches](_tnconv.html#pers) <!-- (pers) -->
-              * [custom hooks and custom git config](_tnconv.html#_custom_hooks_and_custom_git_config)
-              * [bypassing gitolite](_tnconv.html#_bypassing_gitolite)
+          * [security, access control, and auditing](-tipssec.html) <!-- (-tipssec) -->
+              * [two levels of access rights checking](-tipssec.html#2levels) <!-- (2levels) -->
+              * [better logging](-tipssec.html#_better_logging)
+              * [delegating parts of the config file](-tipssec.html#_delegating_parts_of_the_config_file)
+          * [convenience features](-tnconv.html) <!-- (-tnconv) -->
+              * [what repos do I have access to?](-tnconv.html#_what_repos_do_I_have_access_to_)
+              * [support for git installed outside default PATH](-tnconv.html#_support_for_git_installed_outside_default_PATH)
+              * ["personal" branches](-tnconv.html#pers) <!-- (pers) -->
+              * [custom hooks and custom git config](-tnconv.html#_custom_hooks_and_custom_git_config)
+              * [bypassing gitolite](-tnconv.html#_bypassing_gitolite)
               * [gl-admin-push: bypassing gitolite for the gitolite-admin repo](adminpush.html) <!-- (adminpush) -->
-              * [disabling write access to take backups](_tnconv.html#disable) <!-- (disable) -->
+              * [disabling write access to take backups](-tnconv.html#disable) <!-- (disable) -->
           * [INconvenience features](tips.html#_INconvenience_features)
               * [deleting a repo](tips.html#repodel) <!-- (repodel) -->
               * [renaming a repo](tips.html#_renaming_a_repo)
@@ -525,7 +525,7 @@
       * [setting a gitweb description for a wildcard-matched repo](wild.html#_setting_a_gitweb_description_for_a_wildcard_matched_repo)
       * [reporting](wild.html#_reporting)
       * [deleting a wild repo](wild.html#_deleting_a_wild_repo)
-      * [how it actually works](_wildhow.html)
+      * [how it actually works](-wildhow.html) <!-- (-wildhow) -->
 
 ----
 
@@ -541,8 +541,8 @@
 
 ### gitolite-tools
 
-  * [gitolite-tools](_gitolite_tools.html)
-      * [Homepage](_gitolite_tools.html#_Homepage)
+  * [gitolite-tools](-gitolite_tools.html) <!-- (-gitolite_tools) -->
+      * [Homepage](-gitolite_tools.html#_Homepage)
 
 ----
 
@@ -556,15 +556,15 @@
           * [gitolite feature recap](mirr_complex_example.html#_gitolite_feature_recap)
       * [pre-requisites](mirr_complex_example.html#_pre_requisites)
       * [quick setup](mirr_complex_example.html#_quick_setup)
-      * [step by step](_mirrexsteps.html)
-          * [(1) `gitolite.conf`](_mirrexsteps.html#_1_gitolite_conf_)
-          * [(2) `master/sam.conf`](_mirrexsteps.html#_2_master_sam_conf_)
-          * [(3) host admins only -- `master/sam/p1.conf`](_mirrexsteps.html#_3_host_admins_only_master_sam_p1_conf_)
-          * [(4) `mirrors/sam/p1.conf`](_mirrexsteps.html#_4_mirrors_sam_p1_conf_)
-          * [(5) `slave/frodo/sam.conf`](_mirrexsteps.html#_5_slave_frodo_sam_conf_)
-          * [(6) manual sync](_mirrexsteps.html#_6_manual_sync)
+      * [step by step](-mirrexsteps.html) <!-- (-mirrexsteps) -->
+          * [(1) `gitolite.conf`](-mirrexsteps.html#_1_gitolite_conf_)
+          * [(2) `master/sam.conf`](-mirrexsteps.html#_2_master_sam_conf_)
+          * [(3) host admins only -- `master/sam/p1.conf`](-mirrexsteps.html#_3_host_admins_only_master_sam_p1_conf_)
+          * [(4) `mirrors/sam/p1.conf`](-mirrexsteps.html#_4_mirrors_sam_p1_conf_)
+          * [(5) `slave/frodo/sam.conf`](-mirrexsteps.html#_5_slave_frodo_sam_conf_)
+          * [(6) manual sync](-mirrexsteps.html#_6_manual_sync)
       * [next steps](mirr_complex_example.html#_next_steps)
-      * [appendix A: delegation helper files](_mirrappA.html)
+      * [appendix A: delegation helper files](-mirrappA.html) <!-- (-mirrappA) -->
 
 ----
 
@@ -677,7 +677,7 @@
 
 ### README-vim
 
-  * [Vim Syntax Highlight](_vimsyntax.html)
+  * [Vim Syntax Highlight](-vimsyntax.html) <!-- (-vimsyntax) -->
 
 ----
 
@@ -685,9 +685,9 @@
 
 ### README-t
 
-  * [notes on the testing setup](_t.html)
-      * [terminology](_t.html#_terminology)
-      * [notes and background](_t.html#_notes_and_background)
-      * [playing with gitolite](_t.html#_playing_with_gitolite)
-      * [testing gitolite](_t.html#_testing_gitolite)
-      * [instructions for adding new tests](_t.html#_instructions_for_adding_new_tests)
+  * [notes on the testing setup](-t.html) <!-- (-t) -->
+      * [terminology](-t.html#_terminology)
+      * [notes and background](-t.html#_notes_and_background)
+      * [playing with gitolite](-t.html#_playing_with_gitolite)
+      * [testing gitolite](-t.html#_testing_gitolite)
+      * [instructions for adding new tests](-t.html#_instructions_for_adding_new_tests)
