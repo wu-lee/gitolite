@@ -345,15 +345,15 @@ permissions syntax, and define a more rigorous, ordered, interpretation.</p>
 
 <blockquote>
   <p>The first matching refex that has the permission you're looking for (<code>W</code>
-  or <code>+</code>), results in success.  A fallthrough results in failure.</p>
+    or <code>+</code>), results in success.  A fallthrough results in failure.</p>
 </blockquote>
 
 <p>Here are the <strong>new semantics</strong>, with changes from the "main" one in bold:</p>
 
 <blockquote>
   <p>The first matching refex that has the permission you're looking for (<code>W</code>
-  or <code>+</code>) <strong>or a minus (<code>-</code>)</strong>, results in success <strong>or failure,
-  respectively</strong>.  A fallthrough <strong>also</strong> results in failure.</p>
+    or <code>+</code>) <strong>or a minus (<code>-</code>)</strong>, results in success <strong>or failure,
+    respectively</strong>.  A fallthrough <strong>also</strong> results in failure.</p>
 </blockquote>
 
 <p>So the example we started with becomes, if you use "deny" rules:</p>
@@ -602,12 +602,12 @@ environment</strong>.</p>
 
 <blockquote>
   <hr />
-
-<p><strong>Note</strong>: this won't work unless the rc file has the right settings;
-  please see <code>$GL_GITCONFIG_KEYS</code> in the <a href="rc.html" title="configuring gitolite's advanced features -- the `.gitolite.rc` file">rc file doc</a> for details and
-  security information.</p>
-
-<hr />
+  
+  <p><strong>Note</strong>: this won't work unless the rc file has the right settings;
+    please see <code>$GL_GITCONFIG_KEYS</code> in the <a href="rc.html" title="configuring gitolite's advanced features -- the `.gitolite.rc` file">rc file doc</a> for details and
+    security information.</p>
+  
+  <hr />
 </blockquote>
 
 <p>Sometimes you want to specify <code>git config</code> settings for your repos.</p>
@@ -637,13 +637,13 @@ example).  Other forms of the <code>git config</code> command (<code>--add</code
 
 <blockquote>
   <hr />
-
-<p><strong>WARNING</strong>: simply deleting the config line from the <code>conf/gitolite.conf</code>
-  file will <em>not</em> delete the variable from <code>repo.git/config</code>.  The syntax in
-  the last example is the <em>only</em> way to make gitolite execute a
-  <code>--unset-all</code> operation on the given key.</p>
-
-<hr />
+  
+  <p><strong>WARNING</strong>: simply deleting the config line from the <code>conf/gitolite.conf</code>
+    file will <em>not</em> delete the variable from <code>repo.git/config</code>.  The syntax in
+    the last example is the <em>only</em> way to make gitolite execute a
+    <code>--unset-all</code> operation on the given key.</p>
+  
+  <hr />
 </blockquote>
 
 <p>You can repeat the 'config' line as many times as you like, and the last
