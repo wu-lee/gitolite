@@ -28,11 +28,11 @@ an expert at ssh</strong>.</p>
 <p>This document should help you troubleshoot ssh-related problems in installing
 and accessing gitolite.</p>
 
-<p><a name="_IMPORTANT_READ_THIS_FIRST"></a></p>
+<p><a name="IMPORTANT_READ_THIS_FIRST_"></a></p>
 
 <h2>IMPORTANT -- READ THIS FIRST</h2>
 
-<p><a name="_caveats"></a></p>
+<p><a name="caveats_"></a></p>
 
 <h3>caveats</h3>
 
@@ -53,7 +53,7 @@ than authentication (i.e., ssh, in the common case).</p>
 <p>Surprised?  <a href="auth.html" title="authentication versus authorisation">This</a> might help explain better.</p></li>
 </ul>
 
-<p><a name="_naming_conventions_used"></a></p>
+<p><a name="naming_conventions_used_"></a></p>
 
 <h3>naming conventions used</h3>
 
@@ -65,7 +65,7 @@ this is an RPM/DEB install, the hosting user is probably called
 "gitolite", however we will use "git" in this document.</p></li>
 </ul>
 
-<p><a name="_taking_stock_relevant_files_and_directories"></a></p>
+<p><a name="taking_stock_relevant_files_and_directories_"></a></p>
 
 <h3>taking stock -- relevant files and directories</h3>
 
@@ -83,7 +83,7 @@ ssh daemon uses to authenticate incoming users.  We often call this file
 <code>*.pub</code> files.</p></li>
 </ul>
 
-<p><a name="_normal_gitolite_key_handling"></a></p>
+<p><a name="normal_gitolite_key_handling_"></a></p>
 
 <h3>normal gitolite key handling</h3>
 
@@ -113,14 +113,14 @@ end</code>).</p></li>
 </ul></li>
 </ul>
 
-<p><a name="_Other_resources_"></a></p>
+<p><a name="_Other_resources__"></a></p>
 
 <h2>(Other resources)</h2>
 
 <p>People who think installing gitolite is too hard should take a look at this
 <a href="http://sites.google.com/site/senawario/home/gitolite-tutorial">tutorial</a> to <strong>see how simple it <em>actually</em> is</strong>.</p>
 
-<p><a name="_common_ssh_problems"></a></p>
+<p><a name="common_ssh_problems_"></a></p>
 
 <h2>common ssh problems</h2>
 
@@ -163,7 +163,7 @@ does not appear to be a git repository</code>, and yet you are sure 'reponame'
 exists, you haven't mis-spelled it, etc.</p></li>
 </ul>
 
-<p><a name="_step_by_step"></a></p>
+<p><a name="step_by_step_"></a></p>
 
 <h2>step by step</h2>
 
@@ -187,11 +187,11 @@ need to make sure that this specific key is being offered/sent by the
 client, instead of the default key.  See appendix 3 and 4.</p></li>
 </ul>
 
-<p><a name="_random_tips_tricks_and_notes"></a></p>
+<p><a name="random_tips_tricks_and_notes_"></a></p>
 
 <h2>random tips, tricks, and notes</h2>
 
-<p><a name="_giving_shell_access_to_gitolite_users"></a></p>
+<p><a name="giving_shell_access_to_gitolite_users_"></a></p>
 
 <h3>giving shell access to gitolite users</h3>
 
@@ -211,7 +211,7 @@ access would not manage to get himself shell access.</p>
 <p>Giving someone shell access requires that you should have shell access in the
 first place, so the simplest way is to enable it from the server side only.</p>
 
-<p><a name="_losing_your_admin_key"></a></p>
+<p><a name="losing_your_admin_key_"></a></p>
 
 <h3>losing your admin key</h3>
 
@@ -220,7 +220,7 @@ gitolite-admin repository with a fresh key, get a shell on the server and use
 the program called <code>gl-admin-push</code> that comes with gitolite.  See instructions
 <a href="adminpush.html" title="gl-admin-push: bypassing gitolite for the gitolite-admin repo">here</a>.</p>
 
-<p><a name="_simulating_ssh_copy_id"></a></p>
+<p><a name="simulating_ssh_copy_id_"></a></p>
 
 <h3>simulating ssh-copy-id</h3>
 
@@ -246,7 +246,7 @@ typically) also must be <code>go-w</code>, but that needs root.  And typically
 they're already set that way anyway.  (Or if they're not, you've got
 bigger problems than gitolite install not working!)]</p>
 
-<p><a name="_problems_with_using_non_openssh_public_keys"></a></p>
+<p><a name="problems_with_using_non_openssh_public_keys_"></a></p>
 
 <h3>problems with using non-openssh public keys</h3>
 
@@ -263,7 +263,7 @@ key (used by proprietary SSH software) results in:</p>
 
 <p>then use the resulting pubkey as you normally would in gitolite.</p>
 
-<p><a name="_windows_issues"></a></p>
+<p><a name="windows_issues_"></a></p>
 
 <h3>windows issues</h3>
 
@@ -276,7 +276,7 @@ putty/plink, including environment variables, etc., and then try again.</p>
 
 <p>Thankfully, someone contributed <a href="contrib_putty.html" title="putty and msysgit">contrib/putty.mkd</a>.</p>
 
-<p><a name="_appendix_1_ssh_daemon_asks_for_a_password"></a></p>
+<p><a name="appendix_1_ssh_daemon_asks_for_a_password_"></a></p>
 
 <h2>appendix 1: ssh daemon asks for a password</h2>
 
@@ -345,7 +345,7 @@ this file for messages matching the approximate time of your last attempt
 to login, to see if they tell you what is the problem.</p></li>
 </ul>
 
-<p><a name="_appendix_2_which_key_is_which_running_sshkeys_lint"></a></p>
+<p><a name="appendix_2_which_key_is_which_running_sshkeys_lint_"></a></p>
 
 <h2>appendix 2: which key is which -- running sshkeys-lint</h2>
 
@@ -385,7 +385,7 @@ an extension)</p></li>
 and re-add identities for it to pick up the renamed ones correctly</p></li>
 </ul>
 
-<p><a name="_typical_cause_s_"></a></p>
+<p><a name="typical_cause_s__"></a></p>
 
 <h3>typical cause(s)</h3>
 
@@ -403,7 +403,7 @@ as YourName.pub, then run <code>gl-setup YourName.pub</code> on the server.  Rem
 adjust your agent identities using ssh-add -D and ssh-add if you're using
 ssh-agent, otherwise these new keys may not work.</p>
 
-<p><a name="_appendix_3_ssh_client_may_not_be_offering_the_right_key"></a></p>
+<p><a name="appendix_3_ssh_client_may_not_be_offering_the_right_key_"></a></p>
 
 <h2>appendix 3: ssh client may not be offering the right key</h2>
 
@@ -432,7 +432,7 @@ the access again.</p></li>
 <h2>appendix 4: host aliases: <a href="sshhostaliases.html" title="appendix 4: host aliases">Link</a></h2>
 
 
-<p><a name="_appendix_5_why_bypassing_gitolite_causes_a_problem"></a></p>
+<p><a name="appendix_5_why_bypassing_gitolite_causes_a_problem_"></a></p>
 
 <h2>appendix 5: why bypassing gitolite causes a problem</h2>
 

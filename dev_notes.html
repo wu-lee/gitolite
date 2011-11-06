@@ -21,7 +21,7 @@
 
 <h1>developer/patch maintainer notes</h1>
 
-<p><a name="_general_stuff"></a></p>
+<p><a name="general_stuff_"></a></p>
 
 <h2>general stuff</h2>
 
@@ -44,21 +44,21 @@ much all of them are run via gl-auth-command or from something that was
 forked from it so the variables <em>will</em> exist during normal operation.</p></li>
 </ul>
 
-<p><a name="_the_rc_file"></a></p>
+<p><a name="the_rc_file_"></a></p>
 
 <h2>the rc file</h2>
 
 <p>The 'rc' file has one major change from v1: any new values in the rc file need
 to be added to the @EXPORT list in <code>src/gitolite_rc.pm</code>.</p>
 
-<p><a name="_modules"></a></p>
+<p><a name="modules_"></a></p>
 
 <h2>modules</h2>
 
 <p>There are 3 "modules" (<code>gitolite_rc</code>, <code>gitolite_env</code>, and <code>gitolite</code> itself).
 Their purposes should be fairly obvious.</p>
 
-<p><a name="_that_bindir_thing"></a></p>
+<p><a name="that_bindir_thing_"></a></p>
 
 <h2>that 'bindir' thing</h2>
 
@@ -66,7 +66,7 @@ Their purposes should be fairly obvious.</p>
 <code>~/.ssh/authorized_keys</code> must be a full path, ideally, and the compile script
 gets this from <code>GL_BINDIR</code>.</p>
 
-<p><a name="_from_perl"></a></p>
+<p><a name="from_perl_"></a></p>
 
 <h3>from perl</h3>
 
@@ -86,7 +86,7 @@ infrequently run programs</p>
 </ul></li>
 </ul>
 
-<p><a name="_from_shell"></a></p>
+<p><a name="from_shell_"></a></p>
 
 <h3>from shell</h3>
 
@@ -102,7 +102,7 @@ as <code>${0%/*}/gl-query-rc GL_BINDIR</code></p>
 </ul></li>
 </ul>
 
-<p><a name="_OUTLIER_"></a></p>
+<p><a name="OUTLIER__"></a></p>
 
 <h3>OUTLIER!</h3>
 
@@ -113,11 +113,11 @@ only one that interrogates <code>~/.ssh/authorized_keys</code> to get the actual
 BINDIR in use!</li>
 </ul>
 
-<p><a name="_special_types_of_setups"></a></p>
+<p><a name="special_types_of_setups_"></a></p>
 
 <h2>special types of setups</h2>
 
-<p><a name="_Fedora"></a></p>
+<p><a name="Fedora_"></a></p>
 
 <h3>Fedora</h3>
 

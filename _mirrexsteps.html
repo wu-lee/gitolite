@@ -30,7 +30,7 @@ script.</p>
 only place where you have to explicitly state this is in the delegation code
 in the appendix.  The rest of the time, "conf/" is assumed.</p>
 
-<p><a name="_1_gitolite_conf_"></a></p>
+<p><a name="_1_gitolite_conf__"></a></p>
 
 <h3>(1) <code>gitolite.conf</code></h3>
 
@@ -101,7 +101,7 @@ subconf "slave/HOSTNAME/*.conf"
 
 <p>You'll get some warnings about missing include files; ignore them.</p>
 
-<p><a name="_2_master_sam_conf_"></a></p>
+<p><a name="_2_master_sam_conf__"></a></p>
 
 <h3>(2) <code>master/sam.conf</code></h3>
 
@@ -116,7 +116,7 @@ contains just one line:</p>
 "master/sam.conf"</code>.  The only purpose of this is to setup the subconf
 restriction on the combined contents of <code>master/sam/*.conf</code>.</font></p>
 
-<p><a name="_3_host_admins_only_master_sam_p1_conf_"></a></p>
+<p><a name="_3_host_admins_only_master_sam_p1_conf__"></a></p>
 
 <h3>(3) host admins only -- <code>master/sam/p1.conf</code></h3>
 
@@ -133,7 +133,7 @@ product.conf files.</p>
 <p>By default, everything is local to their server.  (Mirroring can only be setup
 by the master admins).</p>
 
-<p><a name="_4_mirrors_sam_p1_conf_"></a></p>
+<p><a name="_4_mirrors_sam_p1_conf__"></a></p>
 
 <h3>(4) <code>mirrors/sam/p1.conf</code></h3>
 
@@ -148,7 +148,7 @@ In this case, it could be</p>
 
 <p>If this file does not exist, p1 is local to sam and not mirrored.</p>
 
-<p><a name="_5_slave_frodo_sam_conf_"></a></p>
+<p><a name="_5_slave_frodo_sam_conf__"></a></p>
 
 <h3>(5) <code>slave/frodo/sam.conf</code></h3>
 
@@ -173,7 +173,7 @@ restriction of "sam"</em>.  This is important to prevent sam's admins from writi
 rules for repos they don't own and having them processed on other
 servers!</font></p>
 
-<p><a name="_6_manual_sync"></a></p>
+<p><a name="_6_manual_sync_"></a></p>
 
 <h3>(6) manual sync</h3>
 

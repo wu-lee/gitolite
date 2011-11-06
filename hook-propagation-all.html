@@ -29,7 +29,7 @@ be two places to put them, and so on.  I'll try and set out the logic here.</p>
 new custom hook; treat it as more "theory" than "lab".  (<a href="hooks.html#customhooks" title="custom hooks">Here</a> is the
 "lab" version!)</p>
 
-<p><a name="_hooks_used_by_gitolite"></a></p>
+<p><a name="hooks_used_by_gitolite_"></a></p>
 
 <h2>hooks used by gitolite</h2>
 
@@ -45,7 +45,7 @@ etc.</p>
 <p>The final objective of all this is that each repo's <code>hooks/</code> directory should
 get all the hooks that it is meant to get.</p>
 
-<p><a name="_where_do_I_the_admin_put_the_hooks_"></a></p>
+<p><a name="_where_do_I_the_admin_put_the_hooks__"></a></p>
 
 <h2><strong>where</strong> do I (the admin) put the hooks?</h2>
 
@@ -59,7 +59,7 @@ used.</p>
 
 <p>(Please refer to <a href="install.html" title="gitolite installation">doc/1-INSTALL.mkd</a> for what these "methods" are).</p>
 
-<p><a name="_the_GL_PACKAGE_HOOKS_directory"></a></p>
+<p><a name="the_GL_PACKAGE_HOOKS_directory_"></a></p>
 
 <h3>the <code>GL_PACKAGE_HOOKS</code> directory</h3>
 
@@ -78,7 +78,7 @@ process does the equivalent of <code>gl-system-install</code>.</p>
 <p>So now we know there's a location called <code>$GL_PACKAGE_HOOKS</code> where you can
 place your hooks.</p>
 
-<p><a name="_the_HOME_gitolite_directory"></a></p>
+<p><a name="the_HOME_gitolite_directory_"></a></p>
 
 <h3>the <code>$HOME/.gitolite</code> directory</h3>
 
@@ -88,7 +88,7 @@ directory, which also contains a <code>hooks/</code> directory.</p>
 
 <p>So now there are two places you can put your hooks, apparently.</p>
 
-<p><a name="_why_two_places_"></a></p>
+<p><a name="why_two_places__"></a></p>
 
 <h3>why two places?</h3>
 
@@ -114,7 +114,7 @@ get copied to <code>$HOME/.gitolite/hooks</code> when you "install".  I need to 
 thoroughly test this later; for now, just ignore the extra files you see in
 there; they're harmless/redundant (TODO)]</p>
 
-<p><a name="_special_case_the_non_root_method"></a></p>
+<p><a name="special_case_the_non_root_method_"></a></p>
 
 <h3>special case: the "non-root" method</h3>
 
@@ -123,7 +123,7 @@ existed to cater to the "package" and "root" methods.  In this method, the
 <code>$GL_PACKAGE_HOOKS</code> is as accessible or under your control as
 <code>$HOME/.gitolite</code>, so it doesn't matter where you put your hooks.</p>
 
-<p><a name="_when_do_hooks_propagate_"></a></p>
+<p><a name="_when_do_hooks_propagate__"></a></p>
 
 <h2><strong>when</strong> do hooks propagate?</h2>
 

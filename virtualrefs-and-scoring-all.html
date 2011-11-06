@@ -20,7 +20,7 @@
 
 <!-- file: virtualrefs-and-scoring -->
 
-<p><a name="_virtual_refs_and_scoring"></a></p>
+<p><a name="virtual_refs_and_scoring_"></a></p>
 
 <h1>virtual refs and scoring</h1>
 
@@ -37,7 +37,7 @@ doc/gitolite.conf.mkd.</p>
 <p>This is advanced magic.  If you need every step explained or written down with
 exact commands, this is not for you; sorry.</p>
 
-<p><a name="_real_refs_virtual_refs_and_reftypes"></a></p>
+<p><a name="real_refs_virtual_refs_and_reftypes_"></a></p>
 
 <h2>real refs, virtual refs, and reftypes</h2>
 
@@ -79,11 +79,11 @@ RW+ VR_IP/172\.25\.     =   @junior_devs
 maintain your own virtual refs without touching the main gitolite code base,
 so if you end up implementing one of the others please contribute.</p>
 
-<p><a name="_side_notes"></a></p>
+<p><a name="side_notes_"></a></p>
 
 <h3>side notes</h3>
 
-<p><a name="_who_needs_this_"></a></p>
+<p><a name="who_needs_this__"></a></p>
 
 <h4>who needs this?</h4>
 
@@ -97,7 +97,7 @@ before merging them into one of the main branches.</p>
 <p>However, that creates work for the senior devs, plus they might miss something
 if they're checking manually.  Automation is good...</p>
 
-<p><a name="_number_of_refs_returned"></a></p>
+<p><a name="number_of_refs_returned_"></a></p>
 
 <h4>number of refs returned</h4>
 
@@ -107,7 +107,7 @@ push.  However, SIZE (size of largest new file added), COUNT, and IP return
 only one value -- there can only be one "answer" to the question they're
 asking.</p>
 
-<p><a name="_installing_virtual_refs"></a></p>
+<p><a name="installing_virtual_refs_"></a></p>
 
 <h3>installing virtual refs</h3>
 
@@ -118,7 +118,7 @@ place them directly on the server after a normal gitolite install.  It doesn't
 matter how you do it; in the end they need to be in the same directory as
 <code>gl-auth-command</code> and all the rest of the scripts.</p>
 
-<p><a name="_adding_your_own_virtual_refs"></a></p>
+<p><a name="adding_your_own_virtual_refs_"></a></p>
 
 <h3>adding your own virtual refs</h3>
 
@@ -128,7 +128,7 @@ arguments and prints a "match type" and a newline separate list of "refs".
 See <code>VR_COUNT</code> for details; that script implements the COUNT virtual ref and
 also serves as documentation on writing VR scripts.</p>
 
-<p><a name="_passing_simple_arguments_to_the_VR_script"></a></p>
+<p><a name="passing_simple_arguments_to_the_VR_script_"></a></p>
 
 <h3>passing simple arguments to the VR script</h3>
 
@@ -212,7 +212,7 @@ count script.</p>
 
 <p>Mnemonic: <code>VR_FOO-bar-baz</code> is like <code>VR_FOO -bar -baz</code>.</p>
 
-<p><a name="_scoring"></a></p>
+<p><a name="scoring_"></a></p>
 
 <h2>scoring</h2>
 
@@ -262,7 +262,7 @@ changes to file "foo" (line 3) even though line 3 returns a 0 score</p></li>
 </ul></li>
 </ul>
 
-<p><a name="_documentation_for_individual_virtual_refs"></a></p>
+<p><a name="documentation_for_individual_virtual_refs_"></a></p>
 
 <h2>documentation for individual virtual refs</h2>
 
@@ -275,7 +275,7 @@ which the delegation feature depends), so it is documented here.</p>
 
 <p>This section also serves as further detail on how virtual ref matching works.</p>
 
-<p><a name="_VR_NAME_"></a></p>
+<p><a name="_VR_NAME__"></a></p>
 
 <h3><code>VR_NAME</code></h3>
 

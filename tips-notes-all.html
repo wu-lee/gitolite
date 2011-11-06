@@ -22,7 +22,7 @@
 
 <h1>assorted tips and notes</h1>
 
-<p><a name="_common_errors_and_mistakes"></a></p>
+<p><a name="common_errors_and_mistakes_"></a></p>
 
 <h2>common errors and mistakes</h2>
 
@@ -48,11 +48,11 @@ straight to the shell to do the clone.</p>
 <p>Please see doc/ssh-troubleshooting.mkd for what all this means.</p></li>
 </ul>
 
-<p><a name="_other_errors_warnings_notes_"></a></p>
+<p><a name="other_errors_warnings_notes__"></a></p>
 
 <h2>other errors, warnings, notes...</h2>
 
-<p><a name="_cloning_an_empty_repo"></a></p>
+<p><a name="cloning_an_empty_repo_"></a></p>
 
 <h3>cloning an empty repo</h3>
 
@@ -65,7 +65,7 @@ end hung up unexpectedly</code>.  However, you can ignore this, since it doesn't
 seem to hurt anything.  [Update 2009-09-14; this has been fixed in git
 1.6.4.3]</p>
 
-<p><a name="_all_syntax_for_repos"></a></p>
+<p><a name="_all_syntax_for_repos_"></a></p>
 
 <h3><code>@all</code> syntax for repos</h3>
 
@@ -78,7 +78,7 @@ the potential for defeating a crucial optimisation and slowing down <em>all</em>
 access, we do not support this.</li>
 </ul>
 
-<p><a name="_features"></a></p>
+<p><a name="features_"></a></p>
 
 <h2>features</h2>
 
@@ -86,7 +86,7 @@ access, we do not support this.</li>
 like "better config file format", gitolite has evolved to have many useful
 features than the original goal of branch-level access control.</p>
 
-<p><a name="_syntax_and_normal_usage"></a></p>
+<p><a name="syntax_and_normal_usage_"></a></p>
 
 <h3>syntax and normal usage</h3>
 
@@ -187,7 +187,7 @@ any of the refexes match, the push succeeds.  If none of them match, it fails.</
 <p>Gitolite also allows "exclude" or "deny" rules.  See later in this document
 for details.</p>
 
-<p><a name="_better_logging"></a></p>
+<p><a name="better_logging_"></a></p>
 
 <h4>better logging</h4>
 
@@ -218,7 +218,7 @@ Can it get easier?</p>
 updated, the user updating it, and the refex pattern (from the config file)
 that matched, in case you need to debug the config file itself.</p>
 
-<p><a name="_delegating_parts_of_the_config_file"></a></p>
+<p><a name="delegating_parts_of_the_config_file_"></a></p>
 
 <h4>delegating parts of the config file</h4>
 
@@ -233,7 +233,7 @@ access control for their own pieces.  See <a href="deleg.html" title="delegating
 
 <h3>convenience features</h3>
 
-<p><a name="_what_repos_do_I_have_access_to_"></a></p>
+<p><a name="what_repos_do_I_have_access_to__"></a></p>
 
 <h4>what repos do I have access to?</h4>
 
@@ -244,7 +244,7 @@ etc.  You'd just like a simple way to know what repos you have access to.</p>
 <p>Gitolite provides two commands (<a href="info_expand.html#info" title="the &quot;info&quot; command"><code>info</code></a> and <a href="info_expand.html#expand" title="the &quot;expand&quot; command"><code>expand</code></a>)
 to help you find this information.</p>
 
-<p><a name="_support_for_git_installed_outside_default_PATH"></a></p>
+<p><a name="support_for_git_installed_outside_default_PATH_"></a></p>
 
 <h4>support for git installed outside default PATH</h4>
 
@@ -303,7 +303,7 @@ NOT <code>personal/alice</code>.</p>
 <p>(Background: at runtime the "USER" component will be replaced by the name of
 the invoking user.  Access is determined by the right hand side, as usual).</p>
 
-<p><a name="_custom_hooks_and_custom_git_config"></a></p>
+<p><a name="custom_hooks_and_custom_git_config_"></a></p>
 
 <h4>custom hooks and custom git config</h4>
 
@@ -311,7 +311,7 @@ the invoking user.  Access is determined by the right hand side, as usual).</p>
 per-repo "gitconfig" settings.  Please see <code>doc/2-admin.mkd</code> and
 <code>doc/gitolite.conf.mkd</code> for details.</p>
 
-<p><a name="_bypassing_gitolite"></a></p>
+<p><a name="bypassing_gitolite_"></a></p>
 
 <h4>bypassing gitolite</h4>
 
@@ -405,7 +405,7 @@ processes in a <code>ps</code> output.</li>
 
 <!-- file: tips -->
 
-<p><a name="_INconvenience_features"></a></p>
+<p><a name="INconvenience_features_"></a></p>
 
 <h3>INconvenience features</h3>
 
@@ -427,7 +427,7 @@ file.  "add" the change, commit, and push.</p></li>
 you set <code>$REPO_BASE</code> to in the <code>~/.gitolite.rc</code>)</p></li>
 </ul>
 
-<p><a name="_renaming_a_repo"></a></p>
+<p><a name="renaming_a_repo_"></a></p>
 
 <h4>renaming a repo</h4>
 
@@ -443,7 +443,7 @@ as usual.</li>
 
 <p>The order of these 2 steps is important; do not reverse them :-)</p>
 
-<p><a name="_helping_with_gitweb"></a></p>
+<p><a name="helping_with_gitweb_"></a></p>
 
 <h3>helping with gitweb</h3>
 
@@ -502,7 +502,7 @@ feature and tie it to gitolite.  Configuration example can be found in
 created repos to something more relaxed -- see the <code>REPO_UMASK</code> setting in the
 <a href="rc.html" title="configuring gitolite's advanced features -- the `.gitolite.rc` file">rc file documentation</a>.</p>
 
-<p><a name="_advanced_features"></a></p>
+<p><a name="advanced_features_"></a></p>
 
 <h3>advanced features</h3>
 
@@ -518,11 +518,11 @@ config file.  New repos matching the pattern can be created by any user
 commands and scripts without giving users full shell access.</p></li>
 </ul>
 
-<p><a name="_odds_and_ends"></a></p>
+<p><a name="odds_and_ends_"></a></p>
 
 <h3>odds and ends</h3>
 
-<p><a name="_poking_the_admin_repo_to_force_a_compile"></a></p>
+<p><a name="_poking_the_admin_repo_to_force_a_compile_"></a></p>
 
 <h4>"poking" the admin repo to force a compile</h4>
 
