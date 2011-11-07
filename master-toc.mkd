@@ -541,8 +541,8 @@
 
 ### gitolite-tools
 
-  * [gitolite-tools](_gitolite_tools.html) <!-- (_gitolite_tools) -->
-      * [Homepage](_gitolite_tools.html#Homepage_)
+  * [gitolite-tools](gitolite_tools_.html)
+      * [Homepage](gitolite_tools_.html#Homepage_)
 
 ----
 
@@ -556,15 +556,15 @@
           * [gitolite feature recap](mirr_complex_example.html#gitolite_feature_recap_)
       * [pre-requisites](mirr_complex_example.html#pre_requisites_)
       * [quick setup](mirr_complex_example.html#quick_setup_)
-      * [step by step](_mirrexsteps.html) <!-- (_mirrexsteps) -->
-          * [(1) `gitolite.conf`](_mirrexsteps.html#_1_gitolite_conf__)
-          * [(2) `master/sam.conf`](_mirrexsteps.html#_2_master_sam_conf__)
-          * [(3) host admins only -- `master/sam/p1.conf`](_mirrexsteps.html#_3_host_admins_only_master_sam_p1_conf__)
-          * [(4) `mirrors/sam/p1.conf`](_mirrexsteps.html#_4_mirrors_sam_p1_conf__)
-          * [(5) `slave/frodo/sam.conf`](_mirrexsteps.html#_5_slave_frodo_sam_conf__)
-          * [(6) manual sync](_mirrexsteps.html#_6_manual_sync_)
+      * [step by step](mirrexsteps_.html)
+          * [(1) `gitolite.conf`](mirrexsteps_.html#_1_gitolite_conf__)
+          * [(2) `master/sam.conf`](mirrexsteps_.html#_2_master_sam_conf__)
+          * [(3) host admins only -- `master/sam/p1.conf`](mirrexsteps_.html#_3_host_admins_only_master_sam_p1_conf__)
+          * [(4) `mirrors/sam/p1.conf`](mirrexsteps_.html#_4_mirrors_sam_p1_conf__)
+          * [(5) `slave/frodo/sam.conf`](mirrexsteps_.html#_5_slave_frodo_sam_conf__)
+          * [(6) manual sync](mirrexsteps_.html#_6_manual_sync_)
       * [next steps](mirr_complex_example.html#next_steps_)
-      * [appendix A: delegation helper files](_mirrappA.html) <!-- (_mirrappA) -->
+      * [appendix A: delegation helper files](mirrappA_.html)
 
 ----
 
@@ -677,7 +677,7 @@
 
 ### README-vim
 
-  * [Vim Syntax Highlight](_vimsyntax.html) <!-- (_vimsyntax) -->
+  * [Vim Syntax Highlight](vimsyntax_.html)
 
 ----
 
@@ -685,9 +685,9 @@
 
 ### README-t
 
-  * [notes on the testing setup](_t.html) <!-- (_t) -->
-      * [terminology](_t.html#terminology_)
-      * [notes and background](_t.html#notes_and_background_)
-      * [playing with gitolite](_t.html#playing_with_gitolite_)
-      * [testing gitolite](_t.html#testing_gitolite_)
-      * [instructions for adding new tests](_t.html#instructions_for_adding_new_tests_)
+  * [notes on the testing setup](t_.html)
+      * [terminology](t_.html#terminology_)
+      * [notes and background](t_.html#notes_and_background_)
+      * [playing with gitolite](t_.html#playing_with_gitolite_)
+      * [testing gitolite](t_.html#testing_gitolite_)
+      * [instructions for adding new tests](t_.html#instructions_for_adding_new_tests_)

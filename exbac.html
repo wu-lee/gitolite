@@ -50,8 +50,10 @@ Sitaram and Dilbert can do that.</p>
 </code></pre>
 
 <p>This won't work.  You can only restrict "read" access at the repo level, not
-at the branch level.  This is a git issue, not a gitolite issue.  Go bother
-them, or switch to gerrit.</p>
+at the branch level.  (<font color="gray">This is a git issue, not a gitolite
+issue.  Go bother them, or switch to gerrit.  With the native git stack, the
+best solution is to create a second repo and use that for the more "secret"
+branches.</font>)</p>
 
 <pre><code>repo    foo
         RW      master$             =   dilbert alice
