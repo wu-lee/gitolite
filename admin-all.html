@@ -195,7 +195,7 @@ processing you wish to do in your hook code:</p>
 you need this functionality, just supply a hook called "gl-post-init" with
 whatever code you want in it.</p>
 
-<p><a name="_gl_pre_git_hook_"></a></p>
+<p><a name="pre-git"></a></p>
 
 <h3>"gl-pre-git" hook</h3>
 
@@ -360,6 +360,9 @@ given below.  Please follow all the steps; do not skip or improvise!  Ask me
 if things are not clear -- you can help me fine tune this document :-)</p>
 
 <ul>
+<li><p>(workstation, old server) <strong>pull</strong> the latest changes to the
+<code>gitolite-admin</code> repo to your workstation, if you don't have them
+already. You'll need them later on.</p></li>
 <li><p>(old server) <strong>disable</strong> the old server so your users will not push any
 changes to it.  There are several ways to do this, but the simplest is to
 insert this line at the top of <code>~/.gitolite.rc</code> on the old server:</p>
@@ -409,7 +412,7 @@ git commit -m "new server, new key"
 </code></pre></li>
 <li><p>set the URL for the new server</p>
 
-<pre><code>git remote --set-url origin git@newserver:gitolite-admin
+<pre><code>git remote set-url origin git@newserver:gitolite-admin
 </code></pre></li>
 <li><p>push the config, including past history</p>
 

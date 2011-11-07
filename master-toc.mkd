@@ -18,6 +18,7 @@
       * [installation and setup](pictures.html#installation_and_setup_)
       * [adding users to gitolite](pictures.html#adding_users_to_gitolite_)
       * [adding repos to gitolite](pictures.html#adding_repos_to_gitolite_)
+      * [gitolite flow](pictures.html#flow) <!-- (flow) -->
 
 ----
 
@@ -55,7 +56,7 @@
           * [hook chaining](hooks.html#hookchaining) <!-- (hookchaining) -->
           * [environment variables available to hooks](hooks.html#environment_variables_available_to_hooks_)
           * ["gl-post-init" hook](hooks.html#_gl_post_init_hook_)
-          * ["gl-pre-git" hook](hooks.html#_gl_pre_git_hook_)
+          * ["gl-pre-git" hook](hooks.html#pre-git) <!-- (pre-git) -->
       * [other features](admin.html#other_features_)
           * [moving pre-existing repos into gitolite](moverepos.html) <!-- (moverepos) -->
           * [moving the whole thing from one server to another](moveserver.html) <!-- (moveserver) -->
