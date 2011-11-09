@@ -46,14 +46,12 @@ branch or tag on it.</p>
 <p>Wally can only read the repo.  Alice and Ashok can push but not rewind; only
 Sitaram and Dilbert can do that.</p>
 
-<pre><code>        R master    =   wally       # MEANINGLESS!  WILL NOT DO WHAT YOU THINK IT DOES!!
+<p>And now, a common misunderstanding:</p>
+
+<pre><code>        R master    =   wally       # WILL NOT DO WHAT YOU THINK IT DOES!!
 </code></pre>
 
-<p>This won't work.  You can only restrict "read" access at the repo level, not
-at the branch level.  (<font color="gray">This is a git issue, not a gitolite
-issue.  Go bother them, or switch to gerrit.  With the native git stack, the
-best solution is to create a second repo and use that for the more "secret"
-branches.</font>)</p>
+<p>This won't work.  Please see <a href="rpr_.html" title="side note: &quot;R&quot; permissions for refs">here</a> for more on this.</p>
 
 <pre><code>repo    foo
         RW      master$             =   dilbert alice

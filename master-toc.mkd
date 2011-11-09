@@ -172,6 +172,7 @@
           * [branches, tags, and specifying "refex"es](bac.html#branches_tags_and_specifying_refex_es_)
           * [groups](bac.html#groups_)
               * [the special `@all` group](bac.html#the_special_all_group_)
+          * [side note: "R" permissions for refs](rpr_.html)
       * [advanced access control](aac.html) <!-- (aac) -->
           * ["deny" rules](aac.html#deny) <!-- (deny) -->
               * [warnings and required reading](aac.html#warnings_and_required_reading_)
@@ -679,6 +680,18 @@
 ### README-vim
 
   * [Vim Syntax Highlight](vimsyntax_.html)
+
+----
+
+<a name="partial-copy"></a>
+
+### partial-copy
+
+  * [maintaining a partial copy of a repo](partialcopy.html) <!-- (partialcopy) -->
+      * [first, as usual, the caveats!](partialcopy.html#first_as_usual_the_caveats__)
+      * [the basic idea](partialcopy.html#the_basic_idea_)
+      * [the config file](partialcopy.html#the_config_file_)
+      * [the hooks](partialcopy.html#the_hooks_)
 
 ----
 
