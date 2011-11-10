@@ -16,6 +16,8 @@
     <a href="master-toc.html">master TOC</a>
 |
     <a href="master-toc.html#ssh-troubleshooting">chapter TOC</a>
+|
+    <a href="support.html">support</a>
 </p>
 
 
@@ -131,7 +133,7 @@ you there again.  Especially the first bullet.</p>
 <p>Done?  OK, read on...</p>
 
 <p>The following problem(s) indicate that pubkey access is not working at all, so
-you should start with appendix 1.  If that doesn't fix the problem, continue
+you should start with <a href="sts.html#stsapp1_" title="appendix 1: ssh daemon asks for a password">appendix 1</a>.  If that doesn't fix the problem, continue
 with the other appendices in sequence.</p>
 
 <ul>
@@ -140,8 +142,8 @@ you for a password.</li>
 </ul>
 
 <p>The following problem(s) indicate that your pubkey is bypassing gitolite and
-going straight to a shell.  You should start with appendix 2 and continue with
-the rest in sequence.  Appendix 5 has some background info.</p>
+going straight to a shell.  You should start with <a href="sts.html#stsapp2_" title="appendix 2: which key is which -- running sshkeys-lint">appendix 2</a> and continue with
+the rest in sequence.  <a href="sts.html#stsapp5_" title="appendix 5: why bypassing gitolite causes a problem">Appendix 5</a> has some background info.</p>
 
 <ul>
 <li><p>running <code>ssh git@server info</code> gets you the output of the GNU 'info'
@@ -177,14 +179,14 @@ you there again.  Especially the first bullet.</p>
 <li><p>make sure the server's overall setup even <em>allows</em> pubkey based login.
 I.e., check that git fetch/clone/ls-remote commands or a plain <code>ssh
 git@server info</code> do NOT ask for a password.  If you do get asked for a
-password, see appendix 1.</p></li>
+password, see <a href="sts.html#stsapp1_" title="appendix 1: ssh daemon asks for a password">appendix 1</a>.</p></li>
 <li><p>match client-side pubkeys (<code>~/.ssh/*.pub</code>) with the server's authkeys
 file.  To do this, run <code>sshkeys-lint</code>, which tells you in detail what key
-has what access.  See appendix 2.</p></li>
+has what access.  See <a href="sts.html#stsapp2_" title="appendix 2: which key is which -- running sshkeys-lint">appendix 2</a>.</p></li>
 <li><p>at this point, we know that we have the right key, and that if sshd
 receives that key, things will work.  But we're not done yet.  We still
 need to make sure that this specific key is being offered/sent by the
-client, instead of the default key.  See appendix 3 and 4.</p></li>
+client, instead of the default key.  See <a href="sts.html#stsapp3_" title="appendix 3: ssh client may not be offering the right key">appendix 3</a> and <a href="sshhostaliases.html" title="appendix 4: host aliases">appendix 4</a>.</p></li>
 </ul>
 
 <p><a name="random_tips_tricks_and_notes_"></a></p>
@@ -276,7 +278,7 @@ putty/plink, including environment variables, etc., and then try again.</p>
 
 <p>Thankfully, someone contributed <a href="contrib_putty.html" title="putty and msysgit">contrib/putty.mkd</a>.</p>
 
-<p><a name="appendix_1_ssh_daemon_asks_for_a_password_"></a></p>
+<p><a name="stsapp1_"></a></p>
 
 <h2>appendix 1: ssh daemon asks for a password</h2>
 
@@ -345,7 +347,7 @@ this file for messages matching the approximate time of your last attempt
 to login, to see if they tell you what is the problem.</p></li>
 </ul>
 
-<p><a name="appendix_2_which_key_is_which_running_sshkeys_lint_"></a></p>
+<p><a name="stsapp2_"></a></p>
 
 <h2>appendix 2: which key is which -- running sshkeys-lint</h2>
 
@@ -403,7 +405,7 @@ as YourName.pub, then run <code>gl-setup YourName.pub</code> on the server.  Rem
 adjust your agent identities using ssh-add -D and ssh-add if you're using
 ssh-agent, otherwise these new keys may not work.</p>
 
-<p><a name="appendix_3_ssh_client_may_not_be_offering_the_right_key_"></a></p>
+<p><a name="stsapp3_"></a></p>
 
 <h2>appendix 3: ssh client may not be offering the right key</h2>
 
@@ -416,7 +418,7 @@ verbose mode and look for the word "Offering", like so:</p>
 
 <p>If some keys <em>are</em> being offered, but not the key that was supposed to be
 used, you may be using ssh-agent (next bullet).  You may also need to
-create some host aliases in <code>~/.ssh/config</code> (appendix 4).</p></li>
+create some host aliases in <code>~/.ssh/config</code> (<a href="sshhostaliases.html" title="appendix 4: host aliases">appendix 4</a>).</p></li>
 <li><p>(ssh-agent issues) If <code>ssh-add -l</code> responds with either "The agent has no
 identities." or "Could not open a connection to your authentication
 agent.", then you can skip this bullet.</p>
@@ -432,7 +434,7 @@ the access again.</p></li>
 <h2>appendix 4: host aliases: <a href="sshhostaliases.html" title="appendix 4: host aliases">Link</a></h2>
 
 
-<p><a name="appendix_5_why_bypassing_gitolite_causes_a_problem_"></a></p>
+<p><a name="stsapp5_"></a></p>
 
 <h2>appendix 5: why bypassing gitolite causes a problem</h2>
 

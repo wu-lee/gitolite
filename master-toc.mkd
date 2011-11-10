@@ -419,12 +419,20 @@
           * [simulating ssh-copy-id](sts.html#simulating_ssh_copy_id_)
           * [problems with using non-openssh public keys](sts.html#problems_with_using_non_openssh_public_keys_)
           * [windows issues](sts.html#windows_issues_)
-      * [appendix 1: ssh daemon asks for a password](sts.html#appendix_1_ssh_daemon_asks_for_a_password_)
-      * [appendix 2: which key is which -- running sshkeys-lint](sts.html#appendix_2_which_key_is_which_running_sshkeys_lint_)
+      * [appendix 1: ssh daemon asks for a password](sts.html#stsapp1_)
+      * [appendix 2: which key is which -- running sshkeys-lint](sts.html#stsapp2_)
           * [typical cause(s)](sts.html#typical_cause_s__)
-      * [appendix 3: ssh client may not be offering the right key](sts.html#appendix_3_ssh_client_may_not_be_offering_the_right_key_)
+      * [appendix 3: ssh client may not be offering the right key](sts.html#stsapp3_)
       * [appendix 4: host aliases](sshhostaliases.html) <!-- (sshhostaliases) -->
-      * [appendix 5: why bypassing gitolite causes a problem](sts.html#appendix_5_why_bypassing_gitolite_causes_a_problem_)
+      * [appendix 5: why bypassing gitolite causes a problem](sts.html#stsapp5_)
+
+----
+
+<a name="support"></a>
+
+### support
+
+  * [support for gitolite](support.html) <!-- (support) -->
 
 ----
 
