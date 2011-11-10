@@ -136,7 +136,7 @@ git-receive-pack 'repo'
 operation (upload-pack is a read, receive-pack is a write).</p>
 
 <p>At this point, GLAC knows the username, the reponame, and the type of
-operation.  It executes the first <a href="tipssec__.html#2levels" title="two levels of access rights checking">level</a> access check (<strong>AC1</strong>),
+operation.  It executes the first <a href="tipssec_.html#2levels" title="two levels of access rights checking">level</a> access check (<strong>AC1</strong>),
 which passes if the user has at least one ref for which the operation is
 allowed.</p>
 
@@ -163,7 +163,7 @@ completes.</p>
 
 <p>However, if it is a push operation (<code>git-receive-pack</code>) then git calls the
 update hook (<strong>UP</strong>), per <code>man githooks</code>.  The update hook executes the second
-<a href="tipssec__.html#2levels" title="two levels of access rights checking">level</a> access check (<strong>AC2</strong>), and depending on its success, the
+<a href="tipssec_.html#2levels" title="two levels of access rights checking">level</a> access check (<strong>AC2</strong>), and depending on its success, the
 operation succeeds or fails.</p>
 
 <p>The update hook calls a secondary hook, <a href="hooks.html#hookchaining" title="hook chaining"><code>update.secondary</code></a>

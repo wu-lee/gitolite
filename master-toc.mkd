@@ -94,8 +94,8 @@
           * [how](ldap.html#ldaphow_)
       * [implementation notes](bc.html#implementation_notes_)
       * [config listings](bc.html#config_listings_)
-          * [compiled config with big-config disabled](bigno__.html)
-          * [compiled config with big-config enabled](bigyes__.html)
+          * [compiled config with big-config disabled](bigno_.html)
+          * [compiled config with big-config enabled](bigyes_.html)
 
 ----
 
@@ -180,11 +180,11 @@
               * ["deny" rules for the entire repo](aac.html#_deny_rules_for_the_entire_repo_)
           * [creating and deleting branches](aac.html#rwcd) <!-- (rwcd) -->
       * [summary: permissions](conf.html#summary_permissions_)
-      * [other tips](confother__.html)
-          * [personal branches](confother__.html#personal_branches_)
-          * [rule accumulation](confother__.html#ruleaccum) <!-- (ruleaccum) -->
-          * [specifying gitweb and daemon access](confother__.html#gwd) <!-- (gwd) -->
-          * [repo specific `git config` commands](confother__.html#rsgc) <!-- (rsgc) -->
+      * [other tips](confother_.html)
+          * [personal branches](confother_.html#personal_branches_)
+          * [rule accumulation](confother_.html#ruleaccum) <!-- (ruleaccum) -->
+          * [specifying gitweb and daemon access](confother_.html#gwd) <!-- (gwd) -->
+          * [repo specific `git config` commands](confother_.html#rsgc) <!-- (rsgc) -->
 
 ----
 
@@ -264,9 +264,9 @@
       * [what should you read?](index.html#rtfm) <!-- (rtfm) -->
           * [what do the other docs contain](other_docs.html) <!-- (other_docs) -->
       * [what is gitolite?](index.html#gl_what) <!-- (gl_what) -->
-      * [why is gitolite needed?](need__.html)
+      * [why is gitolite needed?](need_.html)
       * [why did I write it?](index.html#why_did_I_write_it__)
-          * [some more features](morefeatures__.html)
+          * [some more features](morefeatures_.html)
       * [security](index.html#security_)
       * [contact and license](index.html#contact_and_license_)
 
@@ -291,12 +291,12 @@
               * [client/workstation](instrequire.html#client_workstation_)
               * [server](instrequire.html#server_)
               * [technical skills](instrequire.html#technical_skills_)
-          * [getting the gitolite software](getgl__.html)
-              * [getting a tar file from a clone](getgl__.html#getting_a_tar_file_from_a_clone_)
+          * [getting the gitolite software](getgl_.html)
+              * [getting a tar file from a clone](getgl_.html#getting_a_tar_file_from_a_clone_)
       * [appendixes](install.html#instappendices_)
           * [appendix a: PATH issues for gl-setup](install.html#instpath) <!-- (instpath) -->
           * [appendix b: cleaning out a botched install](install.html#clean) <!-- (clean) -->
-          * [appendix c: uninstalling gitolite completely](uninstall__.html)
+          * [appendix c: uninstalling gitolite completely](uninstall_.html)
 
 ----
 
@@ -449,18 +449,18 @@
           * [syntax and normal usage](tips.html#syntax_and_normal_usage_)
               * [one user, many keys](tips.html#multikey) <!-- (multikey) -->
                   * [old style multi keys](oldmultikeys.html) <!-- (oldmultikeys) -->
-          * [security, access control, and auditing](tipssec__.html)
-              * [two levels of access rights checking](tipssec__.html#2levels) <!-- (2levels) -->
-              * [better logging](tipssec__.html#better_logging_)
-              * [delegating parts of the config file](tipssec__.html#delegating_parts_of_the_config_file_)
-          * [convenience features](tnconv__.html)
-              * [what repos do I have access to?](tnconv__.html#what_repos_do_I_have_access_to__)
-              * [support for git installed outside default PATH](tnconv__.html#support_for_git_installed_outside_default_PATH_)
-              * ["personal" branches](tnconv__.html#pers) <!-- (pers) -->
-              * [custom hooks and custom git config](tnconv__.html#custom_hooks_and_custom_git_config_)
-              * [bypassing gitolite](tnconv__.html#bypassing_gitolite_)
+          * [security, access control, and auditing](tipssec_.html)
+              * [two levels of access rights checking](tipssec_.html#2levels) <!-- (2levels) -->
+              * [better logging](tipssec_.html#better_logging_)
+              * [delegating parts of the config file](tipssec_.html#delegating_parts_of_the_config_file_)
+          * [convenience features](tnconv_.html)
+              * [what repos do I have access to?](tnconv_.html#what_repos_do_I_have_access_to__)
+              * [support for git installed outside default PATH](tnconv_.html#support_for_git_installed_outside_default_PATH_)
+              * ["personal" branches](tnconv_.html#pers) <!-- (pers) -->
+              * [custom hooks and custom git config](tnconv_.html#custom_hooks_and_custom_git_config_)
+              * [bypassing gitolite](tnconv_.html#bypassing_gitolite_)
               * [gl-admin-push: bypassing gitolite for the gitolite-admin repo](adminpush.html) <!-- (adminpush) -->
-              * [disabling write access to take backups](tnconv__.html#disable) <!-- (disable) -->
+              * [disabling write access to take backups](tnconv_.html#disable) <!-- (disable) -->
           * [INconvenience features](tips.html#INconvenience_features_)
               * [deleting a repo](tips.html#repodel) <!-- (repodel) -->
               * [renaming a repo](tips.html#renaming_a_repo_)
@@ -535,7 +535,7 @@
       * [setting a gitweb description for a wildcard-matched repo](wild.html#setting_a_gitweb_description_for_a_wildcard_matched_repo_)
       * [reporting](wild.html#reporting_)
       * [deleting a wild repo](wild.html#deleting_a_wild_repo_)
-      * [how it actually works](wildhow__.html)
+      * [how it actually works](wildhow_.html)
 
 ----
 

@@ -159,7 +159,7 @@ work; http is very fiddly to get right.  If you want mirroring, at least
 your server-to-server comms should be over ssh.</p></li>
 <li><p>Finally, this method uses repo-specific <code>git config</code> variables to store
 the mirroring information.  Please read the <strong>WARNING</strong> in the
-documentation on <a href="confother__.html#rsgc" title="repo specific `git config` commands">git config commands</a> if you wish to <strong>delete</strong> one
+documentation on <a href="confother_.html#rsgc" title="repo specific `git config` commands">git config commands</a> if you wish to <strong>delete</strong> one
 of those lines.</p></li>
 </ul>
 
@@ -202,7 +202,7 @@ and install it as a custom hook called <code>post-receive</code>; see
 The <code>GL_HOSTNAME</code> variable <strong>must</strong> have the correct name for that host
 (frodo, sam, or gollum), so that will definitely be different on each
 server.  The other line can be the same, or may have additional patterns
-for other <code>git config</code> keys you have previously enabled.  See <a href="confother__.html#rsgc" title="repo specific `git config` commands">here</a>
+for other <code>git config</code> keys you have previously enabled.  See <a href="confother_.html#rsgc" title="repo specific `git config` commands">here</a>
 and the description for <code>GL_GITCONFIG_KEYS</code> in <a href="rc.html#rcsecurity" title="variables with a security impact">this</a> for details.</p>
 
 <pre><code>$GL_HOSTNAME = 'frodo';     # will be different on each server!
