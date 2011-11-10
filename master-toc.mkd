@@ -261,8 +261,7 @@
 
   * [Hosting git repositories](index.html) <!-- (index) -->
       * [quick install](index.html#qi) <!-- (qi) -->
-      * [what should you read?](index.html#rtfm) <!-- (rtfm) -->
-          * [what do the other docs contain](other_docs.html) <!-- (other_docs) -->
+      * [what to read...](index.html#rtfm) <!-- (rtfm) -->
       * [what is gitolite?](index.html#gl_what) <!-- (gl_what) -->
       * [why is gitolite needed?](need_.html)
       * [why did I write it?](index.html#why_did_I_write_it__)
@@ -283,7 +282,7 @@
               * [upgrading from from-client method to non-root method](upgrfromclient.html) <!-- (upgrfromclient) -->
           * [root method](root.html) <!-- (root) -->
           * [upgrading](install.html#upgrade) <!-- (upgrade) -->
-      * [if you run into trouble...](install.html#insttrouble) <!-- (insttrouble) -->
+      * [install trouble?](install.html#insttrouble) <!-- (insttrouble) -->
           * [common install problems](install.html#common_install_problems_)
           * [naming conventions used](install.html#instnameconv) <!-- (instnameconv) -->
           * [helpful background information](instbg.html) <!-- (instbg) -->

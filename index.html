@@ -45,7 +45,7 @@ gl-setup ~/YourName.pub
 </ul>
 
 <p>You're done.  If it didn't work, well that's what the <a href="install.html" title="gitolite installation">install</a> doc is for,
-especially the <a href="install.html#insttrouble" title="if you run into trouble...">if you run into trouble</a> section.</p>
+especially the <a href="install.html#insttrouble" title="install trouble?">if you run into trouble</a> section.</p>
 
 <p><strong>WARNING</strong>: do <strong>NOT</strong> add repos or users directly on the server!  You MUST
 manage the server by cloning the special 'gitolite-admin' repo on your
@@ -54,30 +54,66 @@ pushing them.  Here's how to <a href="add.html" title="adding users and repos">a
 
 <p><a name="rtfm"></a></p>
 
-<h2>what should you read?</h2>
+<h2>what to read...</h2>
 
-<p>There's a lot of documentation, so here're some reading suggestions.</p>
-
-<p>If you're a <strong>user</strong> (i.e., not a gitolite admin), you only need <a href="user.html" title="what users (not admins) need to know about gitolite">this</a>.</p>
-
-<p>Otherwise, the suggested reading order is this:</p>
+<p>Gitolite comes with a <em>lot</em> of documentation.  The master TOC (see link above)
+is the <em>only</em> comprehensive list of what is there, but here's an overview.</p>
 
 <ul>
-<li><strong>quick intro</strong>: this document, or at least the "<a href="index.html#gl_what" title="what is gitolite?">what is
-gitolite</a>" section just below this one.</li>
-<li><strong>installation</strong>: if the <a href="index.html#qi" title="quick install">quick install</a> above did not work for you,
-then read the <a href="install.html" title="gitolite installation">INSTALL</a> document.  The "<a href="install.html#insttrouble" title="if you run into trouble...">trouble</a>"
-section in it may be useful too.</li>
-<li><strong>basic</strong> administration tasks: <a href="add.html" title="adding users and repos">adding users and repos</a>.</li>
+<li><p>understanding gitolite</p>
+
+<ul>
+<li><a href="index.html#gl_what" title="what is gitolite?">what is gitolite</a>, and the rest of this document</li>
+<li>gitolite install and basic admin in <a href="pictures.html" title="gitolite in pictures">pictures</a></li>
+<li>gitolite.conf by <a href="conf_examples.html" title="gitolite.conf -- by example">example</a></li>
+<li>gitolite and <a href="gl_ssh.html" title="how gitolite uses ssh">ssh</a></li>
+</ul></li>
+<li><p>explaining gitolite to your <em>users</em></p>
+
+<ul>
+<li>the <a href="user.html" title="what users (not admins) need to know about gitolite">user</a> document is all they need</li>
+</ul></li>
+<li><p>install and setup</p>
+
+<ul>
+<li>the "<a href="install.html#insttrouble" title="install trouble?">install trouble?</a>" section, which links, among
+other things, to arguably the most useful doc for a newbie: <a href="sts.html" title="ssh troubleshooting">ssh
+troubleshooting</a>!</li>
+<li>maybe even the complete <a href="install.html" title="gitolite installation">install</a> document</li>
+</ul></li>
+<li><p>normal admin tasks done on the server</p>
+
+<ul>
+<li><a href="add.html" title="adding users and repos">adding users and repos</a></li>
+<li><a href="admin.html" title="administering and running gitolite">admin</a>: add your own hooks, add existing repos into gitolite, etc.</li>
+<li><a href="rc.html" title="configuring gitolite's advanced features -- the `.gitolite.rc` file">rc</a>: sett gitolite behaviour options (warning: some of the
+variables have a security impact if you're careless)</li>
+</ul></li>
+<li><p>normal admin tasks done by changing <a href="conf.html" title="the access control file `gitolite.conf`">gitolite.conf</a></p>
+
+<ul>
+<li>basic access control</li>
+<li>advanced access control</li>
+<li>extras: personal branches, gitweb/git-daemon access, git config settings</li>
+</ul></li>
+<li><p>advanced use (experts only; you can shoot yourself in the foot nicely!)</p>
+
+<ul>
+<li><a href="ADCs.html" title="admin defined commands">ADCs</a>: allow users to run specific shell commands (but not give them a shell)</li>
+<li>(also, <a href="shipped_ADCs.html" title="brief descriptions of the shipped ADCs (admin-defined commands)">sample ADCs</a> that come with gitolite)</li>
+<li>let <a href="wild.html" title="repositories named with wildcards">users create</a> their own repos and assign permissions</li>
+<li><a href="deleg.html" title="delegating access control responsibilities">delegate</a> admin rights</li>
+<li><a href="mirroring.html" title="mirroring gitolite servers">mirror</a> your servers</li>
+</ul></li>
+<li><p>special installation scenarios:</p>
+
+<ul>
+<li>use smart-<a href="http.html" title="how to setup gitolite to use smart http mode">http</a> instead of ssh</li>
+<li><a href="migr.html" title="migrating from gitosis to gitolite">migrate</a> from gitolite</li>
+</ul></li>
 </ul>
 
-<p>When you have to use more features, look in the breakout section on "what do
-the other docs contain" below, or go to the master table of contents (there's
-a link to it at the top of <em>every</em> document), and use your browser's search
-function to search for stuff.</p>
-
-<h3>what do the other docs contain: <a href="other_docs.html" title="what do the other docs contain">Link</a></h3>
-
+<p>Finally, <a href="tips.html" title="assorted tips and notes">tips</a> has a lot of useful information.</p>
 
 <p><a name="gl_what"></a></p>
 

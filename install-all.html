@@ -212,7 +212,7 @@ gl-setup /tmp/YourName.pub
 <h3>upgrading</h3>
 
 <p>Upgrading is easy; you just re-run some of the same commands used for install.
-These commands are clearly noted in the install instructions below.</p>
+These commands are clearly noted in the install instructions above.</p>
 
 <p>However, if you've added any new hooks, you must also run the next step (the
 <code>gl-setup</code> command), although this time you don't need to supply a pubkey
@@ -220,7 +220,7 @@ filename as an argument.</p>
 
 <p><a name="insttrouble"></a></p>
 
-<h2>if you run into trouble...</h2>
+<h2>install trouble?</h2>
 
 <p>If you run into trouble, please read the following sections.</p>
 
@@ -341,12 +341,12 @@ msysgit for Windows and the openssh that comes with it</li>
 <li>people using "csh" or derivatives please don't ask me for help -- tell
 your admin csh is not posix compatible</li>
 </ul></li>
-<li>git version 1.6.6 or greater
+<li>git version 1.6.6 or later
 <ul>
 <li>can be in a non-PATH location if you are unable to install it
 normally; see the <code>$GIT_PATH</code> variable in the "rc" file</li>
 </ul></li>
-<li>perl (but since git requires it anyway, you probably have it)</li>
+<li>perl 5.8 or later</li>
 <li>openssh or any ssh that can understand the <code>authorized_keys</code> file format
 (probably optional if you're using the http backend)</li>
 <li>a Unix userid to be the hosting user, usually "git" but it can be any
