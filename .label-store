@@ -370,7 +370,7 @@
   'tnconv_' => 'tnconv_.html "convenience features"',
   'typical_cause_s__' => 'sts.html#typical_cause_s__ "typical cause(s)"',
   'umask' => 'tips.html#umask "umask setting"',
-  'uninstall_' => 'uninstall_.html "appendix c: uninstalling gitolite completely"',
+  'uninstall_' => 'install.html#uninstall_ "appendix c: uninstalling gitolite completely"',
   'upgrade' => 'install.html#upgrade "upgrading"',
   'upgrfromclient' => 'upgrfromclient.html "upgrading from from-client method to non-root method"',
   'usage_' => 'http.html#usage_ "usage"',

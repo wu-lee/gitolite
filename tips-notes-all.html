@@ -349,8 +349,12 @@ will work for all the repos managed by gitolite, <strong>except</strong> for the
 is also a <code>post-update</code> hook that runs here, and this needs additional
 information which is NOT available if you bypass gitolite.</p>
 
-<p>Use the <code>gl-admin-push</code> program to make changes to the admin repo directly on
-the server.  Here's how:</p>
+<p>(Note: If your gitolite is too old to have the <code>gl-admin-push</code> program, try
+<code>gl-dont-panic</code>; run it without arguments for usage info.  If you don't even
+have that, it may be best to <a href="install.html#clean" title="appendix b: cleaning out a botched install">clean</a> things out more thoroughly!)</p>
+
+<p>Use the <code>gl-admin-push</code> program to make changes to the admin repo <em>directly on
+the server</em>.  Here's how:</p>
 
 <ul>
 <li><p>clone the repo to some safe location and cd to it:</p>
@@ -364,10 +368,7 @@ keys, change the conf file, or anything at all that needs fixing up.  You
 can even reset to an older commit (rewind) if that is the simplest way to
 fix up some config problem that may have lost you your access.</p></li>
 <li><p>when done, instead of <code>git push &lt;push arguments&gt;</code>, use this program
-instead, like so:</p>
-
-<pre><code>gl-admin-push &lt;push arguments&gt;
-</code></pre></li>
+instead.  For example, instead of <code>git push -f</code>, use <code>gl-admin-push -f</code>.</p></li>
 </ul>
 
 <p>Note that this method will work for <em>any</em> repo, not just the special admin

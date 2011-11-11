@@ -296,7 +296,7 @@
       * [appendixes](install.html#instappendices_)
           * [appendix a: PATH issues for gl-setup](install.html#instpath) <!-- (instpath) -->
           * [appendix b: cleaning out a botched install](install.html#clean) <!-- (clean) -->
-          * [appendix c: uninstalling gitolite completely](uninstall_.html)
+          * [appendix c: uninstalling gitolite completely](install.html#uninstall_)
 
 ----
 

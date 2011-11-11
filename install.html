@@ -169,28 +169,80 @@ Good luck.</p>
 <h3>appendix b: cleaning out a botched install</h3>
 
 <p>When people have trouble installing gitolite, they often try to change a bunch
-of things manually on the server.  This usually makes things worse ;-) so
-here's how to clean the slate.</p>
+of things manually on the server.  Or sometimes they'll upgrade from one
+install method to another without checking some things over properly.  Or
+they'll follow instructions meant for a much newer version of gitolite and
+make a royal mess of the whole thing.</p>
+
+<p>Here's how to clean up, without losing your actual repositories.</p>
+
+<p>All this is on the server.  Note that the instructions are so long because
+they're generic enough to fit any situation.</p>
 
 <ul>
-<li>client-side
+<li><p>Clean out the existing install</p>
+
 <ul>
-<li>edit <code>~/.ssh/config</code> and delete the paragraph starting with <code>host
-gitolite</code>, if present.</li>
-<li>remove <code>~/gitolite-admin</code></li>
+<li><p>edit <code>~/.ssh/authorized_keys</code> and delete all lines between <code># gitolite
+start</code> and <code># gitolite end</code> inclusive.</p></li>
+<li><p>look in <code>~/.gitolite.rc</code> for 2 variables starting with <code>GL_PACKAGE_</code>.
+If they are defined (and not just commented out), you need to clean
+out all gitolite related files and directories from those two paths.</p>
+
+<p>Just for reference, the defaults for a non-root install are 'conf' and
+'hooks' in <code>$HOME/share/gitolite</code>, while for an RPM/DEB or root
+install they should be in <code>/var/gitolite/</code> or some such.</p>
+
+<p>If those variables don't exist or are commented out, ignore this step.</p></li>
+<li><p>look in <code>$PATH</code> for any gitolite programs and delete them also.  A
+good way to hunt them down is <code>which gl-auth-command</code>, and in the path
+you find, delete all "gl-*" programs (perhaps after checking the list,
+if the path you find happens to be /usr/bin or such!!)</p>
+
+<p>Repeat this step until there are no more.  I know of people who mixed
+different install methods and had two, or even three, versions lying
+around.</p></li>
+<li><p>make some temp directory (say "old"), and <strong>move</strong> the following
+files/directories into it: <code>~/.gitolite</code>, <code>~/.gitolite.rc</code> and
+<code>~/repositories/gitolite-admin.git</code>.  If there's nothing you need to
+salvage from them you can delete them too.</p></li>
+<li><p>if you used an RPM/DEB install, remove the package also.</p></li>
 </ul></li>
-<li>server-side
-<ul>
-<li>edit <code>~/.ssh/authorized_keys</code> and delete all lines between <code># gitolite
-start</code> and <code># gitolite end</code> inclusive.</li>
-<li>remove <code>~/.gitolite</code>, <code>~/.gitolite.rc</code> and
-<code>~/repositories/gitolite-admin.git</code></li>
-<li>depending on which install method you used, you may also need to clean
-out all gitolite files from <code>/usr/local/bin</code> or <code>$HOME/bin</code>, and then
-delete <code>/var/gitolite/conf</code> and <code>/var/gitolite/hooks</code> or
-<code>$HOME/share/gitolite/conf</code> and <code>$HOME/share/gitolite/hooks</code></li>
-</ul></li>
+<li><p>Now install a fresh copy of gitolite using whatever method you prefer.
+(If you used a different method earlier and did not clean things out
+properly per the instructions given above, expect trouble).</p></li>
+<li><p>You now have a brand new "rc" file.  If your old rc file had any
+non-default settings you should <strong>manually</strong> pull them in to the new one.
+However, <strong>do NOT</strong> change the two variables starting with <code>GL_PACKAGE_</code>
+in the new rc file; even if the old one had something different leave them
+alone.</p></li>
+<li><p>You also have a brand new gitolite-admin repo.  Clone this to your
+workstation, then use the saved copy of the old admin repo to salvage
+whatever you need (entire revision history, or just the conf/key files,
+whatever floats your boat).</p>
+
+<p>Once you've got your admin repo looking how you want it, including 'repo'
+statements for all your existing repos, just add/commit/push it.</p></li>
+<li><p>Go back to the server and run <code>gl-setup</code> once again (no arguments needed).</p></li>
 </ul>
 
-<h3>appendix c: uninstalling gitolite completely: <a href="uninstall_.html" title="appendix c: uninstalling gitolite completely">Link</a></h3>
+<p>That should do it.</p>
 
+<p><a name="uninstall_"></a></p>
+
+<h3>appendix c: uninstalling gitolite completely</h3>
+
+<p>To uninstall gitolite completely, first follow the "clean out..." steps in the
+previous section.</p>
+
+<p>If you have not really started using gitolite properly yet, you can remove all
+of <code>~/repositories</code> also and be done.</p>
+
+<p>But if you <em>do</em> need to preserve the other repos and wish to continue to use
+them, remove all the <code>update</code> hooks that gitolite installs in each repository.
+The easiest way is:</p>
+
+<pre><code>find ~/repositories -wholename "*.git/hooks/update" | xargs rm -f
+</code></pre>
+
+<p>but you can do it manually if you want to be careful.</p>
