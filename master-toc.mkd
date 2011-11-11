@@ -164,13 +164,14 @@
 ### gitolite.conf
 
   * [the access control file `gitolite.conf`](conf.html) <!-- (conf) -->
-      * [syntax](conf.html#syntax) <!-- (syntax) -->
-          * [continuation lines](conf.html#continuation_lines_)
-          * [include files](conf.html#include_files_)
+      * [a quick summary of the conf file](conf.html#confrecap) <!-- (confrecap) -->
+      * [lexical syntax](syntax.html) <!-- (syntax) -->
+          * [continuation lines](syntax.html#continuation_lines_)
+          * [include files](syntax.html#include_files_)
       * [basic access control](bac.html) <!-- (bac) -->
           * [how rules are matched](bac.html#how_rules_are_matched_)
-          * [branches, tags, and specifying "refex"es](bac.html#branches_tags_and_specifying_refex_es_)
-          * [groups](bac.html#groups_)
+          * [branches, tags, and specifying "refex"es](bac.html#refex) <!-- (refex) -->
+          * [groups](bac.html#groups) <!-- (groups) -->
               * [the special `@all` group](bac.html#the_special_all_group_)
           * [side note: "R" permissions for refs](rpr_.html)
       * [advanced access control](aac.html) <!-- (aac) -->

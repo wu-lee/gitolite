@@ -30,61 +30,57 @@ and users.  There was also, in the author's mind, a desperate need to create
 something as different as possible from the brain-dead, nausea-inducing
 "Windows INI" style syntax that some other popular tools seem to favour.</p>
 
-<p>This document describes the syntax and semantics of the access control rules
-and other configuration directives in the <code>gitolite.conf</code> file.</p>
+<p><a name="confrecap"></a></p>
 
-<p><a name="syntax"></a></p>
+<h2>a quick summary of the conf file</h2>
 
-<h2>syntax</h2>
+<p>This is a quick <em>recap</em> of the most common elements in a typical config file.
+(In the following description, the angle brackets are not part of the syntax).</p>
 
-<p>In general, everything is <strong>space separated</strong>; there are no commas,
-semicolons, etc., in the syntax.</p>
+<ul>
+<li><p>(optional) <a href="bac.html#groups" title="groups">group</a> definitions</p>
 
-<p><strong>Comments</strong> are in the usual shell-ish style.</p>
+<pre><code>@&lt;groupname&gt; = &lt;list of users and groups&gt;
+</code></pre></li>
+<li><p>repo access rules</p>
 
-<p><strong>User names</strong> and <strong>repo names</strong> are as simple as possible; they must start
-with an alphanumeric, but after that they can also contain <code>.</code>, <code>_</code>, or <code>-</code>.</p>
-
-<p>Usernames can optionally be followed by an <code>@</code> and a domainname containing at
-least one <code>.</code> (this allows you to use an email address as someone's username).
-Reponames can contain <code>/</code> characters (this allows you to put your repos in a
-tree-structure for convenience)</p>
-
-<p><a name="continuation_lines_"></a></p>
-
-<h3>continuation lines</h3>
-
-<p>There are no continuation lines -- gitolite does not process C-style
-backslash-escaped newlines as anything special.  However, the section on
-"groups" will tell you how you can break up large lists of names in a group
-definition into multiple lines.</p>
-
-<p><a name="include_files_"></a></p>
-
-<h3>include files</h3>
-
-<p>Gitolite allows you to break up the configuration into multiple files and
-include them in the main file for convenience.</p>
-
-<pre><code>include     "foo.conf"
+<pre><code>repo &lt;reponame&gt;
+    # one or more access rules like
+    &lt;permission&gt; &lt;optional refex&gt; = &lt;list of users and groups&gt;
 </code></pre>
 
-<p>will include the contents of the file "foo.conf" from the same directory as
-the main config file.  You can also use an absolute path if you like, although
-in the interests of cloning the admin-repo sanely you should avoid doing this!</p>
+<p>The <a href="bac.html" title="basic access control">most common</a> permissions are:</p>
 
-<p>You can also use a glob, as in:</p>
+<ul>
+<li>R, for read only</li>
+<li>RW, for push existing ref or create new ref</li>
+<li>RW+, for  "push -f" or ref deletion allowed (i.e., destroy
+information)</li>
+<li><code>-</code> (the minus sign), to <a href="aac.html#deny" title="&quot;deny&quot; rules">deny</a> access</li>
+</ul>
 
-<pre><code>include     "*.conf"
-</code></pre>
+<p>If no <a href="bac.html#refex" title="branches, tags, and specifying &quot;refex&quot;es">refex</a> is supplied, the access rule applies to all refs.</p>
 
-<p>which will include all the ".conf" files from the directory in which the main
-config file exists.</p>
+<p>Later, gitolite <a href="aac.html#rwcd" title="creating and deleting branches">acquired</a></p>
 
-<p>Files that have been already processed once are skipped, with a warning.</p>
+<ul>
+<li>RWC and RW+C, for ref creation.  Once you use this in a repo, a normal
+RW/RW+ can no longer create a ref; it can only push existing refs
+(<font color="gray">Note also that a standalone "C" permission is
+something <a href="wild.html" title="repositories named with wildcards">completely different</a></font>)</li>
+<li>RWD and RW+D, for ref deletion.  Once you use this in a repo, a normal
+RW+ can no longer delete a ref; it can only rewind</li>
+<li>(RWCD and RW+CD, which is just a combination of these two)</li>
+</ul></li>
+</ul>
 
-<p><font color="gray">Advanced users: <code>subconf</code>, a command that is very closely
-related to <code>include</code>, is documented <a href="deleg.html#subconf" title="the subconf command">here</a>.</font></p>
+<p>The following sections dig deeper into the syntax and semantics of the access
+control rules and other configuration directives in the <code>gitolite.conf</code> file.
+If narrative descriptions scare you, or your English is not upto scratch, try
+<a href="conf_examples.html" title="gitolite.conf -- by example">gitolite config by example</a> also.</p>
+
+<h2>lexical syntax: <a href="syntax.html" title="lexical syntax">Link</a></h2>
+
 
 <h2>basic access control: <a href="bac.html" title="basic access control">Link</a></h2>
 
