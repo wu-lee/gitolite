@@ -230,13 +230,11 @@
 ### hook-propagation
 
   * [hook propagation in gitolite](hook_prop.html) <!-- (hook_prop) -->
-      * [hooks used by gitolite](hook_prop.html#hooks_used_by_gitolite_)
-      * [**where** do I (the admin) put the hooks?](hook_prop.html#_where_do_I_the_admin_put_the_hooks__)
-          * [the `GL_PACKAGE_HOOKS` directory](hook_prop.html#the_GL_PACKAGE_HOOKS_directory_)
-          * [the `$HOME/.gitolite` directory](hook_prop.html#the_HOME_gitolite_directory_)
-          * [why two places?](hook_prop.html#why_two_places__)
-          * [special case: the "non-root" method](hook_prop.html#special_case_the_non_root_method_)
-      * [**when** do hooks propagate?](hook_prop.html#_when_do_hooks_propagate__)
+      * [what hooks do repos get?](hook_prop.html#what_hooks_do_repos_get__)
+      * [when do repos "get" hooks?](hook_prop.html#when_do_repos_get_hooks__)
+      * [what exactly does "get hooks" mean?](hook_prop.html#what_exactly_does_get_hooks_mean__)
+      * [where do the symlinks point?](hook_prop.html#where_do_the_symlinks_point__)
+      * [so where do I put my hooks?](hook_prop.html#so_where_do_I_put_my_hooks__)
 
 ----
 
