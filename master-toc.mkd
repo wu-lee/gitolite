@@ -666,10 +666,12 @@
 
   * [password access to gitolite](password_access.html) <!-- (password_access) -->
       * [problems](password_access.html#problems_)
-      * [solution](password_access.html#solution_)
-      * [some hints, notes and caveats](password_access.html#some_hints_notes_and_caveats_)
       * [what the 2 scripts actually do](password_access.html#what_the_2_scripts_actually_do_)
-      * [setting up password access](password_access.html#setting_up_password_access_)
+      * [instructions](password_access.html#instructions_)
+          * [server setup](password_access.html#server_setup_)
+          * [per-user setup](password_access.html#per_user_setup_)
+      * [some hints, notes and caveats](password_access.html#some_hints_notes_and_caveats_)
+          * [security and trust discussion](password_access.html#security_and_trust_discussion_)
 
 ----
 

@@ -80,19 +80,15 @@ informative message, and exits with a return value of "0".</p>
 gl-mirror-shell request-push ip1 gitolite.mirror.slaves
 # pushes to sam, merry, pippin
 
-
 gl-mirror-shell request-push ip1 gollum
 # pushes only to gollum.  Note that gollum is not a member of any of
 # the slave lists we defined.
 
-
 gl-mirror-shell request-push ip1 gitolite.mirror.slaves gollum
 # pushes to sam, merry, pippin, gollum
 
-
 gl-mirror-shell request-push ip1 gitolite.mirror.slaves gitolite.mirror.hourly
 # pushes to sam, merry, pippin, legolas
-
 
 gl-mirror-shell request-push ip1 gitolite.mirror.all
 # pushes to sam, legolas, gimli, merry, pippin

@@ -77,15 +77,15 @@ permissions syntax, and define a more rigorous, ordered, interpretation.</p>
 
 <blockquote>
   <p>The first matching refex that has the permission you're looking for (<code>W</code>
-    or <code>+</code>), results in success.  A fallthrough results in failure.</p>
+  or <code>+</code>), results in success.  A fallthrough results in failure.</p>
 </blockquote>
 
 <p>Here are the <strong>new semantics</strong>, with changes from the "main" one in bold:</p>
 
 <blockquote>
   <p>The first matching refex that has the permission you're looking for (<code>W</code>
-    or <code>+</code>) <strong>or a minus (<code>-</code>)</strong>, results in success <strong>or failure,
-    respectively</strong>.  A fallthrough <strong>also</strong> results in failure.</p>
+  or <code>+</code>) <strong>or a minus (<code>-</code>)</strong>, results in success <strong>or failure,
+  respectively</strong>.  A fallthrough <strong>also</strong> results in failure.</p>
 </blockquote>
 
 <p>So the example we started with becomes, if you use "deny" rules:</p>

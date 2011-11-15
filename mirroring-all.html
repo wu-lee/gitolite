@@ -219,8 +219,8 @@ below for more info on this variable).</p>
 
 <blockquote>
   <p>If you wish, you can also add this hostname information to the
-    <code>GL_SITE_INFO</code> variable in the rc file.  See the rc file documentation
-    for more on that.</p>
+  <code>GL_SITE_INFO</code> variable in the rc file.  See the rc file documentation
+  for more on that.</p>
 </blockquote>
 
 <p></font></p></li>
@@ -291,7 +291,6 @@ the following lines to both their gitolite.conf files:</p>
 <pre><code>repo ip1 gitolite-admin
     config gitolite.mirror.master   =   "frodo"
     config gitolite.mirror.slaves   =   "sam"
-
 
 repo ip2
     config gitolite.mirror.master   =   "sam"
@@ -416,19 +415,15 @@ informative message, and exits with a return value of "0".</p>
 gl-mirror-shell request-push ip1 gitolite.mirror.slaves
 # pushes to sam, merry, pippin
 
-
 gl-mirror-shell request-push ip1 gollum
 # pushes only to gollum.  Note that gollum is not a member of any of
 # the slave lists we defined.
 
-
 gl-mirror-shell request-push ip1 gitolite.mirror.slaves gollum
 # pushes to sam, merry, pippin, gollum
 
-
 gl-mirror-shell request-push ip1 gitolite.mirror.slaves gitolite.mirror.hourly
 # pushes to sam, merry, pippin, legolas
-
 
 gl-mirror-shell request-push ip1 gitolite.mirror.all
 # pushes to sam, legolas, gimli, merry, pippin
