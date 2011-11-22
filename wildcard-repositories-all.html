@@ -38,7 +38,7 @@ I haven't found any yet, but that doesn't mean there aren't any.</p>
 
 <hr />
 
-<p><a name="quick_introduction_"></a></p>
+<p><a name="wildcard_repositories_quick_introduction_"></a></p>
 
 <h2>quick introduction</h2>
 
@@ -48,7 +48,7 @@ single set of rules in the config file.  The regex pattern can also include
 the word <code>CREATOR</code> in it, allowing you to parametrise the name of the user
 creating the repo.  The examples below will make this clearer.</p>
 
-<p><a name="rc_file_setting_required_"></a></p>
+<p><a name="wildcard_repositories_rc_file_setting_required_"></a></p>
 
 <h2>rc file setting required</h2>
 
@@ -56,7 +56,7 @@ creating the repo.  The examples below will make this clearer.</p>
 on the server.  Please search for that variable in <code>doc/gitolite.rc.mkd</code>
 for more information on this.</p>
 
-<p><a name="examples_of_wildcard_repos_"></a></p>
+<p><a name="wildcard_repositories_examples_of_wildcard_repos_"></a></p>
 
 <h2>examples of wildcard repos</h2>
 
@@ -75,7 +75,7 @@ keep track of who actually created the repo (except for granting access), but
 needs more communication / co-operation among the users to avoid repo name
 clashes.</p>
 
-<p><a name="wildcard_repos_with_creator_name_in_them_"></a></p>
+<p><a name="wildcard_repositories_wildcard_repos_with_creator_name_in_them_"></a></p>
 
 <h3>wildcard repos with creator name in them</h3>
 
@@ -108,7 +108,7 @@ warning: You appear to have cloned an empty repository.
 
 <p>Notice the <em>two</em> empty repo inits, and the order in which they occur ;-)</p>
 
-<p><a name="wildcard_repos_without_creator_name_in_them_"></a></p>
+<p><a name="wildcard_repositories_wildcard_repos_without_creator_name_in_them_"></a></p>
 
 <h3>wildcard repos without creator name in them</h3>
 
@@ -143,7 +143,7 @@ users are "READERS" and which are "WRITERS".  See later for details.</p>
 
 <h2>valid regexes and how they are used</h2>
 
-<p><a name="side_note_valid_regexes_"></a></p>
+<p><a name="wildcard_repositories_side_note_valid_regexes_"></a></p>
 
 <h3>side-note: valid regexes</h3>
 
@@ -154,7 +154,7 @@ look like a regex to gitolite.  Use <code>foo/..*</code> if you want that.</p>
 <p>Also, <code>..*</code> by itself is not considered a valid repo pattern.  Try
 <code>[a-zA-Z0-9].*</code>.</p>
 
-<p><a name="side_note_line_anchored_regexes_"></a></p>
+<p><a name="wildcard_repositories_side_note_line_anchored_regexes_"></a></p>
 
 <h3>side-note: line-anchored regexes</h3>
 
@@ -172,7 +172,7 @@ or <code>assignments/S02/a37</code>, obviously.</p>
 <code>^assignments/S[0-9]+/A[0-9]+$</code> -- notice the line beginning and ending
 metacharacters.</p>
 
-<p><a name="contrast_with_refexes_"></a></p>
+<p><a name="wildcard_repositories_contrast_with_refexes_"></a></p>
 
 <h4>contrast with refexes</h4>
 
@@ -239,7 +239,7 @@ word is the role (in this example, READERS or WRITERS), and the rest
 are simple usernames.</li>
 </ul>
 
-<p><a name="_admin_adding_other_roles_than_READERS_and_WRITERS_"></a></p>
+<p><a name="wildcard_repositories_admin_adding_other_roles_than_READERS_and_WRITERS_"></a></p>
 
 <h3>(admin) adding other roles than READERS and WRITERS</h3>
 
@@ -284,21 +284,21 @@ your usernames lowercase; then you don't have to worry about this problem.</p>
 
 <!-- file: wild -->
 
-<p><a name="setting_a_gitweb_description_for_a_wildcard_matched_repo_"></a></p>
+<p><a name="wildcard_repositories_setting_a_gitweb_description_for_a_wildcard_matched_repo_"></a></p>
 
 <h2>setting a gitweb description for a wildcard-matched repo</h2>
 
 <p>Similar to the getperms/setperms commands, there are the
 <a href="user.html#setdesc" title="adding a description to repos you created">getdesc/setdesc</a> commands, thanks to Teemu.</p>
 
-<p><a name="reporting_"></a></p>
+<p><a name="wildcard_repositories_reporting_"></a></p>
 
 <h2>reporting</h2>
 
 <p>In order to see what repositories were created from a wildcard, use the
 <a href="info_expand.html#expand" title="the &quot;expand&quot; command">"expand"</a> command.</p>
 
-<p><a name="deleting_a_wild_repo_"></a></p>
+<p><a name="wildcard_repositories_deleting_a_wild_repo_"></a></p>
 
 <h2>deleting a wild repo</h2>
 

@@ -33,14 +33,14 @@ even set <code>GL_NO_CREATE_REPOS</code> and <code>GL_NO_SETUP_AUTHKEYS</code>. 
 that if you're not sufficiently clueful, those last 2 variables could have a
 <a href="rc.html#rcsecurity" title="variables with a security impact">security impact</a>.</p>
 
-<p><a name="when_why_do_we_need_it__"></a></p>
+<p><a name="big_config_when_why_do_we_need_it__"></a></p>
 
 <h2>when/why do we need it?</h2>
 
 <p>A "big config" is anything that has a few thousand users and a few thousand
 repos, resulting in a very large 'compiled' config file.</p>
 
-<p><a name="the_problem_"></a></p>
+<p><a name="big_config_the_problem_"></a></p>
 
 <h3>the problem</h3>
 
@@ -73,7 +73,7 @@ lines.</p>
 <p>Anyway, you can imagine what that does when you have 10,000 users and 10,000
 repos.  Let's just say it's not pretty :)</p>
 
-<p><a name="how_do_we_use_it__"></a></p>
+<p><a name="big_config_how_do_we_use_it__"></a></p>
 
 <h2>how do we use it?</h2>
 
@@ -86,7 +86,7 @@ repos.  Let's just say it's not pretty :)</p>
 variables).  When you do that, and push this configuration, one of two things
 happens.</p>
 
-<p><a name="access_rules_for_groups_"></a></p>
+<p><a name="big_config_access_rules_for_groups_"></a></p>
 
 <h3>access rules for groups</h3>
 
@@ -96,7 +96,7 @@ compiled config looks like <a href="bigyes_.html" title="compiled config with bi
 <p>That's a lot smaller, and allows orders of magintude more repos and groups to
 be supported.</p>
 
-<p><a name="access_rules_for_individual_repos_split_config__"></a></p>
+<p><a name="big_config_access_rules_for_individual_repos_split_config__"></a></p>
 
 <h3>access rules for individual repos (split config)</h3>
 
@@ -154,7 +154,7 @@ instance, <code>~/repositories/lynx.git/gl-conf</code> would look like this:</p>
 <p>That does not reduce the overall size of the repo config (because you did not
 group the repos), but the main repo config is now even smaller!</p>
 
-<p><a name="what_are_the_downsides__"></a></p>
+<p><a name="big_config_what_are_the_downsides__"></a></p>
 
 <h2>what are the downsides?</h2>
 
@@ -174,11 +174,11 @@ to the server will benefit.</p></li>
 access'.  They both now look like 'you dont have access'.</p></li>
 </ul>
 
-<p><a name="other_optimisations_"></a></p>
+<p><a name="big_config_other_optimisations_"></a></p>
 
 <h2>other optimisations</h2>
 
-<p><a name="disabling_various_defaults_"></a></p>
+<p><a name="big_config_disabling_various_defaults_"></a></p>
 
 <h3>disabling various defaults</h3>
 
@@ -252,7 +252,7 @@ this (note the clever date command that always gets you last months log file!)</
 <h2>storing usergroup information outside gitolite (like in LDAP): <a href="ldap.html" title="storing usergroup information outside gitolite (like in LDAP)">Link</a></h2>
 
 
-<p><a name="implementation_notes_"></a></p>
+<p><a name="big_config_implementation_notes_"></a></p>
 
 <h2>implementation notes</h2>
 
@@ -296,7 +296,7 @@ alice, @wbr
 <p>Anyway, all ACL rules for these combinations are clubbed together to make the
 composite set of rules that 'alice' accessing 'lynx' is subject to.</p>
 
-<p><a name="config_listings_"></a></p>
+<p><a name="big_config_config_listings_"></a></p>
 
 <h2>config listings</h2>
 

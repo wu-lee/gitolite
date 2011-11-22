@@ -30,7 +30,7 @@ user" ;-)</p>
 available in the rest of the documentation, but it's scattered and sparse.
 Collecting all of it, or at least links to it, in one place sounds useful.</p>
 
-<p><a name="accessing_gitolite_"></a></p>
+<p><a name="user_accessing_gitolite_"></a></p>
 
 <h2>accessing gitolite</h2>
 
@@ -44,7 +44,7 @@ document), or an ssh command (like <code>ssh git@server info</code>).</p>
 <p>Note that you do <em>not</em> get a shell on the server -- the whole point of
 gitolite is to prevent that!</p>
 
-<p><a name="always_available_commands_"></a></p>
+<p><a name="user_always_available_commands_"></a></p>
 
 <h2>always available commands</h2>
 
@@ -54,7 +54,7 @@ server, and what repositories you have access to.  The list of repos is very
 useful if you have doubts about the spelling of some new repo that you know
 was setup.</p>
 
-<p><a name="digression_two_kinds_of_repos_"></a></p>
+<p><a name="user_digression_two_kinds_of_repos_"></a></p>
 
 <h2>digression: two kinds of repos</h2>
 
@@ -78,18 +78,18 @@ that you otherwise might have access to.</p>
 <p>"Wildrepos" is an optional feature of gitolite that the admin has to
 explicitly enable.</p>
 
-<p><a name="commands_only_available_with_wildrepos_on_"></a></p>
+<p><a name="user_commands_only_available_with_wildrepos_on_"></a></p>
 
 <h2>commands only available with "wildrepos" on</h2>
 
-<p><a name="listing_repos_you_created_"></a></p>
+<p><a name="user_listing_repos_you_created_"></a></p>
 
 <h3>listing repos you created</h3>
 
 <p>The info command will not show you your own wildcard repos.  To get that list,
 try the <a href="info_expand.html#expand" title="the &quot;expand&quot; command"><code>expand</code> command</a>.</p>
 
-<p><a name="set_get_additional_permissions_for_repos_you_created_"></a></p>
+<p><a name="user_set_get_additional_permissions_for_repos_you_created_"></a></p>
 
 <h3>set/get additional permissions for repos you created</h3>
 
@@ -143,7 +143,7 @@ and what permissions those roles have.</p>
 <pre><code>ssh git@server getdesc pub/&lt;yourname&gt;/&lt;your_reponame&gt;
 </code></pre>
 
-<p><a name="_site_local_commands_"></a></p>
+<p><a name="user_site_local_commands_"></a></p>
 
 <h2>"site-local" commands</h2>
 

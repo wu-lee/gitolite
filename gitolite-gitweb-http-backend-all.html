@@ -24,13 +24,13 @@
 
 <h1>how to set up gitolite+gitweb+ssh+http-backend</h1>
 
-<p><a name="NAME_"></a></p>
+<p><a name="gitolite_gitweb_http_backend_NAME_"></a></p>
 
 <h2>NAME</h2>
 
 <p>gitolite-gitweb-http-backend</p>
 
-<p><a name="DESCRIPTION_"></a></p>
+<p><a name="gitolite_gitweb_http_backend_DESCRIPTION_"></a></p>
 
 <h2>DESCRIPTION</h2>
 
@@ -47,7 +47,7 @@ corporate environment and your requirements are as follows:</p>
 <p>Note that these instructions are geared toward OpenSuSE 11.4.  Feel
 free to modify the examples below to your environment.</p>
 
-<p><a name="EXAMPLE_ENVIRONMENT_"></a></p>
+<p><a name="gitolite_gitweb_http_backend_EXAMPLE_ENVIRONMENT_"></a></p>
 
 <h2>EXAMPLE ENVIRONMENT</h2>
 
@@ -75,7 +75,7 @@ etc)</li>
 </ul></li>
 </ul>
 
-<p><a name="GITOLITE_SETUP_"></a></p>
+<p><a name="gitolite_gitweb_http_backend_GITOLITE_SETUP_"></a></p>
 
 <h2>GITOLITE SETUP</h2>
 
@@ -83,7 +83,7 @@ etc)</li>
 install repositories in <code>/srv/git</code>.  Follow the instructions found
 <a href="install.html" title="gitolite installation">here</a> for initial set up.</p>
 
-<p><a name="gitolite_rc_"></a></p>
+<p><a name="gitolite_gitweb_http_backend_gitolite_rc_"></a></p>
 
 <h3>gitolite.rc</h3>
 
@@ -98,7 +98,7 @@ is set in <code>/srv/git/.gitolite.rc</code>:</p>
 <code>gitolite.conf</code>, which in turn will be propagated to each
 repositories git config.</p>
 
-<p><a name="gitolite_conf_"></a></p>
+<p><a name="gitolite_gitweb_http_backend_gitolite_conf_"></a></p>
 
 <h3>gitolite.conf</h3>
 
@@ -147,13 +147,13 @@ repo    @all
 <p>Save, commit, and push your changes to the gitolite-admin repo as
 described <a href="conf.html" title="the access control file `gitolite.conf`">here</a>.</p>
 
-<p><a name="APACHE_SETUP_"></a></p>
+<p><a name="gitolite_gitweb_http_backend_APACHE_SETUP_"></a></p>
 
 <h2>APACHE SETUP</h2>
 
 <p>Under OpenSuSE 11.4, Apache runs as user <code>wwwrun</code> group <code>www</code> (see <code>/etc/apache2/uid.conf</code>).  But wait!  How can Apache running as <code>wwwrun</code> commit to git repositories, which are owned by <code>git</code>?</p>
 
-<p><a name="suexec_"></a></p>
+<p><a name="gitolite_gitweb_http_backend_suexec_"></a></p>
 
 <h3>suexec</h3>
 
@@ -212,7 +212,7 @@ exec /usr/bin/gl-auth-command $USER
 this would mean adding "suexec" to <code>APACHE_MODULES</code> in
 <code>/etc/sysconfig/apache2</code>.</p>
 
-<p><a name="Gitweb_"></a></p>
+<p><a name="gitolite_gitweb_http_backend_Gitweb_"></a></p>
 
 <h3>Gitweb</h3>
 
@@ -227,7 +227,7 @@ $ chown -R git.git /srv/www/gitweb
 <p>Do not forget to point <code>$projectroot</code> in <code>/etc/gitweb.conf</code> to
 <code>/srv/git/projects</code>!</p>
 
-<p><a name="Virtual_Host_"></a></p>
+<p><a name="gitolite_gitweb_http_backend_Virtual_Host_"></a></p>
 
 <h3>Virtual Host</h3>
 
@@ -292,7 +292,7 @@ $ chown -R git.git /srv/www/gitweb
 &lt;/VirtualHost&gt;
 </code></pre>
 
-<p><a name="VALIDATION_"></a></p>
+<p><a name="gitolite_gitweb_http_backend_VALIDATION_"></a></p>
 
 <h2>VALIDATION</h2>
 
@@ -306,7 +306,7 @@ $ chown -R git.git /srv/www/gitweb
 <li>Commit over http</li>
 </ul>
 
-<p><a name="ADDITIONAL_RESOURCES_"></a></p>
+<p><a name="gitolite_gitweb_http_backend_ADDITIONAL_RESOURCES_"></a></p>
 
 <h2>ADDITIONAL RESOURCES</h2>
 
@@ -319,7 +319,7 @@ git-http-backend(1) documentation</li>
 <li><a href="http://sitaramc.github.com/gitolite/doc/http-backend.html">http://sitaramc.github.com/gitolite/doc/http-backend.html</a> gitolite http backend documentation</li>
 </ul>
 
-<p><a name="AUTHOR_"></a></p>
+<p><a name="gitolite_gitweb_http_backend_AUTHOR_"></a></p>
 
 <h2>AUTHOR</h2>
 

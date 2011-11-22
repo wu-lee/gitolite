@@ -24,7 +24,7 @@
 
 <h1>(master copy of progit chapter on gitolite)</h1>
 
-<p><a name="Gitolite__"></a></p>
+<p><a name="progit_article_Gitolite__"></a></p>
 
 <h2>Gitolite</h2>
 
@@ -34,7 +34,7 @@
 
 <p>Gitolite allows you to specify permissions not just by repository, but also by branch or tag names within each repository.  That is, you can specify that certain people (or groups of people) can only push certain "refs" (branches or tags) but not others.</p>
 
-<p><a name="Installing__"></a></p>
+<p><a name="progit_article_Installing__"></a></p>
 
 <h3>Installing</h3>
 
@@ -58,13 +58,13 @@ gl-setup -q ~/YourName.pub
 
 <p>And you're done!  Gitolite has now been installed on the server, and you now have a brand new repository called <code>gitolite-admin</code> in your workstation.  You administer your gitolite setup by making changes to this repository and pushing.  See <a href="add.html" title="adding users and repos">adding users and repos</a> to start with.</p>
 
-<p><a name="Customising_the_Install__"></a></p>
+<p><a name="progit_article_Customising_the_Install__"></a></p>
 
 <h3>Customising the Install</h3>
 
 <p>While the default, quick, install works for most people, there are some ways to customise the install if you need to.  If you omit the <code>-q</code> argument, an editor pops up with a file for you to edit, so you can change certain server-side parameters, such as the location of the actual repositories.  This "rc" file is documented in <a href="rc.html" title="configuring gitolite's advanced features -- the `.gitolite.rc` file">doc/gitolite.rc.mkd</a> so you should be able to make any changes you need quite easily, save it, and continue.</p>
 
-<p><a name="Config_File_and_Access_Control_Rules__"></a></p>
+<p><a name="progit_article_Config_File_and_Access_Control_Rules__"></a></p>
 
 <h3>Config File and Access Control Rules</h3>
 
@@ -129,7 +129,7 @@ repo testing
 
 <p>The second level, applicable only to "write" access, is by branch or tag within a repository.  The username, the access being attempted (<code>W</code> or <code>+</code>), and the refname being updated are known.  The access rules are checked in order of appearance in the config file, looking for a match for this combination (but remember that the refname is regex-matched, not merely string-matched).  If a match is found, the push succeeds.  A fallthrough results in access being denied.</p>
 
-<p><a name="Advanced_Access_Control_with_deny_rules__"></a></p>
+<p><a name="progit_article_Advanced_Access_Control_with_deny_rules__"></a></p>
 
 <h3>Advanced Access Control with "deny" rules</h3>
 
@@ -157,7 +157,7 @@ repo testing
 
 <p>See the documentation for more on this.</p>
 
-<p><a name="Restricting_pushes_by_files_changed__"></a></p>
+<p><a name="progit_article_Restricting_pushes_by_files_changed__"></a></p>
 
 <h3>Restricting pushes by files changed</h3>
 
@@ -173,7 +173,7 @@ repo testing
 
 <p>This powerful feature is documented in <code>conf/example.conf</code>.</p>
 
-<p><a name="Personal_Branches__"></a></p>
+<p><a name="progit_article_Personal_Branches__"></a></p>
 
 <h3>Personal Branches</h3>
 
@@ -185,13 +185,13 @@ repo testing
 
 <p>Gitolite lets you define a "personal" or "scratch" namespace prefix for each developer (for example, <code>refs/personal/&lt;devname&gt;/*</code>); see the "personal branches" section in <code>doc/3-faq-tips-etc.mkd</code> for details.</p>
 
-<p><a name="_Wildcard_repositories__"></a></p>
+<p><a name="progit_article_Wildcard_repositories__"></a></p>
 
 <h3>"Wildcard" repositories</h3>
 
 <p>Gitolite allows you to specify repositories with wildcards (actually perl regexes), like, for example <code>assignments/s[0-9][0-9]/a[0-9][0-9]</code>, to pick a random example.  This is a <em>very</em> powerful feature, which has to be enabled by setting <code>$GL_WILDREPOS = 1;</code> in the rc file.  It allows you to assign a new permission mode ("C") which allows users to create repositories based on such wild cards, automatically assigns ownership to the specific user who created it, allows him/her to hand out R and RW permissions to other users to collaborate, etc.  This feature is documented in <code>doc/wildcard-repositories.mkd</code>.</p>
 
-<p><a name="Other_Features__"></a></p>
+<p><a name="progit_article_Other_Features__"></a></p>
 
 <h3>Other Features</h3>
 

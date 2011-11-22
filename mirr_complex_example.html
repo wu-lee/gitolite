@@ -26,7 +26,7 @@
 <p>This document describes one way to do this.  Gitolite is powerful so you can
 probably find other ways to suit you.</p>
 
-<p><a name="overview_of_problem_"></a></p>
+<p><a name="mirroring_complex_example_overview_of_problem_"></a></p>
 
 <h2>overview of problem</h2>
 
@@ -62,7 +62,7 @@ admins should not be allowed to do this.</li>
 <li>allowing redirected pushes from slaves</li>
 </ul>
 
-<p><a name="overview_of_setup_"></a></p>
+<p><a name="mirroring_complex_example_overview_of_setup_"></a></p>
 
 <h2>overview of setup</h2>
 
@@ -74,7 +74,7 @@ name; either a product name or, for local repos, a hostname.  In our example,
 these directory names would be p1 or sam on the host sam, and frodo on the
 host frodo.</p>
 
-<p><a name="gitolite_feature_recap_"></a></p>
+<p><a name="mirroring_complex_example_gitolite_feature_recap_"></a></p>
 
 <h3>gitolite feature recap</h3>
 
@@ -87,7 +87,7 @@ server.</p>
 that file (and anything included from it), access can only be defined for
 repos that regex-match one of the elements of <code>@foo</code>.</p>
 
-<p><a name="pre_requisites_"></a></p>
+<p><a name="mirroring_complex_example_pre_requisites_"></a></p>
 
 <h2>pre-requisites</h2>
 
@@ -98,7 +98,7 @@ and everyone else slaves it.</p>
 <p>Also, after (or during) the normal mirroring install, edit <code>~/.gitolite.rc</code> on
 all servers and set <code>$GL_WILDREPOS</code> to 1 (from its default of 0).</p>
 
-<p><a name="quick_setup_"></a></p>
+<p><a name="mirroring_complex_example_quick_setup_"></a></p>
 
 <h2>quick setup</h2>
 
@@ -141,7 +141,7 @@ vim      conf/master/sam/p1.conf
 <h2>step by step: <a href="mirrexsteps_.html" title="step by step">Link</a></h2>
 
 
-<p><a name="next_steps_"></a></p>
+<p><a name="mirroring_complex_example_next_steps_"></a></p>
 
 <h2>next steps</h2>
 

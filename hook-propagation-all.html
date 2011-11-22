@@ -31,7 +31,7 @@ be two places to put them, and so on.  I'll try and set out the logic here.</p>
 own functionality to a hook that gitolite uses.  See <a href="hooks.html#customhooks" title="custom hooks">here</a> and
 <a href="hooks.html#hookchaining" title="hook chaining">here</a>.</p>
 
-<p><a name="what_hooks_do_repos_get__"></a></p>
+<p><a name="hook_propagation_what_hooks_do_repos_get__"></a></p>
 
 <h2>what hooks do repos get?</h2>
 
@@ -47,7 +47,7 @@ below.</p></li>
 and gitolite will propagate them into all repos along with the others.</p></li>
 </ul>
 
-<p><a name="when_do_repos_get_hooks__"></a></p>
+<p><a name="hook_propagation_when_do_repos_get_hooks__"></a></p>
 
 <h2>when do repos "get" hooks?</h2>
 
@@ -66,7 +66,7 @@ latter case the hooks are explicitly copied from the source repo using the
 "cp" command, not using the code internal to gitolite</font>.</p></li>
 </ul>
 
-<p><a name="what_exactly_does_get_hooks_mean__"></a></p>
+<p><a name="hook_propagation_what_exactly_does_get_hooks_mean__"></a></p>
 
 <h2>what exactly does "get hooks" mean?</h2>
 
@@ -77,7 +77,7 @@ section.</p>
 <p>Other files are left alone, so you <em>can</em> manually add a hook file to specific
 repos, directly on the server, so long as there is no name clash.</p>
 
-<p><a name="where_do_the_symlinks_point__"></a></p>
+<p><a name="hook_propagation_where_do_the_symlinks_point__"></a></p>
 
 <h2>where do the symlinks point?</h2>
 
@@ -100,7 +100,7 @@ fiddle with it.  <strong>There is no spoon</strong>.</font></p>
 'gl-system-install' when you used the root or non-root methods, or whatever
 the packager decided if you used the RPM/DEB method</font>).</p>
 
-<p><a name="so_where_do_I_put_my_hooks__"></a></p>
+<p><a name="hook_propagation_so_where_do_I_put_my_hooks__"></a></p>
 
 <h2>so where do I put my hooks?</h2>
 

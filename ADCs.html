@@ -23,7 +23,7 @@
 
 <h1>admin defined commands</h1>
 
-<p><a name="ADC_background_"></a></p>
+<p><a name="admin_defined_commands_ADC_background_"></a></p>
 
 <h2>ADC background</h2>
 
@@ -40,11 +40,11 @@ command to be run, most of the examples and sample ADCs pertain to allowing
 users to manage their "own" repos.  If that's your use case, please read
 the <a href="wild.html" title="repositories named with wildcards">wildcard repositories</a> doc before you continue here.</font></p>
 
-<p><a name="ADC_details_"></a></p>
+<p><a name="admin_defined_commands_ADC_details_"></a></p>
 
 <h2>ADC details</h2>
 
-<p><a name="installing_ADCs_"></a></p>
+<p><a name="admin_defined_commands_installing_ADCs_"></a></p>
 
 <h3>installing ADCs</h3>
 
@@ -64,7 +64,7 @@ This is by design.  So be careful what you name your scripts.</p>
 <p>However, it is perfectly ok, and may even be necessary in some cases, to name
 them after system executables (like 'rsync').</p>
 
-<p><a name="user_invocation_"></a></p>
+<p><a name="admin_defined_commands_user_invocation_"></a></p>
 
 <h3>user invocation</h3>
 
@@ -74,7 +74,7 @@ it by saying:</p>
 <pre><code>ssh git@server foo argument list
 </code></pre>
 
-<p><a name="checking_authorisation_inside_an_ADC_"></a></p>
+<p><a name="admin_defined_commands_checking_authorisation_inside_an_ADC_"></a></p>
 
 <h3>checking authorisation inside an ADC</h3>
 
@@ -89,7 +89,7 @@ repo, which is an easy way of making sure an ADC is only run by admins.</p>
 <p>See the section on "the anatomy of a command" later for this and many more
 details.</p>
 
-<p><a name="checking_arguments_"></a></p>
+<p><a name="admin_defined_commands_checking_arguments_"></a></p>
 
 <h3>checking arguments</h3>
 
@@ -97,7 +97,7 @@ details.</p>
 strict pattern (see <code>$ADC_CMD_ARGS_PATT</code> in <code>src/gitolite_rc.pm</code>).  This
 reduces the risk of various kinds of shell-meta related compromises.</p>
 
-<p><a name="passing_unchecked_arguments_"></a></p>
+<p><a name="admin_defined_commands_passing_unchecked_arguments_"></a></p>
 
 <h3>passing unchecked arguments</h3>
 
@@ -109,7 +109,7 @@ arguments</strong>.</p>
 
 <p>The "ua" stand for "unchecked arguments".  Consider this your last warning ;-)</p>
 
-<p><a name="_fake_repos_and_access_control_for_non_git_programs_"></a></p>
+<p><a name="admin_defined_commands_fake_repos_and_access_control_for_non_git_programs_"></a></p>
 
 <h2>"fake" repos and access control for non-git programs</h2>
 
@@ -128,7 +128,7 @@ server has sufficient information to decide.  Protocols where the command line
 is just one word and everything else happens in the conversation later cannot
 be helped by this mechanism.</font></p>
 
-<p><a name="anatomy_of_a_command_"></a></p>
+<p><a name="admin_defined_commands_anatomy_of_a_command_"></a></p>
 
 <h2>anatomy of a command</h2>
 
@@ -174,14 +174,14 @@ like <code>_____R__W u1</code> or maybe <code>____@R_@W &lt;gitolite&gt;</code>.
 queried repo is a wildcard repo created by user <code>u1</code>; for meanings of the "@"
 see doc/report-output.mkd)</p>
 
-<p>But that's cumbersome.  There's a bash shell function called
-<code>get_rights_and_owner</code> in <code>contrib/adc/adc.common-functions</code> that is much more
-convenient.  See any of the other samples for how to use it.</p>
+<p>But that's cumbersome.  It's much nicer to use the convenient functions
+defined in <code>contrib/adc/adc.common-functions</code>; see the comments in that file
+for details, and any of the other samples for how to use them.</p>
 
 <p>If you prefer perl, there is a nicely commented example in
 <code>contrib/adc/get-rights-and-owner.in-perl</code>.</p>
 
-<p><a name="example_uses_and_sample_commands_in_contrib_adc__"></a></p>
+<p><a name="admin_defined_commands_example_uses_and_sample_commands_in_contrib_adc__"></a></p>
 
 <h2>example uses and sample commands in <code>contrib/adc</code></h2>
 
@@ -213,7 +213,7 @@ git push new refs/*:refs/*
 
 <p>or some such incantation.</p>
 
-<p><a name="deleting_trashing_repos_"></a></p>
+<p><a name="admin_defined_commands_deleting_trashing_repos_"></a></p>
 
 <h3>deleting/trashing repos</h3>
 
@@ -240,7 +240,7 @@ the config file).  Wildcards are not supported; patches welcome ;-)</p>
 
 <p>Note: please see <a href="tnconv_.html#disable" title="disabling write access to take backups">this</a> for more on this.</p>
 
-<p><a name="how_the_ADC_feature_came_about_"></a></p>
+<p><a name="admin_defined_commands_how_the_ADC_feature_came_about_"></a></p>
 
 <h2>how the ADC feature came about</h2>
 
