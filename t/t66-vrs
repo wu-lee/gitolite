@@ -61,7 +61,7 @@ do
     cd ~/td
     rm -rf foo
     runlocal git clone u2:foo
-    expect "Cloning into foo"
+    expect "Cloning into 'foo'"
     cd foo
     runlocal git reset --hard HEAD^
     mdc p2.c
@@ -76,7 +76,7 @@ do
     cd ~/td
     rm -rf foo
     runlocal git clone u2:foo
-    expect "Cloning into foo"
+    expect "Cloning into 'foo'"
     cd foo
     runlocal git reset --hard HEAD^
     mdc p3.c
@@ -90,7 +90,7 @@ do
     cd ~/td
     rm -rf foo
     runlocal git clone u1:foo
-    expect "Cloning into foo"
+    expect "Cloning into 'foo'"
     cd foo
     runlocal git commit --allow-empty -m empty
     runlocal git push
@@ -100,7 +100,7 @@ do
     cd ~/td
     rm -rf foo
     runlocal git clone u2:foo
-    expect "Cloning into foo"
+    expect "Cloning into 'foo'"
     cd foo
     runlocal git commit --allow-empty -m empty
     runlocal git push
@@ -110,7 +110,7 @@ do
     cd ~/td
     rm -rf foo
     runlocal git clone u4:foo
-    expect "Cloning into foo"
+    expect "Cloning into 'foo'"
     cd foo
     runlocal git commit --allow-empty -m empty
     runlocal git push
@@ -120,7 +120,7 @@ do
     cd ~/td
     rm -rf foo
     runlocal git clone u2:foo
-    expect "Cloning into foo"
+    expect "Cloning into 'foo'"
     cd foo
     yes|dd bs=1 count=750 of=f750 2>/dev/null
     runlocal git add f750
@@ -136,7 +136,7 @@ do
     cd ~/td
     rm -rf foo
     runlocal git clone u3:foo
-    expect "Cloning into foo"
+    expect "Cloning into 'foo'"
     cd foo
     yes|dd bs=1 count=75000 of=f75000 2>/dev/null
     runlocal git add f75000
@@ -150,7 +150,7 @@ do
     cd ~/td
     rm -rf foo
     runlocal git clone u2:foo
-    expect "Cloning into foo"
+    expect "Cloning into 'foo'"
     cd foo
     mdc newfile
     runlocal git push
@@ -172,7 +172,7 @@ do
     cd ~/td
     rm -rf foo
     runlocal git clone u2:foo
-    expect "Cloning into foo"
+    expect "Cloning into 'foo'"
     cd foo
     runlocal git tag t1
     runlocal git push origin t1
