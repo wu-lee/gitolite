@@ -691,6 +691,14 @@
 
 ----
 
+<a name="README-emacs"></a>
+
+### README-emacs
+
+  * [Emacs major mode for gitolite.conf](emacsmode_.html)
+
+----
+
 <a name="partial-copy"></a>
 
 ### partial-copy

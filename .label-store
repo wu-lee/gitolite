@@ -79,6 +79,7 @@
   'developer_notes_that_bindir_thing_' => 'dev_notes.html#developer_notes_that_bindir_thing_ "that \'bindir\' thing"',
   'developer_notes_the_rc_file_' => 'dev_notes.html#developer_notes_the_rc_file_ "the rc file"',
   'disable' => 'tnconv_.html#disable "disabling write access to take backups"',
+  'emacsmode_' => 'emacsmode_.html "Emacs major mode for gitolite.conf"',
   'exaac' => 'exaac.html "advanced access control"',
   'exbac' => 'exbac.html "basic access control"',
   'expand' => 'info_expand.html#expand "the "expand" command"',
