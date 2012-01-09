@@ -136,6 +136,7 @@
   'hook_propagation_what_hooks_do_repos_get__' => 'hook_prop.html#hook_propagation_what_hooks_do_repos_get__ "what hooks do repos get?"',
   'hook_propagation_when_do_repos_get_hooks__' => 'hook_prop.html#hook_propagation_when_do_repos_get_hooks__ "when do repos "get" hooks?"',
   'hook_propagation_where_do_the_symlinks_point__' => 'hook_prop.html#hook_propagation_where_do_the_symlinks_point__ "where do the symlinks point?"',
+  'hook_propagation_why_not_just_push_a_hook__' => 'hook_prop.html#hook_propagation_why_not_just_push_a_hook__ "why not just push a hook?"',
   'hookchaining' => 'hooks.html#hookchaining "hook chaining"',
   'hooks' => 'hooks.html "using hooks"',
   'http' => 'http.html "how to setup gitolite to use smart http mode"',

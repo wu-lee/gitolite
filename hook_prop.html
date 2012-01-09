@@ -119,3 +119,35 @@ the "system" hook.</p>
 want to modify the 'update' hook, but why would you fiddle with the most
 important part of gitolite, huh?  You're a good admin, and will use <a href="hooks.html#hookchaining" title="hook chaining">hook
 chaining</a> properly, right?</p>
+
+<p><a name="hook_propagation_why_not_just_push_a_hook__"></a></p>
+
+<h2>why not just push a hook?</h2>
+
+<p>A question I often get is, why can't we simply push the hooks using the admin
+repo, just like we push config changes.</p>
+
+<p>To understand why, realise that in many sites, the "right to push the
+gitolite-admin repo" is <strong>not</strong> the same as "right to get a command line on
+the server and run arbitrary commands".</p>
+
+<p>This means, gitolite tries its best to keep these two rights separated, and to
+prevent someone who has the former right from trivially acquiring the latter.</p>
+
+<p>And so we don't allow adding hooks by admin push.</p>
+
+<p>That doesn't mean you can't do it yourself.  Here's one possible way.</p>
+
+<p>Using the simple instructions <a href="hooks.html#customhooks" title="custom hooks">here</a>, add a
+<code>post-update.secondary</code> hook containing this code:</p>
+
+<pre><code>#!/bin/bash
+cp $GL_ADMINDIR/local-hooks/* $GL_ADMINDIR/hooks/common
+gl-setup
+</code></pre>
+
+<p>Now create a directory in your gitolite-admin clone called "local-hooks", put
+all your hooks there, and add/commit/push.</p>
+
+<p>That <em>should</em> do it.  Test it and send me a patch for this document when you
+do :-)</p>
