@@ -69,7 +69,10 @@ Debian packages create.  Your distro/OS may vary.)</p>
 <p>On your <em>workstation</em>:</p>
 
 <ul>
-<li>copy your <code>~/.ssh/id_rsa.pub</code> file to <code>/tmp/YourName.pub</code> on the server</li>
+<li>copy your <code>~/.ssh/id_rsa.pub</code> file to <code>/tmp/YourName.pub</code> on the server.
+(The name of this file determines your gitolite username, so if you leave
+it as <code>id_rsa.pub</code>, your gitolite username will be <code>id_rsa</code>, which may not
+be what you want).</li>
 </ul>
 
 <p>On your <em>server</em>, as <em>root</em>:</p>
@@ -83,6 +86,9 @@ su - gitolite
 # (now as gitolite)
 gl-setup /tmp/YourName.pub
 </code></pre>
+
+<p>Note: if you're running non-interactively (i.e., cannot tolerate an editor
+popping up), insert a "-q" before the argument to gl-setup.</p>
 
 <p>On your <em>workstation</em>:</p>
 
@@ -109,7 +115,10 @@ me to link it here).</p>
 <p>On your <em>workstation</em>:</p>
 
 <ul>
-<li>copy your <code>~/.ssh/id_rsa.pub</code> file to <code>/tmp/YourName.pub</code> on the server</li>
+<li>copy your <code>~/.ssh/id_rsa.pub</code> file to <code>/tmp/YourName.pub</code> on the server.
+(The name of this file determines your gitolite username, so if you leave
+it as <code>id_rsa.pub</code>, your gitolite username will be <code>id_rsa</code>, which may not
+be what you want).</li>
 </ul>
 
 <p>On your <em>server</em>, as <em>git</em> (the "hosting user"), first check if <code>$HOME/bin</code> is
@@ -126,6 +135,9 @@ gitolite/src/gl-system-install
 
 gl-setup /tmp/YourName.pub
 </code></pre>
+
+<p>Note: if you're running non-interactively (i.e., cannot tolerate an editor
+popping up), insert a "-q" before the argument to gl-setup.</p>
 
 <p>On your <em>workstation</em>:</p>
 
@@ -177,7 +189,10 @@ $GL_PACKAGE_HOOKS = '/home/git/share/gitolite/hooks';
 <p>On your <em>workstation</em>:</p>
 
 <ul>
-<li>copy your <code>~/.ssh/id_rsa.pub</code> file to <code>/tmp/YourName.pub</code> on the server</li>
+<li>copy your <code>~/.ssh/id_rsa.pub</code> file to <code>/tmp/YourName.pub</code> on the server.
+(The name of this file determines your gitolite username, so if you leave
+it as <code>id_rsa.pub</code>, your gitolite username will be <code>id_rsa</code>, which may not
+be what you want).</li>
 </ul>
 
 <p>On your <em>server</em>, as <em>root</em>:</p>
@@ -199,6 +214,9 @@ su - git
 # (now as git)
 gl-setup /tmp/YourName.pub
 </code></pre>
+
+<p>Note: if you're running non-interactively (i.e., cannot tolerate an editor
+popping up), insert a "-q" before the argument to gl-setup.</p>
 
 <p>On your <em>workstation</em>:</p>
 
