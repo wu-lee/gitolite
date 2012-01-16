@@ -72,10 +72,12 @@ something <a href="wild.html" title="repositories named with wildcards">complete
 <li>RWD and RW+D, for ref deletion.  Once you use this in a repo, a normal
 RW+ can no longer delete a ref; it can only rewind</li>
 <li>(RWCD and RW+CD, which is just a combination of these two)</li>
-</ul></li>
 </ul>
 
-<p>The following sections dig deeper into the syntax and semantics of the access
+<p><p>Even later, <a href="aac.html#mergecheck" title="enforcing a no-merges policy">gitolite acquired</a>, if you want to enforce a
+rebase-only workflow.</p></li>
+</ul>
+The following sections dig deeper into the syntax and semantics of the access
 control rules and other configuration directives in the <code>gitolite.conf</code> file.
 If narrative descriptions scare you, or your English is not upto scratch, try
 <a href="conf_examples.html" title="gitolite.conf -- by example">gitolite config by example</a> also.</p>
@@ -93,11 +95,12 @@ If narrative descriptions scare you, or your English is not upto scratch, try
 
 <h2>summary: permissions</h2>
 
-<p>The full set of permissions, in regex syntax: <code>-|R|RW+?C?D?</code>.  This expands to
-one of <code>-</code>, <code>R</code>, <code>RW</code>, <code>RW+</code>, <code>RWC</code>, <code>RW+C</code>, <code>RWD</code>, <code>RW+D</code>, <code>RWCD</code>, or
-<code>RW+CD</code>.  and by now you know what they all mean.</p>
+<p>The full set of permissions, in regex syntax: <code>-|R|RW+?C?D?M?</code>.  This expands
+to one of <code>-</code>, <code>R</code>, <code>RW</code>, <code>RW+</code>, <code>RWC</code>, <code>RW+C</code>, <code>RWD</code>, <code>RW+D</code>, <code>RWCD</code>, or
+<code>RW+CD</code>, all but the first one optionally followed by an <code>M</code>.  And by now you
+know what they all mean.</p>
 
-<p>[Side note: There is one more very important permissions to be dealt with --
+<p>[Side note: There is one more very important permission to be dealt with --
 the standalone <code>C</code>, which is not really a "ref" level permission and can be
 found in doc/wildcard-repositories.mkd.]</p>
 

@@ -180,6 +180,7 @@
   'ldaphow_' => 'ldap.html#ldaphow_ "how"',
   'ldapwhy_' => 'ldap.html#ldapwhy_ "why"',
   'limitoutput' => 'info_expand.html#limitoutput "using patterns to limit output"',
+  'mergecheck' => 'aac.html#mergecheck "enforcing a no-merges policy"',
   'migr' => 'migr.html "migrating from gitosis to gitolite"',
   'mirr_complex_example' => 'mirr_complex_example.html "semi-autonomous mirroring setup example"',
   'mirrappA_' => 'mirrappA_.html "appendix A: delegation helper files"',

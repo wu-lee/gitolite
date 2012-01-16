@@ -196,3 +196,17 @@ delegated or included files.  Be sure to search everywhere :)</p></li>
 warning message when you push, a non-existant user.</p></li>
 </ul>
 
+<p><a name="mergecheck"></a></p>
+
+<h3>enforcing a no-merges policy</h3>
+
+<p>Some people want to enforce a no-merges policy for various reasons.  This
+behaviour can be enabled by suffixing an "M" to the end of any permission
+starting with <code>RW</code> (i.e., all of them except <code>R</code>).  So for instance, <code>RW</code>
+becomes <code>RWM</code>, and <code>RW+</code> becomes <code>RW+M</code>, etc.</p>
+
+<p>The rules are exactly the same as for "C" and "D": once a repo has an "M"
+qualifier tied to any access rule, all rules for that repo are subject to
+merge checking, and merge commits will only be allowed when the rule has the
+"M" qualifier.</p>
+

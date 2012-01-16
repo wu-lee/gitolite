@@ -180,6 +180,7 @@
               * ["deny" rules for refs in a repo](aac.html#gitolite_conf_deny_rules_for_refs_in_a_repo_)
               * ["deny" rules for the entire repo](aac.html#gitolite_conf_deny_rules_for_the_entire_repo_)
           * [creating and deleting branches](aac.html#rwcd) <!-- (rwcd) -->
+          * [enforcing a no-merges policy](aac.html#mergecheck) <!-- (mergecheck) -->
       * [summary: permissions](conf.html#gitolite_conf_summary_permissions_)
       * [other tips](confother_.html)
           * [personal branches](confother_.html#gitolite_conf_personal_branches_)
