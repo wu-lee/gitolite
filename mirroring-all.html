@@ -1,4 +1,7 @@
 <head>
+<title>
+mirroring gitolite servers
+</title>
 <style>
     body        { background: #fff; margin-left:  40px;   font-size:  0.9em;  font-family: sans-serif; max-width: 800px; }
     h1          { background: #ffb; margin-left: -30px;   border-top:    5px  solid #ccc; }
@@ -20,7 +23,7 @@
     <a href="support.html">support</a>
 </p>
 
-<!-- file: mirroring -->
+<!-- file: mirroring "mirroring gitolite servers" -->
 
 <h1>mirroring gitolite servers</h1>
 
@@ -120,7 +123,7 @@ section later)</p></li>
 
 <h3>IMPORTANT cautions: <a href="mirrcautions.html" title="IMPORTANT cautions">Link</a></h3>
 
-<!-- file: mirrcautions -->
+<!-- file: mirrcautions "IMPORTANT cautions" -->
 
 <h3>IMPORTANT cautions</h3>
 
@@ -163,11 +166,11 @@ documentation on <a href="confother_.html#rsgc" title="repo specific `git config
 of those lines.</p></li>
 </ul>
 
-<!-- file: mirroring -->
+<!-- file: mirroring "setup and usage" -->
 
 <h3>setup and usage: <a href="mirrsetup.html" title="setup and usage">Link</a></h3>
 
-<!-- file: mirrsetup -->
+<!-- file: mirrsetup "setup and usage" -->
 
 <h3>setup and usage</h3>
 
@@ -350,11 +353,11 @@ repos.  We'll now setup things for the open source project, "os1".</p>
 them into his conf/gitolite.conf file, commit, and push.</p></li>
 </ol>
 
-<!-- file: mirroring -->
+<!-- file: mirroring "commands to (re-)sync mirrors" -->
 
 <h3>commands to (re-)sync mirrors: <a href="mirrsync.html" title="commands to (re-)sync mirrors">Link</a></h3>
 
-<!-- file: mirrsync -->
+<!-- file: mirrsync "commands to (re-)sync mirrors" -->
 
 <h3>commands to (re-)sync mirrors</h3>
 
@@ -467,7 +470,7 @@ want to know why their push errored out or didn't work last time or
 whatever.</p></li>
 </ol>
 
-<!-- file: mirroring -->
+<!-- file: mirroring "details" -->
 
 <p><a name="ad/m-dtls"></a></p>
 
@@ -475,7 +478,7 @@ whatever.</p></li>
 
 <h3>the <code>conf/gitolite.conf</code> file: <a href="mirrconf.html" title="the `conf/gitolite.conf` file">Link</a></h3>
 
-<!-- file: mirrconf -->
+<!-- file: mirrconf "the `conf/gitolite.conf` file" -->
 
 <h3>the <code>conf/gitolite.conf</code> file</h3>
 
@@ -513,11 +516,11 @@ except they have to start with <code>gitolite.mirror.</code>.  The section on
 "commands to (re-)sync mirrors" has some examples.</p></li>
 </ul>
 
-<!-- file: mirroring -->
+<!-- file: mirroring "redirecting pushes" -->
 
 <h3>redirecting pushes: <a href="mirrredirect.html" title="redirecting pushes">Link</a></h3>
 
-<!-- file: mirrredirect -->
+<!-- file: mirrredirect "redirecting pushes" -->
 
 <h3>redirecting pushes</h3>
 
@@ -576,7 +579,7 @@ or firewall setup.</p>
 mirroring for "blessed" repos only.</p></li>
 </ul>
 
-<!-- file: mirroring -->
+<!-- file: mirroring "example setups" -->
 
 <p><a name="mirroring_example_setups_"></a></p>
 
@@ -586,7 +589,7 @@ mirroring for "blessed" repos only.</p></li>
 
 <h3>non-autonomous: <a href="mirrnonauto.html" title="non-autonomous">Link</a></h3>
 
-<!-- file: mirrnonauto -->
+<!-- file: mirrnonauto "non-autonomous" -->
 
 <h3>non-autonomous</h3>
 
@@ -618,11 +621,11 @@ redirected pushing if you wish:</p>
     config gitolite.mirror.redirectOK = "true"
 </code></pre>
 
-<!-- file: mirroring -->
+<!-- file: mirroring "non-autonomous with local repos" -->
 
 <h3>non-autonomous with local repos: <a href="mirrnonautolocal.html" title="non-autonomous with local repos">Link</a></h3>
 
-<!-- file: mirrnonautolocal -->
+<!-- file: mirrnonautolocal "non-autonomous with local repos" -->
 
 <h3>non-autonomous with local repos</h3>
 
@@ -650,11 +653,11 @@ content.</p>
 config that consists of the main file, with the correct HOSTNAME.conf included
 (and all the others ignored) when the include statement is reached.</p>
 
-<!-- file: mirroring -->
+<!-- file: mirroring "semi-autonomous" -->
 
 <h3>semi-autonomous: <a href="mirrsemiauto.html" title="semi-autonomous">Link</a></h3>
 
-<!-- file: mirrsemiauto -->
+<!-- file: mirrsemiauto "semi-autonomous" -->
 
 <h3>semi-autonomous</h3>
 
@@ -682,11 +685,11 @@ write only conf/sam.conf, and smeagol to write only conf/gollum.conf.</p>
 <pre><code>subconf "HOSTNAME.conf"
 </code></pre>
 
-<!-- file: mirroring -->
+<!-- file: mirroring "autonomous" -->
 
 <h3>autonomous: <a href="mirrauto.html" title="autonomous">Link</a></h3>
 
-<!-- file: mirrauto -->
+<!-- file: mirrauto "autonomous" -->
 
 <h3>autonomous</h3>
 
@@ -704,11 +707,11 @@ etc.)</p>
 
 <p>Best for open source projects with heavy "fetch" load compared to "push".</p>
 
-<!-- file: mirroring -->
+<!-- file: mirroring "discussion" -->
 
 <h2>discussion: <a href="mirrdisc.html" title="discussion">Link</a></h2>
 
-<!-- file: mirrdisc -->
+<!-- file: mirrdisc "discussion" -->
 
 <h2>discussion</h2>
 
@@ -785,7 +788,7 @@ in the side note somewhere up above, and just forget this feature exists
 :-)</p></li>
 </ul>
 
-<!-- file: mirroring -->
+<!-- file: mirroring "appendices" -->
 
 <p><a name="mirroring_appendices_"></a></p>
 
@@ -793,7 +796,7 @@ in the side note somewhere up above, and just forget this feature exists
 
 <h3>appendix A: example cronjob based mirroring: <a href="mirrcron.html" title="appendix A: example cronjob based mirroring">Link</a></h3>
 
-<!-- file: mirrcron -->
+<!-- file: mirrcron "appendix A: example cronjob based mirroring" -->
 
 <h3>appendix A: example cronjob based mirroring</h3>
 
@@ -831,11 +834,11 @@ do
 done
 </code></pre>
 
-<!-- file: mirroring -->
+<!-- file: mirroring "appendix B: efficiency versus paranoia" -->
 
 <h3>appendix B: efficiency versus paranoia: <a href="mirrparanoia.html" title="appendix B: efficiency versus paranoia">Link</a></h3>
 
-<!-- file: mirrparanoia -->
+<!-- file: mirrparanoia "appendix B: efficiency versus paranoia" -->
 
 <h3>appendix B: efficiency versus paranoia</h3>
 
