@@ -135,7 +135,10 @@ BINDIR in use!</li>
 <li><p>trusted users have "gl-auth-command -s" meaning they can get a shell if
 they want to</p></li>
 <li><p>actual git repos are under "git" (or some such), and include the chmod g+s
-(git init --shared) unix perms tricks for shared access</p></li>
+(git init --shared) unix perms tricks for shared access.  (<font
+color="gray">Starting with git 1.7.something, you would also need to
+explicitly delete the new receive.denyNonFastForwards setting that git
+seems to default to when you use --shared</font>).</p></li>
 <li><p>but since they're coming through gl-auth, branch-level acls are in effect</p></li>
 <li><p>the gitolite config file is generated from some database and compiled (all
 via cron)</p></li>
