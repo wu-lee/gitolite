@@ -175,7 +175,7 @@
               * [the special `@all` group](bac.html#gitolite_conf_the_special_all_group_)
           * [side note: "R" permissions for refs](rpr_.html)
       * [advanced access control](aac.html) <!-- (aac) -->
-          * [restricting pushes by dir/file name using NAME/](aac.html#gitolite_conf_restricting_pushes_by_dir_file_name_using_NAME__)
+          * [restricting pushes by dir/file name using NAME/](aac.html#NAME) <!-- (NAME) -->
           * ["deny" rules](aac.html#deny) <!-- (deny) -->
               * [warnings and required reading](aac.html#gitolite_conf_warnings_and_required_reading_)
               * ["deny" rules for refs in a repo](aac.html#gitolite_conf_deny_rules_for_refs_in_a_repo_)
