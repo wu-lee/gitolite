@@ -101,6 +101,7 @@
   'gitolite_conf_how_rules_are_matched_' => 'bac.html#gitolite_conf_how_rules_are_matched_ "how rules are matched"',
   'gitolite_conf_include_files_' => 'syntax.html#gitolite_conf_include_files_ "include files"',
   'gitolite_conf_personal_branches_' => 'confother_.html#gitolite_conf_personal_branches_ "personal branches"',
+  'gitolite_conf_restricting_pushes_by_dir_file_name_using_NAME__' => 'aac.html#gitolite_conf_restricting_pushes_by_dir_file_name_using_NAME__ "restricting pushes by dir/file name using NAME/"',
   'gitolite_conf_summary_permissions_' => 'conf.html#gitolite_conf_summary_permissions_ "summary: permissions"',
   'gitolite_conf_the_special_all_group_' => 'bac.html#gitolite_conf_the_special_all_group_ "the special `@all` group"',
   'gitolite_conf_warnings_and_required_reading_' => 'aac.html#gitolite_conf_warnings_and_required_reading_ "warnings and required reading"',

@@ -373,6 +373,43 @@ allowing the secret branches into it).</p>
 <p>The previous section is sufficient for most common needs, but gitolite can go
 a lot further than that.</p>
 
+<p><a name="gitolite_conf_restricting_pushes_by_dir_file_name_using_NAME__"></a></p>
+
+<h3>restricting pushes by dir/file name using NAME/</h3>
+
+<p>Here's a hopefully self-explanatory example.  Assume the project has the
+following contents at the top level: a README, a "doc/" directory, and an
+"src/" directory.</p>
+
+<pre><code>repo foo
+        RW+                             =   lead_dev                # rule 1
+        RW                              =   dev1 dev2 dev3 dev4     # rule 2
+
+        RW  NAME/                       =   lead_dev                # rule 3
+        RW  NAME/doc/                   =   dev1 dev2               # rule 4
+        RW  NAME/src/                   =   dev1 dev2 dev3 dev4     # rule 5
+</code></pre>
+
+<p>Notes:</p>
+
+<ul>
+<li><p>the "NAME/" is part of the syntax; think of it as a keyword if you like.
+The rest of it is treated as a refex to match against each file being
+touched (see "SPECIFYING AND USING A REFEX" above for details)</p></li>
+<li><p>file/dir NAME-based restrictions are <em>in addition</em> to normal (branch-name
+based) restrictions; they are not a <em>replacement</em> for them.  This is why
+rule #2 (or something like it, maybe with a more specific branch-name) is
+needed; without it, dev1/2/3/4 cannot push any branches.</p></li>
+<li><p>if a repo has <em>any</em> NAME/ rules, then NAME-based restrictions are checked
+for <em>all</em> users.  This is why rule 3 is needed, even though we don't
+actually have any NAME-based restrictions on lead_dev.  Notice the pattern
+on rule 3.</p></li>
+<li><p><em>each</em> file touched by the commits being pushed is checked against those
+rules.  So, lead_dev can push changes to any files, dev1/2 can push
+changes to files in "doc/" and "src/" (but not the top level README), and
+dev3/4 can only push changes to files in "src/".</p></li>
+</ul>
+
 <p><a name="deny"></a></p>
 
 <h3>"deny" rules</h3>
