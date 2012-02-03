@@ -28,8 +28,9 @@ what is a "big-config"
 
 <p>This document is just background info; you don't actually need to read the
 whole thing if you don't care.  All you need to do is set <code>BIG_CONFIG</code> to 1 in
-the rc file and you're done.  If you have no use for gitweb and daemon, you
-can save even more time by setting <code>GL_NO_DAEMON_NO_GITWEB</code>.</p>
+the rc file and you're done.  If you have no use for gitweb, git-daemon, or
+<a href="confother_.html#rsgc" title="repo specific `git config` commands">git config</a>, you can save even more time by setting
+<code>GL_NO_DAEMON_NO_GITWEB</code>.</p>
 
 <p>Finally, if you're <em>really</em> an expert (or your initials are "JK"), you can
 even set <code>GL_NO_CREATE_REPOS</code> and <code>GL_NO_SETUP_AUTHKEYS</code>.  However, be warned
@@ -196,10 +197,10 @@ $GL_NO_SETUP_AUTHKEYS = 0;
 
 <p><code>GL_NO_DAEMON_NO_GITWEB</code> is a very useful optimisation that you <em>must</em> enable
 if you <em>do</em> have a large number of repositories, and do <em>not</em> use gitolite's
-support for gitweb or git-daemon access (see "<a href="confother_.html#gwd" title="specifying gitweb and daemon access">this</a>" for details).  This will save a
-lot of time when you push the gitolite-admin repo with changes.  This variable
-also controls whether "git config" lines (such as <code>config hooks.emailprefix =
-"[gitolite]"</code>) will be processed or not.</p>
+support for gitweb or git-daemon access (see "<a href="confother_.html#gwd" title="specifying gitweb and daemon access">this</a>" for details).  This
+will save a lot of time when you push the gitolite-admin repo with changes.
+This variable also controls whether "git config" lines (such as <code>config
+hooks.emailprefix = "[gitolite]"</code>) will be processed or not.</p>
 
 <p>You should be a lot more careful with <code>GL_NO_CREATE_REPOS</code> and
 <code>GL_NO_SETUP_AUTHKEYS</code>.  These are meant for installations where some backend
