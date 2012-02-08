@@ -354,6 +354,7 @@
 
   * [...not a gitolite problem!](nagp.html) <!-- (nagp) -->
       * [ssh](nagp.html#nagp_ssh_)
+      * [PATH issues](nagp.html#nagp_PATH_issues_)
       * [git](nagp.html#nagp_git_)
       * [windows](nagp.html#nagp_windows_)
       * [apple](nagp.html#nagp_apple_)

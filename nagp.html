@@ -66,6 +66,23 @@ problem" category is actually ssh.</p>
 you why it is <em>not</em> a gitolite problem, while <a href="sts.html" title="ssh troubleshooting">another one</a> tries to
 help you anyway!</p>
 
+<p><a name="nagp_PATH_issues_"></a></p>
+
+<h2>PATH issues</h2>
+
+<p>This is actually related to ssh.  When you run commands over ssh, they run
+<em>non</em>-interactively, and depend on what your shell is, etc., certain shell
+startup files are not executed, so some environment variables may be different
+than what you see when you log in interactively.</p>
+
+<p>Example: Redmine/Chiliproject using RVM and redmine git hosting can't run
+post-receive hook.
+<a href="https://github.com/ericpaulbishop/redmine_git_hosting/issues/125">This</a> has
+more info on this specific issue.</p>
+
+<p>It is also useful to remember that <em>gitolite does not fiddle with the PATH
+except for adding the <code>GIT_PATH</code> variable if you defined it</em>.</p>
+
 <p><a name="nagp_git_"></a></p>
 
 <h2>git</h2>

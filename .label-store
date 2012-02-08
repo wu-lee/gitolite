@@ -228,6 +228,7 @@
   'moveserver' => 'moveserver.html "moving the whole thing from one server to another"',
   'multikey' => 'tips.html#multikey "one user, many keys"',
   'nagp' => 'nagp.html "...not a gitolite problem!"',
+  'nagp_PATH_issues_' => 'nagp.html#nagp_PATH_issues_ "PATH issues"',
   'nagp_apple_' => 'nagp.html#nagp_apple_ "apple"',
   'nagp_behind_my_back_' => 'nagp.html#nagp_behind_my_back_ "behind my back"',
   'nagp_git_' => 'nagp.html#nagp_git_ "git"',
