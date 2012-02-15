@@ -132,18 +132,34 @@ on feedback from my users to find or fix issues.
     The second choice is to give it a space separated list of settings you
     consider safe.  (These are actually treated as a set of perl regular
     expression patterns, and any one of them must match).  For example:
-    `$GL_GITCONFIG_KEYS = "core\\.logAllRefUpdates core\\..*compression";`
+    `$GL_GITCONFIG_KEYS = 'core\.logAllRefUpdates core\..*compression';`
     allows repo admins to set one of those 3 config keys (yes, that second
     pattern matches two settings from "man git-config", if you look).
 
     The third choice (which you may have guessed already if you're familiar
     with regular expressions) is to allow anything and everything:
-    `$GL_GITCONFIG_KEYS = ".*";`
+    `$GL_GITCONFIG_KEYS = '.*';`
 
-    NOTE that due to some quoting and interpolation issues I have not been
-    able to look at, a literal "." needs to be specified in this string as
-    `\\.` (two backslashes and a dot).  So this is how you'd allow any keys in
-    the "foo" section: `$GL_GITCONFIG_KEYS = "foo\\..*";`
+    NOTE that if you want to match a literal period, it needs to be
+    distinguished from the period metacharacter (which matches any
+    character).  There are a number of ways to do that, but the
+    simplest is to use single quotes and a backslash before the
+    period. So this is how you'd allow anything starting with "foo."
+    (i.e. any key in the "foo" section):
+
+        `$GL_GITCONFIG_KEYS = 'foo\..*';`
+
+    It is important to know that if you use *double* quotes, then the
+    backslash itself must be escaped, too:
+
+        `$GL_GITCONFIG_KEYS = "foo\\..*";`
+
+    Without that you would allow anything longer than four characters
+    starting with "foo", including keys like "foobar.something":
+
+        `$GL_GITCONFIG_KEYS = "foo\..*";` # would match "foobar.something"
+
+    It's probably simplest to stick to single quotes.
 
   * `$GL_NO_CREATE_REPOS`, boolean, default 0
 
