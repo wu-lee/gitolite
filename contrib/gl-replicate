@@ -1,0 +1,502 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use File::Find qw(finddepth);
+use Getopt::Long qw(:config gnu_getopt);
+use Pod::Usage qw(pod2usage);
+use File::Glob qw(bsd_glob);
+
+# See end of file for documentation.
+
+my $cmd = "$0 ". quote_args(@ARGV);
+
+{
+    my $help;
+
+    # Parse the command-line, and set certain Config::* package
+    # variables here even though they are declared below.  We do this so
+    # that they and any dependent variables can be configured all in one
+    # place within the Config::* packages.
+    GetOptions (
+        "repo-base|r=s"     => \$Config::Remote::repo_base,
+        "gitolite-rc|c=s"   => \$Config::Remote::gitolite_rc,
+        "ssh-options|e=s"   => \$Config::ssh_opts,
+        "dry-run|n"         => \$Config::dry_run,
+        "help|h"            => sub { $help = 1 },
+        "man|H"             => sub { $help = 2 },
+    )
+        or pod2usage(
+            -exitval => 2,
+            -msg     => "failed to parse options, stopping.\n",
+        );
+
+    $help
+        and pod2usage(
+            -exitval => 0,
+            -verbose => $help,
+        );
+
+
+    my $url = shift @ARGV
+        or pod2usage(
+            -exitval => 3,
+            -msg     => "you must supply a gitolite installation URL, stopping.\n",
+        );
+
+    @ARGV
+        and pod2usage(
+            -exitval => 4,
+            -msg     => "too many parameters, stopping.\n",
+        );
+
+
+    ($Config::Remote::ssh_login, $Config::Remote::gitolite_base)
+        = $url =~ m{(.*):(.*)}
+        or pod2usage(
+            -exitval => 5,
+            -msg     => "can't parse remote Gitolite installation URL '$url', stopping.\n",
+            );
+}
+
+
+
+{ # General configuration parameters
+
+    package Config;
+    use strict;
+    use warnings;
+    use Text::ParseWords qw(shellwords);
+
+    # discover who we are
+    our $user = getpwuid $<;
+
+    # Options to pass to ssh (for example, to select a authentication key)
+    our $ssh_opts ||= '';
+
+    # Glob expand these options (in particular, things like ~), since
+    # we will be quoting the options (to head off insertion exploits)
+    # and this inhibits the normal glob expansion.
+    $ssh_opts = main::quote_args(shellwords $ssh_opts);     # tokenise string
+
+    # The common rsync copying policy:
+    # -r: copy recursively
+    # --links --safe-links: symlinks are duplicated, except those pointing
+    #   outside the copied tree
+    #
+    # Notable omissions:
+    # - user and group ownership are reset to the current user/primary group
+    # - permissions are reset to suit local policy (limited by the umask
+    #   set locally in .gitolite.rc)
+    # - hardlinks are treated as copies
+    # - device and special files are not copied
+    # - timestamps are not preserved
+    # - pre-existing files may be overwritten, but not deleted otherwise.
+    our $rsync_opts = "-r --links --safe-links";
+
+    if ($ssh_opts) { # Append $ssh_opts to $rsync_opts, if given
+        # Escape any single quotes, as this option will be wrapped in single
+        # quotes
+        (my $rsync_ssh_opts = $ssh_opts) =~ s/'/'"'"'/g;
+        $rsync_opts .= " -e 'ssh $rsync_ssh_opts'";
+    }
+}
+
+
+
+{ # Configuration parameters for the remote installation
+
+    package Config::Remote;
+    use strict;
+    use warnings;
+
+    # These must be supplied by some external source. They are
+    # initialised here based on input from the CLI options.
+    our $ssh_login;
+    our $gitolite_base ||= '.';
+
+
+    # Initialise these if not set already
+    our $repo_base ||= "$gitolite_base/repositories";
+    our $gitolite_rc ||= "$gitolite_base/.gitolite.rc";
+}
+
+
+
+{ # Configuration parameters for the local installation
+    package Config::Local;
+    use strict;
+    use warnings;
+    use File::Temp;
+
+    # Load but don't import .gitolite.rc settings.  Do it at runtime, so
+    # that users can invoke us with -h and -m even when gitolite isn't
+    # installed.
+    eval { require gitolite_rc }
+        or die(
+            "failed loading gitolite_rc.pm - ",
+            "have you installed and configured gitolite correctly?\n",
+            $@,
+        );
+
+    # Define where temp files go
+    our $tmp_dir_template = '/tmp/gl-import-XXXXX';
+    our $tmp_dir = File::Temp->newdir($tmp_dir_template);
+
+    # New set, create or deduce the following parameters, bearing in
+    # mind that due to requiring gitolite_rc at runtime, the gitolite
+    # variables are also declared at runtime - not compile time.
+    # Hence the warnings pragma.
+    no warnings 'once';
+    our $gitolite_base = $ENV{HOME} 
+        or die "no home directory defined\n";
+    our $repo_base = $gitolite_rc::REPO_BASE;
+    our $umask = $gitolite_rc::REPO_UMASK;
+    our $gitolite_rc = $ENV{GL_RC};
+}
+
+
+
+{ # Function definitions
+
+    # All notifications are printed via this, for easy modification.
+    sub note { print {*STDOUT} @_ }
+
+
+    # Execute a command, notify with a description, catch failures.
+    sub cmd {
+        my ($descr, $cmd) = @_;
+
+        chomp $cmd;
+
+        note "$descr\n";
+        if ($Config::dry_run) {
+            $cmd =~ s/^/# /gm;
+            note "$cmd\n";  
+        }
+        else {
+            0 == system $cmd
+                or die "command failed: \"$cmd\"";
+        }
+    }
+
+    # Returns a string containing the arguments escaped and single-quoted.
+    sub quote_args {
+        return
+	    join ' ',
+	    map { s/'/'"'"'/g; "'$_'" } # escape and wrap in single quotes
+            map { bsd_glob $_ } @_      # glob expand (space is *not* a separator!)
+    }
+
+
+    sub disable_remote_gitolite {
+        my $login = $Config::Remote::ssh_login;
+        my $rc = $Config::Remote::gitolite_rc;
+
+        # Avoid clobbering any existing files
+        my $ts = time;
+
+        cmd "disable gitolite installation at $login:$rc", <<CMD;
+ssh $Config::ssh_opts '$login' 'mv "$rc" "$rc.bak$ts" && echo "exit 1;" >"$rc"'
+CMD
+
+        note "note: rename .gitolite.rc.bak$ts file back to .gitolite.rc to re-enable\n";
+    }
+
+
+    sub copy_remote_repos {
+        my $login = $Config::Remote::ssh_login;
+        my $remote_base = $Config::Remote::repo_base;
+        my $local_base = $Config::Local::repo_base;
+
+        my $exclusions = '--exclude=/*/hooks/gitolite-hooked --exclude=/gitolite-admin.git';
+
+        cmd "copy remote repos to $local_base", <<CMD;
+rsync $Config::rsync_opts $exclusions '$login:$remote_base/' '$local_base/'
+CMD
+
+    }
+
+
+    sub copy_remote_admin_repo {
+        my $login = $Config::Remote::ssh_login;
+        my $remote_base = $Config::Remote::repo_base;
+        my $local_tmp = $Config::Local::tmp_dir;
+
+        my $exclusions = '--exclude=/hooks/gitolite-hooked';
+
+        cmd "copy remote gitolite-admin repo to $local_tmp", <<CMD;
+rsync $Config::rsync_opts $exclusions '$login:$remote_base/gitolite-admin.git' '$local_tmp'
+CMD
+    }
+
+
+    sub copy_remote_hooks {
+        my $login = $Config::Remote::ssh_login;
+        my $remote_hooks = "$Config::Remote::gitolite_base/.gitolite/hooks/common";
+        my $local_hooks = "$Config::Local::gitolite_base/.gitolite/hooks/common";
+
+        # We only copy custom hooks, for full details of what these are, see
+        # http://sitaramc.github.com/gitolite/hooks.html#customhooks
+        #
+        # In brief, we copy everything in .gitolite/hooks/common/ as-is, except:
+        # - the 'update' hook (as this is vital to gitolite's operation)
+        # - the common rsync policy defined by $Config::rsync_opts
+        my $exclusions = '--exclude=/update';
+
+        cmd "copy remote custom hooks to $local_hooks", <<CMD;
+rsync $Config::rsync_opts $exclusions '$login:$remote_hooks/' '$local_hooks/'
+CMD
+    }
+
+
+    sub set_perms {
+        my ($dir_mode, $file_mode, @paths) = @_;
+        my $user = $Config::user;
+        my ($uid, $gid) = (getpwnam $user)[2,3];
+        my $umask = $Config::Local::umask;
+
+        $_ &= ~$umask
+            for $dir_mode, $file_mode;
+
+        if ($Config::dry_run) {
+            my $group = getgrgid($gid);
+            note "# chown -R $user:$group @paths\n";
+            note sprintf "# chmod -R 0%3o @paths # files \n", $file_mode;
+            note sprintf "# chmod -R 0%3o @paths # dirs \n", $dir_mode;
+            return;
+        }
+
+        finddepth {
+            wanted => sub {
+                return unless -w; # don't attempt to modify files we can't
+                chown $uid, $gid, $File::Find::name
+                    or warn "$File::Find::name: could not set ownership $uid:$gid: $!\n";
+		my $mode = -d $_ ? $dir_mode : $file_mode;
+                chmod $mode, $File::Find::name
+                    or warn sprintf "$File::Find::name: could not set mode 0%3o: $!\n", $mode;
+            },
+        }, @paths;
+    }
+
+
+    sub fix_permissions {
+        my $local_base = $Config::Local::repo_base;
+        my $local_hooks = "$Config::Local::gitolite_base/.gitolite/hooks/common";
+
+        set_perms 0777, 0666, $local_base;
+        set_perms 0777, 0777, $local_hooks;
+    }
+
+
+    sub push_old_admin_repo {
+        my $login = $Config::Remote::ssh_login;
+        my $remote_base = $Config::Remote::repo_base;
+        my $local_tmp = $Config::Local::tmp_dir;
+        my $local_base = $Config::Local::repo_base;
+        my $tmp_admin = "$local_tmp/gitolite-admin.git";
+        my $new_admin = "$local_base/gitolite-admin.git";
+
+        # Using gl-admin-push to bypass authentication,
+        # see http://sitaramc.github.com/gitolite/adminpush.html
+
+        # Note: pushing in two steps (--all then --tags) instead of one
+        # (--mirror) means that remote branches are not imported.
+
+        cmd "push admin repo $tmp_admin into $new_admin", <<CMD;
+export GIT_DIR=$tmp_admin;
+gl-admin-push -f --all '$new_admin' &&
+gl-admin-push -f --tags '$new_admin'
+CMD
+    }
+
+}
+
+######################################################################
+# main code
+
+# Note, key must be installed in ~gitolite/.ssh for $Config::Remote::ssh_login
+
+
+# NOTE: make sure you run this as the gitolite user!
+note "running as $Config::user\n";
+{ no warnings 'once'; note "gitolite base at $gitolite_rc::REPO_BASE\n"; }
+note "note that the gitolite.rc file settings are used - ensure these are correct\n";
+note "command: $cmd\n";
+
+# Refuse to run if any existing repos (like testing) are installed.
+my @existing =
+    map { "$_\n" }
+    grep { !m{/gitolite-admin\.git$} } glob "$Config::Local::repo_base/*";
+
+@existing
+    and die "existing repositories must be deleted first:\n @existing\n- stopping.\n";
+
+# Stop the remote gitolite server from changing anything from now on
+disable_remote_gitolite;
+
+# Copy the original gitolite's repos to the local $REPO_BASE dir,
+# minus gitolite-hooked and gitolite-admin.git.
+copy_remote_repos;
+
+# Copy the original's gitolite-admin.git repo to a temp directory
+copy_remote_admin_repo;
+
+# Copy the original's hooks (we make the assumption they will work here,
+# if they will not, skip this step hand handle it manually).
+copy_remote_hooks;
+
+# Fix-up the perms and ownership in the gitolite installation
+fix_permissions;
+
+# Push the settings from this into the new gitolite-admin.git repo
+push_old_admin_repo;
+
+# If we tried to fix up .gitolite.rc, we'd do it here.  Not yet clear how.
+# GL_GITCONFIG_KEYS: copy
+# GL_GITCONFIG_WILD
+
+# GL_WILDREPOS: copy 
+# REPO_UMASK: don't 
+# GL_BIGCONFIG: copy?
+# GL_NO_DAEMON_NO_GITWEB?
+# also GL_NICE_VALUE, BIG_INFO_CAP
+
+# GL_NO_CREATE_REPOS
+# GL_NO_SETUP_AUTHKEYS
+# HTPASSWD_FILE RSYNC_BASE SVNSERVE
+# UPDATE_CHAINS_TO
+
+__END__
+
+=head1 NAME
+
+gl-replicate - Gitolite installation replication tool
+
+=head1 SYNOPSIS
+
+    gl-replicate [options] <ssh-login>:<gitolite base>
+
+
+Where:
+
+=over 4
+
+=item *
+
+C<< <ssh-login> >> is the remote host's login URI as accepted by C<ssh>,
+e.g. C<user@somehost.com>.
+
+=item *
+
+C<< <gitolite base> >> is the path to the gitolite base directory
+(where C<.gitolite.rc> lives).  An empty path implies the login's home
+directory, as with ssh.
+
+=back
+
+
+And C<[options]> may be:
+
+=over 4
+
+=item --repo-base, -r:
+
+Set the directory containing the repositories on the remote
+installation.  If omitted, the default is
+C<< <gitolite base>/repositories >>.
+
+=item --gitolite-rc, -c:
+
+Set the path to of the C<.gitolite.rc> configuration file on the
+remote installation. If omitted, the default is
+C<< <gitolite base>/.gitolite.rc >>.
+
+=item --ssh-options, -e:
+
+Options to pass to ssh.  For example, you may select a specific
+authentication key to use.  See the ssh manual for details.
+
+=item --dry-run, -n:
+
+Don't do anything, just print what would be done.
+
+=item --help, -h:
+
+Print the synopsis of this command.
+
+=item --man, -H:
+
+Print the full manpage for this command.
+
+=back
+
+
+
+=head1 DESCRIPTION
+
+This script is designed to replicate an existing gitolite installation
+to a new host, when the existing installation needs to be moved.
+
+It aims to follow the instructions at:
+
+    http://sitaramc.github.com/gitolite/moverepos.html
+    http://sitaramc.github.com/gitolite/moveserver.html
+
+The typical steps you would take:
+
+=over 4
+
+=item Install gitolite on the new server.
+
+We shall assume this is done as the user $gitolite.  See
+http://sitaramc.github.com/gitolite/install.html.
+
+=item Create and configure C<.gitolite.rc>.
+
+Since any repository/user configuration will get blown away shortly,
+this should suffice:
+
+    touch /tmp/dummy.tmp
+    sudo -u $gitolite gl-setup -q /tmp/dummy.tmp
+
+Note that you must execute C<gl-setup> as the user who will own the
+gitolite installation, or the files will go in the wrong place.
+
+=item Remove any superfluous repos;
+
+RPM-based installs of gitolite may create a "testing" repository.
+Strictly you should follow the instructions here:
+
+    http://sitaramc.github.com/gitolite/tips.html#repodel
+
+But again, since the gitolite configuratin is about to be re-written
+you may get away with simply deleting them.
+
+=item Ensure ssh access to the existing server is granted to the $gitolite user;
+
+Note, using key authentication will avoid the need to enter the
+credentials numerous times.
+
+The gl-replicate script needs write-access, since it will attempt to
+disable the existing installation by replacing the C<.gitolite.rc>
+file with one containging simply C<exit 1;>.  The original file
+should be backed up, but you may want to do this yourself too.
+
+
+=item Run gl-replicate as the $gitolite user;
+
+Perhaps like this:
+
+    sudo -u $gitolite gl-replicate gitolite@oldhost:/var/lib/gitolite
+
+This will copy the repositories, hooks, and insert the gitolite-admin
+repo content via a push, regenerating the local installations
+settings.  Configuration and access permissions should be replicated
+as part of this process.
+
+=back
+
+You are then free to clean up and test things as necessary.
+
+
+=cut
